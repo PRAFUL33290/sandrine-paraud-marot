@@ -1751,6 +1751,7 @@ p {
     width: auto;
     max-height: 0;
     grid-template-columns: 1fr;
+    grid-template-rows: none;
     gap: 18px;
     overflow: hidden;
     margin: 0;
@@ -1786,6 +1787,8 @@ p {
 
   .mega-column {
     display: grid;
+    grid-row: auto;
+    grid-template-rows: none;
     gap: 8px;
     margin-left: 16px;
     padding: 0 0 16px;
