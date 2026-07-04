@@ -265,6 +265,7 @@ p {
 
 .nav > a,
 .mega-trigger {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -272,8 +273,28 @@ p {
   border-radius: 999px;
 }
 
+.nav > a::after,
+.mega-trigger::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 2px;
+  background: var(--green);
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms ease;
+}
+
 .nav a:hover {
   color: var(--white);
+}
+
+.nav > a:hover::after,
+.mega-trigger:hover::after {
+  transform: scaleX(1);
 }
 
 .nav a.active,
@@ -1429,10 +1450,32 @@ p {
   font-weight: 600;
 }
 
-.footer-nav a {
+.footer-nav a,
+.footer-legal a {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 7px;
+}
+
+.footer-nav a::after,
+.footer-legal a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  background: var(--green);
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms ease;
+}
+
+.footer-nav a:hover::after,
+.footer-legal a:hover::after {
+  transform: scaleX(1);
 }
 
 .footer-nav-sub {
@@ -1453,10 +1496,6 @@ p {
   font-size: 1.1rem;
   font-weight: 700;
   text-decoration: underline;
-}
-
-.footer-legal a {
-  display: inline-flex;
 }
 
 .footer-nav-icon {
