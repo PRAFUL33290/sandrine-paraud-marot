@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     contact.innerHTML = `
       <span class="mega-title">Contact</span>
       <strong>Sandrine Paraud Marot</strong>
-      <small>Sophrologue · Potentiel du moi</small>
+      <small>Sophrologue · Potentiel du Moi</small>
       <a href="mailto:contact@sandrine-paraud-marot.fr">contact@sandrine-paraud-marot.fr</a>
       <div class="mega-mobile-socials" aria-label="Réseaux sociaux">
         <a href="https://www.facebook.com/Sandrine-Paraud-Marot-104502974451012/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"></a>
