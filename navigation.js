@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".nav");
   const menuToggle = document.querySelector(".menu-toggle");
   const mega = document.querySelector(".nav-mega");
+  const mobileMenuQuery = window.matchMedia("(max-width: 980px)");
   const navIconByPage = {
     "index.html": "icon-bloom",
     "approche.html": "icon-leaf",
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    nav.querySelectorAll("a:not(.mega-trigger)").forEach((link) => {
+    nav.querySelectorAll("a").forEach((link) => {
       const href = link.getAttribute("href");
 
       if (!href || link.querySelector(".nav-item-icon")) {
@@ -43,10 +44,64 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const createSvgIcon = (iconId, className) => {
+    const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+
+    icon.classList.add(className);
+    icon.setAttribute("aria-hidden", "true");
+    use.setAttribute("href", `assets/icons.svg#${iconId}`);
+    icon.appendChild(use);
+
+    return icon;
+  };
+
+  const addMobileContactBlock = () => {
+    if (!nav || nav.querySelector(".mega-mobile-contact")) {
+      return;
+    }
+
+    const contact = document.createElement("div");
+    contact.classList.add("mega-mobile-contact");
+    contact.innerHTML = `
+      <span class="mega-title">Contact</span>
+      <strong>Sandrine Paraud Marot</strong>
+      <small>Sophrologue · Potentiel du moi</small>
+      <a href="mailto:contact@sandrine-paraud-marot.fr">contact@sandrine-paraud-marot.fr</a>
+      <div class="mega-mobile-socials" aria-label="Réseaux sociaux">
+        <a href="https://www.facebook.com/Sandrine-Paraud-Marot-104502974451012/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"></a>
+        <a href="https://www.instagram.com/sandrineparaudmarot_pro/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"></a>
+      </div>
+    `;
+
+    const socialLinks = contact.querySelectorAll(".mega-mobile-socials a");
+    socialLinks[0].prepend(createSvgIcon("icon-facebook", "social-icon"));
+    socialLinks[1].prepend(createSvgIcon("icon-instagram", "social-icon"));
+    nav.append(contact);
+  };
+
+  const addMobileDrawerLogo = () => {
+    if (!nav || nav.querySelector(".mobile-drawer-logo")) {
+      return;
+    }
+
+    const logo = document.createElement("a");
+    logo.classList.add("mobile-drawer-logo");
+    logo.href = "index.html";
+    logo.setAttribute("aria-label", "Accueil");
+    logo.textContent = "SPM";
+    nav.prepend(logo);
+  };
+
   addResponsiveNavIcons();
+  addMobileDrawerLogo();
+  addMobileContactBlock();
 
   const setMenuOpen = (isOpen) => {
     document.body.classList.toggle("menu-open", isOpen);
+    if (!isOpen) {
+      setOpen(false);
+    }
 
     if (menuToggle) {
       menuToggle.setAttribute("aria-expanded", String(isOpen));
@@ -78,6 +133,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   trigger.addEventListener("click", (event) => {
+    if (!mobileMenuQuery.matches) {
+      setOpen(false);
+      return;
+    }
+
     event.preventDefault();
     setOpen(!mega.classList.contains("is-open"));
   });
@@ -96,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setMenuOpen(false);
     }
 
-    if (mega.contains(event.target)) {
+    if (!mobileMenuQuery.matches || mega.contains(event.target)) {
       return;
     }
 
