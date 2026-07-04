@@ -85,7 +85,9 @@ p {
 .icon,
 .mini-icon,
 .button-icon,
-.social-icon {
+.social-icon,
+.page-card-arrow,
+.intro-point-icon {
   flex: 0 0 auto;
   fill: none;
   stroke: currentColor;
@@ -744,7 +746,7 @@ p {
 .intro-point-icon {
   width: 22px;
   height: 22px;
-  color: var(--green);
+  color: var(--white);
 }
 
 .intro .eyebrow,
@@ -772,7 +774,7 @@ p {
 
 .explore-layout {
   display: grid;
-  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  grid-template-columns: minmax(0, 1.22fr) minmax(280px, 0.78fr);
   gap: clamp(40px, 7vw, 92px);
   align-items: start;
 }
@@ -788,6 +790,36 @@ p {
 .explore-intro p:not(.eyebrow) {
   color: var(--muted);
   font-size: 1.05rem;
+}
+
+.explore-illustration {
+  width: min(100%, 280px);
+  height: auto;
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+.explore-illustration-path {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 3 9;
+}
+
+.explore-illustration-node {
+  fill: var(--cream);
+  stroke: var(--green-900);
+  stroke-width: 2;
+}
+
+.explore-illustration-node-start {
+  fill: var(--green);
+  stroke: none;
+}
+
+.explore-illustration-node-end {
+  fill: var(--green-900);
+  stroke: none;
 }
 
 .reason-grid,
@@ -817,6 +849,7 @@ p {
 }
 
 .page-card {
+  position: relative;
   display: grid;
   align-content: start;
   grid-template-columns: auto minmax(0, 1fr);
@@ -824,6 +857,23 @@ p {
   min-height: 220px;
   min-width: 0;
   color: var(--ink);
+  transition: box-shadow 0.2s ease;
+}
+
+.page-card-arrow {
+  position: absolute;
+  right: clamp(20px, 3vw, 28px);
+  bottom: clamp(20px, 3vw, 28px);
+  width: 20px;
+  height: 20px;
+  color: inherit;
+  opacity: 0.5;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.page-card:hover .page-card-arrow {
+  opacity: 1;
+  transform: translate(3px, -3px);
 }
 
 .page-card.featured {
@@ -1712,6 +1762,7 @@ p {
 
   .explore-intro {
     max-width: 720px;
+    order: -1;
   }
 
   .reason-grid,
