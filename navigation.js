@@ -1,6 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");
   const nav = document.querySelector(".nav");
+
+  if (header) {
+    const updateHeaderScrollState = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 12);
+    };
+
+    updateHeaderScrollState();
+    window.addEventListener("scroll", updateHeaderScrollState, { passive: true });
+  }
   const menuToggle = document.querySelector(".menu-toggle");
   const mega = document.querySelector(".nav-mega");
   const mobileMenuQuery = window.matchMedia("(max-width: 980px)");
