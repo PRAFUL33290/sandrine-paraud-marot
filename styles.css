@@ -524,12 +524,73 @@ p {
 }
 
 .hero-role {
-  margin: 0 0 22px;
-  color: rgba(255, 255, 255, 0.92);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 0 0 24px;
+  padding: 0 4px;
+  color: var(--white);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-role::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 26%;
+  bottom: 6%;
+  left: -8px;
+  right: -8px;
+  border-radius: 3px;
+  background: rgba(143, 179, 153, 0.6);
+  transform: skewX(-8deg);
+}
+
+.hero-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin-top: 30px;
+}
+
+.hero-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  font-size: clamp(0.92rem, 1.6vw, 1rem);
+}
+
+.hero-contact-link .mini-icon {
+  color: var(--white);
+}
+
+.hero-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.hero-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hero-socials a:hover {
+  border-color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .hero-hook {
@@ -1242,8 +1303,26 @@ p {
 .footer-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(12px, 2vw, 28px);
+  gap: clamp(10px, 2vw, 24px);
   font-weight: 600;
+}
+
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.footer-nav-icon {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .footer-info {
@@ -1460,6 +1539,7 @@ p {
   .mega-column {
     display: grid;
     gap: 8px;
+    margin-left: 16px;
     padding: 0 0 16px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   }
@@ -1639,6 +1719,12 @@ p {
 
   .hero-actions {
     flex-direction: column;
+  }
+
+  .hero-contact {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 26px;
   }
 
   .footer-top,
