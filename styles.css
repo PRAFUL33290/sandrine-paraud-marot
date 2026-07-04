@@ -519,6 +519,15 @@ p {
   color: var(--white);
 }
 
+.hero-name {
+  margin: 0 0 12px;
+  color: var(--white);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 .hero-lede {
   max-width: 660px;
   color: rgba(255, 255, 255, 0.92);
