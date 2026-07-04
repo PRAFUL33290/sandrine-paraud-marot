@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header class="site-header">
+    <header class="site-header home-header">
       <a class="brand" href="index.html" aria-label="Accueil">
         <span class="brand-mark">SPM</span>
         <span>
@@ -19,7 +19,8 @@
           <small>Sophrologue · Potentiel du moi</small>
         </span>
       </a>
-      <nav class="nav" aria-label="Navigation principale">
+      <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+      <nav id="primary-navigation" class="nav" aria-label="Navigation principale">
         <a class="active" href="index.html">Accueil</a>
         <div class="nav-mega">
           <a class="mega-trigger" href="accompagnements.html" aria-haspopup="true">Accompagnements</a>
@@ -37,6 +38,15 @@
               <a href="parcours.html#vie-professionnelle"><strong>Vie professionnelle</strong><small>Commerce, reconversion, graphologie et orientation.</small></a>
               <a href="parcours.html#histoire"><strong>Histoire</strong><small>La transformation intime devenue transmission.</small></a>
               <a href="parcours.html#valeurs"><strong>Valeurs</strong><small>Douceur, clarté, autonomie et respect du rythme.</small></a>
+            </div>
+            <div class="mega-feature">
+              <svg class="mega-feature-icon" aria-hidden="true"><use href="assets/icons.svg#icon-bloom"></use></svg>
+              <p class="mega-feature-eyebrow">Envie d'avancer&nbsp;?</p>
+              <p class="mega-feature-text">Un espace pour mieux vous comprendre, retrouver confiance et avancer vers votre juste place.</p>
+              <a class="button primary" href="contact.html">
+                <svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>
+                Prendre rendez-vous
+              </a>
             </div>
           </div>
         </div>
@@ -72,49 +82,68 @@
 
       <section class="intro band">
         <div class="container intro-grid">
-          <div>
+          <div class="intro-copy">
             <p class="eyebrow">Un espace d'écoute et de clarté</p>
-            <h2>Un accompagnement holistique, ancré, intuitif et profondément humain.</h2>
+            <h2>Relier le corps, les émotions et le sens.</h2>
+            <p>
+              J'accompagne adolescents et adultes vers plus d'équilibre,
+              d'alignement intérieur et d'autonomie.
+            </p>
           </div>
-          <p>
-            J'accompagne adolescents et adultes vers plus d'équilibre, d'alignement
-            intérieur et d'autonomie. Mon approche relie sophrologie, lecture fine
-            du fonctionnement personnel, outils symboliques et travail énergétique.
-          </p>
+          <div class="intro-panel">
+            <p>
+              Mon approche relie sophrologie, lecture fine du fonctionnement
+              personnel, outils symboliques et travail énergétique.
+            </p>
+            <div class="intro-points" aria-label="Piliers de l'accompagnement">
+              <span>Écouter le corps</span>
+              <span>Clarifier le fonctionnement</span>
+              <span>Retrouver une direction juste</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="section-heading">
+      <section class="section explore-section">
+        <div class="container explore-layout">
+          <div class="explore-intro">
             <p class="eyebrow">Explorer le site</p>
-            <h2>Choisissez la page qui correspond à votre besoin</h2>
+            <h2>Trouvez le bon point d'entrée.</h2>
+            <p>
+              Selon votre besoin du moment, commencez par comprendre l'approche,
+              découvrir les outils, regarder les accompagnements ou consulter les tarifs.
+            </p>
           </div>
           <div class="page-grid">
+            <a class="page-card featured" href="services.html">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>
+              <span class="page-kicker">Informations pratiques</span>
+              <h3>Services &amp; tarifs</h3>
+              <p>Séance de sophrologie à 60 €, formats d'accompagnement et prise de rendez-vous.</p>
+            </a>
             <a class="page-card" href="approche.html">
               <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-leaf"></use></svg>
+              <span class="page-kicker">Comprendre</span>
               <h3>Approche</h3>
-              <p>Comprendre ma manière de travailler et les situations que j'accompagne.</p>
-            </a>
-            <a class="page-card" href="outils.html">
-              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-spark"></use></svg>
-              <h3>Outils</h3>
-              <p>Découvrir les pratiques complémentaires utilisées selon vos besoins.</p>
+              <p>La manière de travailler et les situations que j'accompagne.</p>
             </a>
             <a class="page-card" href="accompagnements.html">
               <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-heart"></use></svg>
+              <span class="page-kicker">Être accompagné</span>
               <h3>Accompagnements</h3>
-              <p>Identifier les publics accompagnés et les bénéfices attendus.</p>
+              <p>Adultes, profils sensibles, adolescents et jeunes adultes.</p>
             </a>
-            <a class="page-card" href="services.html">
-              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>
-              <h3>Services &amp; tarifs</h3>
-              <p>Consulter les prestations, dont la séance de sophrologie à 60 €.</p>
+            <a class="page-card" href="outils.html">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-spark"></use></svg>
+              <span class="page-kicker">Explorer</span>
+              <h3>Outils</h3>
+              <p>Sophrologie, graphologie, orientation, symbolique et énergie.</p>
             </a>
             <a class="page-card" href="parcours.html">
               <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-bloom"></use></svg>
+              <span class="page-kicker">Rencontrer</span>
               <h3>Parcours</h3>
-              <p>Découvrir l'histoire personnelle et professionnelle qui nourrit cette pratique.</p>
+              <p>L'histoire personnelle et professionnelle qui nourrit cette pratique.</p>
             </a>
           </div>
         </div>
@@ -158,5 +187,6 @@
         <a href="index.html">Accueil</a>
       </div>
     </footer>
+    <script src="navigation.js"></script>
   </body>
 </html>
