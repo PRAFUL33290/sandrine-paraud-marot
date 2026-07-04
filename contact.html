@@ -13,7 +13,8 @@
   <body>
     <header class="site-header solid">
       <a class="brand" href="index.html" aria-label="Accueil"><span class="brand-mark">SPM</span><span><strong>Sandrine Paraud Marot</strong><small>Sophrologue · Potentiel du moi</small></span></a>
-      <nav class="nav" aria-label="Navigation principale">
+      <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+      <nav id="primary-navigation" class="nav" aria-label="Navigation principale">
         <a href="index.html">Accueil</a>
         <div class="nav-mega">
           <a class="mega-trigger" href="accompagnements.html" aria-haspopup="true">Accompagnements</a>
@@ -22,8 +23,8 @@
               <span class="mega-title">Services &amp; prestations</span>
               <a href="approche.html"><strong>Approche</strong><small>La manière de travailler et les situations accompagnées.</small></a>
               <a href="outils.html"><strong>Outils</strong><small>Sophrologie, graphologie, orientation, symbolique et énergie.</small></a>
-              <a href="accompagnements.html"><strong>Prestations</strong><small>Adultes, profils sensibles, adolescents et jeunes adultes.</small></a>
-              <a href="accompagnements.html#tarifs"><strong>Tarifs</strong><small>Informations pratiques et demande personnalisée.</small></a>
+              <a href="accompagnements.html"><strong>Accompagnements</strong><small>Adultes, profils sensibles, adolescents et jeunes adultes.</small></a>
+              <a href="services.html"><strong>Services &amp; tarifs</strong><small>Séances, prix et informations pratiques.</small></a>
             </div>
             <div class="mega-column">
               <span class="mega-title">À propos de Sandrine</span>
@@ -32,8 +33,18 @@
               <a href="parcours.html#histoire"><strong>Histoire</strong><small>La transformation intime devenue transmission.</small></a>
               <a href="parcours.html#valeurs"><strong>Valeurs</strong><small>Douceur, clarté, autonomie et respect du rythme.</small></a>
             </div>
+            <div class="mega-feature">
+              <svg class="mega-feature-icon" aria-hidden="true"><use href="assets/icons.svg#icon-bloom"></use></svg>
+              <p class="mega-feature-eyebrow">Envie d'avancer&nbsp;?</p>
+              <p class="mega-feature-text">Un espace pour mieux vous comprendre, retrouver confiance et avancer vers votre juste place.</p>
+              <a class="button primary" href="contact.html">
+                <svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>
+                Prendre rendez-vous
+              </a>
+            </div>
           </div>
         </div>
+        <a href="services.html">Services &amp; tarifs</a>
         <a class="active" href="contact.html">Contact</a>
       </nav>
       <a class="header-cta" href="#formulaire">Prendre rendez-vous</a>
@@ -104,5 +115,6 @@
       </section>
     </main>
     <footer class="footer"><p>© 2026 Sandrine Paraud Marot. Tous droits réservés.</p><div class="footer-links"><a href="https://www.facebook.com/Sandrine-Paraud-Marot-104502974451012/" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/sandrineparaudmarot_pro/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="index.html">Accueil</a></div></footer>
+    <script src="navigation.js"></script>
   </body>
 </html>
