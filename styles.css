@@ -312,10 +312,6 @@ p {
   }
 }
 
-.mobile-drawer-logo {
-  display: none;
-}
-
 .mega-trigger::after {
   content: "";
   width: 7px;
@@ -1569,31 +1565,8 @@ p {
     text-align: left;
   }
 
-  .nav > .mobile-drawer-logo {
-    display: grid;
-    width: 88px;
-    height: 88px;
-    place-items: center;
-    justify-content: center;
-    margin: 0 auto 24px;
-    padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.64);
-    border-radius: 50%;
-    color: var(--white);
-    background: transparent;
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: 1.55rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-  }
-
   .nav > a:first-child {
     border-top: 1px solid rgba(255, 255, 255, 0.18);
-  }
-
-  .nav > .mobile-drawer-logo:first-child {
-    border-top: 1px solid rgba(255, 255, 255, 0.64);
   }
 
   .nav-item-icon {

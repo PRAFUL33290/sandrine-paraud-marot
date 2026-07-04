@@ -82,21 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.append(contact);
   };
 
-  const addMobileDrawerLogo = () => {
-    if (!nav || nav.querySelector(".mobile-drawer-logo")) {
-      return;
-    }
-
-    const logo = document.createElement("a");
-    logo.classList.add("mobile-drawer-logo");
-    logo.href = "index.html";
-    logo.setAttribute("aria-label", "Accueil");
-    logo.textContent = "SPM";
-    nav.prepend(logo);
-  };
-
   addResponsiveNavIcons();
-  addMobileDrawerLogo();
   addMobileContactBlock();
 
   const setMenuOpen = (isOpen) => {
