@@ -265,6 +265,9 @@ p {
 
 .nav > a,
 .mega-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   padding: 9px 14px;
   border-radius: 999px;
 }
@@ -290,7 +293,23 @@ p {
 }
 
 .nav-item-icon {
-  display: none;
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  color: currentColor;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+@media (min-width: 981px) {
+  .mega-column .nav-item-icon,
+  .mega-feature .nav-item-icon {
+    display: none;
+  }
 }
 
 .mobile-drawer-logo {
