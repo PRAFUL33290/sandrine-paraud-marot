@@ -1303,8 +1303,26 @@ p {
 .footer-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(12px, 2vw, 28px);
+  gap: clamp(10px, 2vw, 24px);
   font-weight: 600;
+}
+
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.footer-nav-icon {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .footer-info {
@@ -1521,6 +1539,7 @@ p {
   .mega-column {
     display: grid;
     gap: 8px;
+    margin-left: 16px;
     padding: 0 0 16px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   }

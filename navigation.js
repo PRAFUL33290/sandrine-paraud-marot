@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
     "contact.html": "icon-spark",
   };
 
-  const addResponsiveNavIcons = () => {
-    if (!nav) {
+  const addNavIcons = (container, iconClass) => {
+    if (!container) {
       return;
     }
 
-    nav.querySelectorAll("a").forEach((link) => {
+    container.querySelectorAll("a").forEach((link) => {
       const href = link.getAttribute("href");
 
-      if (!href || link.querySelector(".nav-item-icon")) {
+      if (!href || link.querySelector(`.${iconClass}`)) {
         return;
       }
 
@@ -33,15 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-
-      icon.classList.add("nav-item-icon");
-      icon.setAttribute("aria-hidden", "true");
-      use.setAttribute("href", `assets/icons.svg#${iconId}`);
-      icon.appendChild(use);
-      link.prepend(icon);
+      link.prepend(createSvgIcon(iconId, iconClass));
     });
+  };
+
+  const addResponsiveNavIcons = () => {
+    addNavIcons(nav, "nav-item-icon");
+    addNavIcons(document.querySelector(".footer-nav"), "footer-nav-icon");
   };
 
   const createSvgIcon = (iconId, className) => {
