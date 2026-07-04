@@ -1268,7 +1268,7 @@ p {
 .footer {
   padding: clamp(32px, 5vw, 56px) clamp(18px, 4vw, 56px) clamp(20px, 3vw, 32px);
   color: var(--white);
-  background: var(--green-900);
+  background: #000;
   font-size: 0.9rem;
   text-align: left;
 }
@@ -1276,15 +1276,17 @@ p {
 .footer-inner {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
+  width: min(1200px, 100%);
+  margin: 0 auto;
   gap: 28px;
 }
 
-.footer-top {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: clamp(28px, 6vw, 72px);
+.footer-columns {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.25fr) minmax(220px, 1fr) minmax(220px, 0.9fr);
+  align-items: start;
+  gap: clamp(24px, 3.2vw, 52px);
   width: 100%;
 }
 
@@ -1297,11 +1299,18 @@ p {
   height: 40px;
 }
 
-.footer-nav {
+.footer-col {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
+}
+
+.footer-col-brand {
+  gap: 8px;
+}
+
+.footer-nav {
   font-weight: 600;
 }
 
@@ -1318,6 +1327,23 @@ p {
   margin: 2px 0 2px 26px;
 }
 
+.footer-legal {
+  gap: 12px;
+}
+
+.footer-col-title {
+  margin: 0;
+  color: var(--white);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-legal a {
+  display: inline-flex;
+}
+
 .footer-nav-icon {
   flex: 0 0 auto;
   width: 16px;
@@ -1330,26 +1356,12 @@ p {
   stroke-width: 1.8;
 }
 
-.footer-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  text-align: left;
-}
-
 .footer-name {
   margin: 0;
   color: var(--white);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.3rem;
   font-weight: 700;
-}
-
-.footer-tagline {
-  margin: 0 0 6px;
-  color: var(--white);
-  font-size: 0.82rem;
 }
 
 .footer-contact,
@@ -1361,6 +1373,12 @@ p {
 
 .footer-socials {
   margin-top: 4px;
+}
+
+.footer-siret {
+  margin: 6px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
 }
 
 .footer-copyright {
@@ -1749,33 +1767,40 @@ p {
     justify-content: center;
   }
 
-  .footer-top {
-    flex-direction: column;
-    align-items: flex-start;
+  .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .footer {
     font-size: 1.05rem;
   }
 
-  .footer-info {
+  .footer-col,
+  .footer-col-brand,
+  .footer-nav,
+  .footer-legal {
     align-items: center;
     text-align: center;
     width: 100%;
+  }
+
+  .footer-nav-sub {
+    margin-left: 0;
   }
 
   .footer-name {
     font-size: 1.5rem;
   }
 
-  .footer-tagline {
-    font-size: 1rem;
-  }
-
   .footer-contact,
   .footer-socials {
     justify-content: center;
     width: 100%;
+  }
+
+  .footer-siret {
+    font-size: 0.95rem;
   }
 
   .footer-copyright {
