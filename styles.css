@@ -680,6 +680,14 @@ p {
   background: var(--sage-light);
 }
 
+.services-photo img {
+  width: 100%;
+  height: clamp(260px, 46vw, 520px);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+
 .page-hero h1 {
   max-width: 860px;
   font-size: clamp(3rem, 7vw, 6.1rem);
