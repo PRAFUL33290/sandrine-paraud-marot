@@ -672,6 +672,39 @@ p {
   font-size: clamp(1.05rem, 1.7vw, 1.2rem);
 }
 
+.intro-illustration {
+  width: min(100%, 340px);
+  height: auto;
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+.intro-illustration-circle {
+  fill: var(--green);
+  opacity: 0.16;
+}
+
+.intro-illustration-circle-2 {
+  fill: var(--green-900);
+  opacity: 0.12;
+}
+
+.intro-illustration-circle-3 {
+  fill: var(--green);
+  opacity: 0.24;
+}
+
+.intro-illustration-path {
+  fill: none;
+  stroke: var(--green-900);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+
+.intro-illustration-dot {
+  fill: var(--green-900);
+}
+
 .intro-panel {
   padding: clamp(28px, 5vw, 48px);
   border-radius: 8px;
@@ -698,6 +731,7 @@ p {
 
 .intro-points span {
   display: grid;
+  gap: 10px;
   min-height: 92px;
   align-items: end;
   padding: 18px;
@@ -705,6 +739,12 @@ p {
   color: var(--white);
   font-weight: 800;
   line-height: 1.25;
+}
+
+.intro-point-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--green);
 }
 
 .intro .eyebrow,
