@@ -1284,10 +1284,9 @@ p {
 
 .footer-top {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: clamp(28px, 6vw, 72px);
   width: 100%;
 }
 
@@ -1302,8 +1301,9 @@ p {
 
 .footer-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: clamp(10px, 2vw, 24px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
   font-weight: 600;
 }
 
@@ -1311,6 +1311,13 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 7px;
+}
+
+.footer-nav-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 2px 0 2px 26px;
 }
 
 .footer-nav-icon {
@@ -1744,8 +1751,7 @@ p {
     justify-content: center;
   }
 
-  .footer-top,
-  .footer-nav {
+  .footer-top {
     flex-direction: column;
     align-items: flex-start;
   }
