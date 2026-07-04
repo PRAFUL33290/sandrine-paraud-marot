@@ -509,23 +509,37 @@ p {
 }
 
 .hero-content {
-  align-self: end;
+  align-self: center;
   width: min(1060px, calc(100% - 36px));
   margin: 0 auto;
-  padding: clamp(130px, 18vh, 190px) 0 clamp(54px, 9vh, 92px);
+  padding: clamp(96px, 14vh, 150px) 0 clamp(40px, 6vh, 70px);
 }
 
 .hero h1 {
   color: var(--white);
 }
 
-.hero-name {
-  margin: 0 0 12px;
+.hero-title {
+  margin: 0 0 10px;
+}
+
+.hero-role {
+  margin: 0 0 22px;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.hero-hook {
+  max-width: 720px;
+  margin: 0 0 18px;
   color: var(--white);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.15;
 }
 
 .hero-lede {
@@ -1616,7 +1630,7 @@ p {
   }
 
   .hero-content {
-    padding: 210px 0 48px;
+    padding: 150px 0 40px;
   }
 
   .page-hero {
