@@ -1,0 +1,35 @@
+CouleurRôleCode HexSymboliqueVert DouxPrimaire#8FB399Bien-être, nature, équilibre, sérénité.Gris Anthracite DouxSecondaire#4A4A4ALisibilité, professionnalisme, ancrage, clarté.
+
+Pourquoi ce duo ?
+Le Vert Doux (#8FB399) : Il est votre identité visuelle principale. Utilisez-le pour vos logos, vos titres principaux, les bordures de vos éléments graphiques et vos fonds de sections importants.
+
+Le Gris Anthracite Doux (#4A4A4A) : C'est le partenaire idéal pour le vert. Il est beaucoup moins agressif qu'un noir pur (#000000). Il apporte une lisibilité parfaite pour le corps de vos textes tout en restant élégant et discret.
+
+Conseils d'application pour vos projets (Figma / WordPress)
+Texte : Utilisez exclusivement le Gris Anthracite Doux pour le texte. Il reposera les yeux de vos lecteurs par rapport à un noir standard.
+
+Accents : Utilisez le Vert Doux pour les boutons d'appel à l'action (CTA), les icônes, ou pour souligner les titres.
+
+Espaces blancs : N'hésitez pas à laisser beaucoup de "blanc" (ou un gris extrêmement clair comme #F9F9F9) autour de vos éléments pour laisser la charte respirer.
+
+/* Exemple CSS pour votre implémentation */
+:root {
+  --color-primary: #8FB399; /* Vert Doux */
+  --color-text: #4A4A4A;    /* Gris Anthracite Doux */
+  --bg-light: #F9F9F9;
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--bg-light);
+}
+
+h1, h2, h3 {
+  color: var(--color-primary);
+}
+
+button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+}

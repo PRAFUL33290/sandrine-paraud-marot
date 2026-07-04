@@ -491,7 +491,7 @@ p {
 }
 
 .page-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .page-card {
@@ -607,6 +607,68 @@ p {
   background:
     linear-gradient(135deg, rgba(255, 248, 238, 0.95), rgba(234, 242, 228, 0.94)),
     radial-gradient(circle at 10% 18%, rgba(224, 181, 92, 0.2), transparent 32%);
+}
+
+.services-section {
+  background: linear-gradient(180deg, #fffaf1, #edf6eb);
+}
+
+.service-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.service-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: clamp(18px, 4vw, 34px);
+  align-items: center;
+  padding: clamp(24px, 4vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.86);
+  box-shadow: 0 14px 38px rgba(49, 94, 85, 0.07);
+}
+
+.service-card.featured {
+  border-color: rgba(210, 124, 99, 0.26);
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, 0.94), rgba(255, 241, 222, 0.9));
+}
+
+.service-card h3 {
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  max-width: 660px;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.service-card .icon {
+  color: #d27c63;
+  background: linear-gradient(135deg, #fff1de, #edf6eb);
+}
+
+.service-price {
+  display: grid;
+  justify-items: end;
+  min-width: 150px;
+  color: var(--green-900);
+}
+
+.service-price strong {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  line-height: 1;
+}
+
+.service-price span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: right;
 }
 
 .pricing-panel {
@@ -951,6 +1013,21 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .service-card {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .service-price {
+    grid-column: 1 / -1;
+    justify-items: start;
+    min-width: 0;
+  }
+
+  .service-price span {
+    text-align: left;
+  }
+
   .contact-page-grid,
   .contact-form {
     grid-template-columns: 1fr;
@@ -1012,6 +1089,7 @@ p {
   .benefit-list,
   .tool-panel,
   .tools-grid,
+  .service-card,
   .page-grid,
   .mega-panel {
     grid-template-columns: 1fr;
