@@ -1711,6 +1711,17 @@ p {
 
   .hero-content {
     padding: 150px 0 40px;
+    text-align: center;
+  }
+
+  .hero-lede {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-hook {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .page-hero {
@@ -1719,12 +1730,18 @@ p {
 
   .hero-actions {
     flex-direction: column;
+    align-items: center;
   }
 
   .hero-contact {
     flex-direction: column;
+    align-items: center;
     gap: 12px;
     margin-top: 26px;
+  }
+
+  .hero-socials {
+    justify-content: center;
   }
 
   .footer-top,
