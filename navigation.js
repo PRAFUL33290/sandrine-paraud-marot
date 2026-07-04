@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
     "contact.html": "icon-spark",
   };
 
-  const addNavIcons = (container, iconClass) => {
-    if (!container) {
+  const addResponsiveNavIcons = () => {
+    if (!nav) {
       return;
     }
 
-    container.querySelectorAll("a").forEach((link) => {
+    nav.querySelectorAll("a").forEach((link) => {
       const href = link.getAttribute("href");
 
-      if (!href || link.querySelector(`.${iconClass}`)) {
+      if (!href || link.querySelector(".nav-item-icon")) {
         return;
       }
 
@@ -33,13 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      link.prepend(createSvgIcon(iconId, iconClass));
+      link.prepend(createSvgIcon(iconId, "nav-item-icon"));
     });
-  };
-
-  const addResponsiveNavIcons = () => {
-    addNavIcons(nav, "nav-item-icon");
-    addNavIcons(document.querySelector(".footer-nav"), "footer-nav-icon");
   };
 
   const createSvgIcon = (iconId, className) => {
