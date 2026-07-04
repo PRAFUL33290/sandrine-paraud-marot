@@ -247,8 +247,7 @@ p {
   font-weight: 600;
 }
 
-.nav a,
-.footer a {
+.nav a {
   transition: color 180ms ease, background-color 180ms ease;
 }
 
@@ -258,8 +257,7 @@ p {
   border-radius: 999px;
 }
 
-.nav a:hover,
-.footer a:hover {
+.nav a:hover {
   color: var(--white);
 }
 
@@ -1269,7 +1267,7 @@ p {
 
 .footer {
   padding: clamp(32px, 5vw, 56px) clamp(18px, 4vw, 56px) clamp(20px, 3vw, 32px);
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--white);
   background: var(--green-900);
   font-size: 0.9rem;
   text-align: left;
@@ -1324,7 +1322,7 @@ p {
   flex: 0 0 auto;
   width: 16px;
   height: 16px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--white);
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -1350,7 +1348,7 @@ p {
 
 .footer-tagline {
   margin: 0 0 6px;
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--white);
   font-size: 0.82rem;
 }
 
@@ -1370,7 +1368,7 @@ p {
   margin: 0;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--white);
   font-size: 0.8rem;
   text-align: left;
 }
