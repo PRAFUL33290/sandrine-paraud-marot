@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact | Sandrine Paraud Marot</title>
+    <meta name="description" content="Contactez Sandrine Paraud Marot pour prendre rendez-vous ou poser une question.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header solid">
+      <a class="brand" href="index.html" aria-label="Accueil"><span class="brand-mark">SPM</span><span><strong>Sandrine Paraud Marot</strong><small>Sophrologue · Potentiel du moi</small></span></a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <div class="nav-mega">
+          <a class="mega-trigger" href="accompagnements.html" aria-haspopup="true">Accompagnements</a>
+          <div class="mega-panel" aria-label="Menu des accompagnements">
+            <div class="mega-column">
+              <span class="mega-title">Services &amp; prestations</span>
+              <a href="approche.html"><strong>Approche</strong><small>La manière de travailler et les situations accompagnées.</small></a>
+              <a href="outils.html"><strong>Outils</strong><small>Sophrologie, graphologie, orientation, symbolique et énergie.</small></a>
+              <a href="accompagnements.html"><strong>Prestations</strong><small>Adultes, profils sensibles, adolescents et jeunes adultes.</small></a>
+              <a href="accompagnements.html#tarifs"><strong>Tarifs</strong><small>Informations pratiques et demande personnalisée.</small></a>
+            </div>
+            <div class="mega-column">
+              <span class="mega-title">À propos de Sandrine</span>
+              <a href="parcours.html"><strong>Parcours</strong><small>Le chemin personnel et professionnel qui fonde sa pratique.</small></a>
+              <a href="parcours.html#vie-professionnelle"><strong>Vie professionnelle</strong><small>Commerce, reconversion, graphologie et orientation.</small></a>
+              <a href="parcours.html#histoire"><strong>Histoire</strong><small>La transformation intime devenue transmission.</small></a>
+              <a href="parcours.html#valeurs"><strong>Valeurs</strong><small>Douceur, clarté, autonomie et respect du rythme.</small></a>
+            </div>
+          </div>
+        </div>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+      <a class="header-cta" href="#formulaire">Prendre rendez-vous</a>
+    </header>
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Contact</p>
+          <h1>Prenons le temps d'en parler.</h1>
+          <p>Expliquez-moi votre situation, votre besoin ou votre question. Je vous répondrai pour voir quel accompagnement peut être le plus adapté.</p>
+        </div>
+      </section>
+      <section class="section contact-page" id="formulaire">
+        <div class="container contact-page-grid">
+          <form class="contact-form" action="mailto:contact@sandrine-paraud-marot.fr" method="post" enctype="text/plain">
+            <div class="form-row">
+              <label for="name">Nom et prénom</label>
+              <input id="name" name="Nom et prénom" type="text" autocomplete="name" required>
+            </div>
+            <div class="form-row">
+              <label for="email">E-mail</label>
+              <input id="email" name="Email" type="email" autocomplete="email" required>
+            </div>
+            <div class="form-row">
+              <label for="phone">Téléphone</label>
+              <input id="phone" name="Téléphone" type="tel" autocomplete="tel">
+            </div>
+            <div class="form-row">
+              <label for="subject">Objet de votre demande</label>
+              <select id="subject" name="Objet">
+                <option>Prendre rendez-vous</option>
+                <option>Demander des informations</option>
+                <option>Orientation scolaire</option>
+                <option>Sophrologie</option>
+                <option>Autre demande</option>
+              </select>
+            </div>
+            <div class="form-row full">
+              <label for="message">Message</label>
+              <textarea id="message" name="Message" rows="7" required></textarea>
+            </div>
+            <label class="consent">
+              <input type="checkbox" name="Consentement RGPD" value="Accepté" required>
+              <span>J'accepte de transmettre ces informations afin d'être recontacté(e).</span>
+            </label>
+            <button class="button primary form-submit" type="submit">
+              <svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-spark"></use></svg>
+              Envoyer ma demande
+            </button>
+          </form>
+          <aside class="contact-card">
+            <p class="eyebrow">Coordonnées</p>
+            <h2>Sandrine Paraud Marot</h2>
+            <a href="tel:0603895031">06 03 89 50 31</a>
+            <a href="mailto:contact@sandrine-paraud-marot.fr">contact@sandrine-paraud-marot.fr</a>
+            <div class="social-links light" aria-label="Réseaux sociaux">
+              <a href="https://www.facebook.com/Sandrine-Paraud-Marot-104502974451012/" target="_blank" rel="noopener noreferrer">
+                <svg class="social-icon" aria-hidden="true"><use href="assets/icons.svg#icon-facebook"></use></svg>
+                Facebook
+              </a>
+              <a href="https://www.instagram.com/sandrineparaudmarot_pro/" target="_blank" rel="noopener noreferrer">
+                <svg class="social-icon" aria-hidden="true"><use href="assets/icons.svg#icon-instagram"></use></svg>
+                Instagram
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><p>© 2026 Sandrine Paraud Marot. Tous droits réservés.</p><div class="footer-links"><a href="https://www.facebook.com/Sandrine-Paraud-Marot-104502974451012/" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/sandrineparaudmarot_pro/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="index.html">Accueil</a></div></footer>
+  </body>
+</html>
