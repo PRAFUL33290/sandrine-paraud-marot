@@ -938,46 +938,6 @@ p {
   background: var(--cream);
 }
 
-.explore-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.22fr) minmax(280px, 0.78fr);
-  gap: clamp(40px, 7vw, 92px);
-  align-items: start;
-}
-
-.explore-intro {
-  max-width: 430px;
-}
-
-.explore-intro h2 {
-  font-size: clamp(2.6rem, 5.4vw, 5.2rem);
-}
-
-.explore-intro p:not(.eyebrow) {
-  color: var(--muted);
-  font-size: 1.05rem;
-}
-
-.explore-illustration {
-  width: min(100%, 280px);
-  height: auto;
-  margin-top: clamp(28px, 4vw, 40px);
-}
-
-.explore-illustration-path {
-  fill: none;
-  stroke: var(--green);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-dasharray: 3 9;
-}
-
-.explore-illustration-node {
-  fill: var(--cream);
-  stroke: var(--green-900);
-  stroke-width: 2;
-}
-
 .reviews-section {
   background: var(--sage-light);
 }
@@ -1071,16 +1031,6 @@ p {
 .reviews-track::-webkit-scrollbar-thumb {
   background: var(--green);
   border-radius: 8px;
-}
-
-.explore-illustration-node-start {
-  fill: var(--green);
-  stroke: none;
-}
-
-.explore-illustration-node-end {
-  fill: var(--green-900);
-  stroke: none;
 }
 
 .reason-grid,
@@ -2163,14 +2113,8 @@ p {
   .intro-grid,
   .split,
   .benefits-grid,
-  .contact-inner,
-  .explore-layout {
+  .contact-inner {
     grid-template-columns: 1fr;
-  }
-
-  .explore-intro {
-    max-width: 720px;
-    order: -1;
   }
 
   .reason-grid,
