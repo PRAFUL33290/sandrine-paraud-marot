@@ -28,10 +28,11 @@ jobs:
       - name: Prepare web files
         run: |
           mkdir -p _site
-          cp *.html _site/ 2>/dev/null || true
-          cp *.css _site/ 2>/dev/null || true
-          cp *.js _site/ 2>/dev/null || true
-          [ -d assets ] && cp -r assets _site/ || true
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='_site' \
+            ./ _site/
           touch _site/.nojekyll
 
       - name: Upload artifact
