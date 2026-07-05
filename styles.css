@@ -1111,13 +1111,39 @@ p {
   color: var(--green-900);
 }
 
+.reviews-viewport {
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
 .reviews-track {
   display: flex;
   gap: 20px;
   padding-bottom: 14px;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
+  width: max-content;
+  will-change: transform;
+  animation: reviews-scroll var(--reviews-duration, 45s) linear infinite;
+}
+
+.reviews-track.is-paused {
+  animation-play-state: paused;
+}
+
+@keyframes reviews-scroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-track {
+    animation: none;
+  }
 }
 
 .review-card {
@@ -1131,7 +1157,6 @@ p {
   border-radius: 8px;
   background: var(--white);
   box-shadow: 0 14px 38px rgba(74, 74, 74, 0.07);
-  scroll-snap-align: start;
 }
 
 .review-card .reviews-stars {
@@ -1157,19 +1182,6 @@ p {
 .review-author span {
   color: var(--muted);
   font-size: 0.86rem;
-}
-
-.reviews-track::-webkit-scrollbar {
-  height: 8px;
-}
-
-.reviews-track::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.reviews-track::-webkit-scrollbar-thumb {
-  background: var(--green);
-  border-radius: 8px;
 }
 
 .reason-grid,

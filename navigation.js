@@ -265,6 +265,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initHeroSlider();
 
+  const initReviewsMarquee = () => {
+    const track = document.querySelector(".reviews-track");
+    if (!track) {
+      return;
+    }
+
+    const cards = Array.from(track.children);
+    if (cards.length < 2) {
+      return;
+    }
+
+    const viewport = document.createElement("div");
+    viewport.className = "reviews-viewport";
+    track.parentNode.insertBefore(viewport, track);
+    viewport.appendChild(track);
+
+    cards.forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    });
+
+    const pxPerSecond = 40;
+    const setDuration = () => {
+      track.style.setProperty("--reviews-duration", `${track.scrollWidth / 2 / pxPerSecond}s`);
+    };
+
+    setDuration();
+    window.addEventListener("resize", setDuration);
+
+    viewport.setAttribute("role", "button");
+    viewport.setAttribute("tabindex", "0");
+    viewport.setAttribute("aria-label", "Mettre en pause ou reprendre le défilement des avis");
+
+    const togglePause = () => {
+      track.classList.toggle("is-paused");
+    };
+
+    viewport.addEventListener("click", togglePause);
+    viewport.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") {
+        return;
+      }
+      event.preventDefault();
+      togglePause();
+    });
+  };
+
+  initReviewsMarquee();
+
   const header = document.querySelector(".site-header");
   const nav = document.querySelector(".nav");
 
