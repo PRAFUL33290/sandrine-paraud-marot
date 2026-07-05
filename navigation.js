@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTransform();
       updateDots();
       clearAnimationFallback();
-      animationFallbackTimer = window.setTimeout(finishAnimation, 2600);
+      animationFallbackTimer = window.setTimeout(finishAnimation, 750);
     };
 
     const goToIndex = (index) => {
