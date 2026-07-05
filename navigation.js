@@ -6,13 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const slides = Array.from(track.querySelectorAll(".hero-slide"));
+    const allSlides = Array.from(track.querySelectorAll(".hero-slide"));
+    const realSlides = allSlides.filter((slide) => !slide.classList.contains("hero-slide-clone"));
     const dots = Array.from(document.querySelectorAll(".hero-dot"));
-    if (slides.length < 2) {
+    const totalReal = realSlides.length;
+    if (totalReal < 2) {
       return;
     }
 
-    let current = 0;
+    const hasClones = allSlides.length === totalReal + 2;
+    let trackPosition = hasClones ? 1 : 0;
+    let realIndex = 0;
     let autoplayTimer = null;
     let isDragging = false;
     let dragStartX = 0;
@@ -20,18 +24,58 @@ document.addEventListener("DOMContentLoaded", () => {
     let pointerId = null;
 
     const setTransform = (extraPx) => {
-      track.style.transform = `translateX(calc(${current * -100}% + ${extraPx || 0}px))`;
+      track.style.transform = `translateX(calc(${trackPosition * -100}% + ${extraPx || 0}px))`;
     };
 
     const updateDots = () => {
-      dots.forEach((dot, index) => dot.classList.toggle("is-active", index === current));
+      dots.forEach((dot, index) => dot.classList.toggle("is-active", index === realIndex));
     };
 
-    const goTo = (index) => {
-      current = ((index % slides.length) + slides.length) % slides.length;
+    const syncRealIndex = () => {
+      const offset = hasClones ? trackPosition - 1 : trackPosition;
+      realIndex = ((offset % totalReal) + totalReal) % totalReal;
+    };
+
+    // Snap instantly (no transition) once we've animated onto a cloned edge
+    // slide, so the loop can keep animating in the same direction forever.
+    const snapTo = (position) => {
+      track.style.transition = "none";
+      trackPosition = position;
+      setTransform();
+      void track.offsetWidth;
+      track.style.transition = "";
+    };
+
+    const goToTrackPosition = (position) => {
+      trackPosition = position;
+      syncRealIndex();
       setTransform();
       updateDots();
     };
+
+    const goToIndex = (index) => {
+      goToTrackPosition(hasClones ? index + 1 : index);
+    };
+
+    const advance = (direction) => {
+      goToTrackPosition(trackPosition + direction);
+    };
+
+    if (hasClones) {
+      track.addEventListener("transitionend", (event) => {
+        if (event.propertyName !== "transform") {
+          return;
+        }
+
+        if (trackPosition === 0) {
+          snapTo(totalReal);
+          syncRealIndex();
+        } else if (trackPosition === totalReal + 1) {
+          snapTo(1);
+          syncRealIndex();
+        }
+      });
+    }
 
     const stopAutoplay = () => {
       if (autoplayTimer) {
@@ -47,12 +91,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isMobileViewport()) {
         return;
       }
-      autoplayTimer = window.setInterval(() => goTo(current + 1), 5000);
+      autoplayTimer = window.setInterval(() => advance(1), 5000);
     };
 
     dots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
-        goTo(index);
+        goToIndex(index);
         startAutoplay();
       });
     });
@@ -62,14 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (prevArrow) {
       prevArrow.addEventListener("click", () => {
-        goTo(current - 1);
+        advance(-1);
         startAutoplay();
       });
     }
 
     if (nextArrow) {
       nextArrow.addEventListener("click", () => {
-        goTo(current + 1);
+        advance(1);
         startAutoplay();
       });
     }
@@ -84,9 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const threshold = slider.clientWidth * 0.15;
       if (dragDeltaX > threshold) {
-        goTo(current - 1);
+        advance(-1);
       } else if (dragDeltaX < -threshold) {
-        goTo(current + 1);
+        advance(1);
       } else {
         setTransform();
       }
@@ -121,7 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
     slider.addEventListener("pointerup", endDrag);
     slider.addEventListener("pointercancel", endDrag);
 
-    goTo(0);
+    syncRealIndex();
+    updateDots();
     startAutoplay();
   };
 

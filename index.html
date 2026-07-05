@@ -63,10 +63,12 @@
     <main>
       <section class="hero" aria-label="Présentation">
         <div class="hero-slider">
-          <div class="hero-track">
+          <div class="hero-track" style="transform: translateX(-100%)">
+            <img class="hero-slide hero-slide-clone" src="IMG%20BACKGROUND/BG%204.png" alt="" draggable="false" aria-hidden="true">
             <img class="hero-slide" src="IMG%20BACKGROUND/BG%202.png" alt="" draggable="false">
             <img class="hero-slide" src="IMG%20BACKGROUND/BG%203.png" alt="" draggable="false">
             <img class="hero-slide" src="IMG%20BACKGROUND/BG%204.png" alt="" draggable="false">
+            <img class="hero-slide hero-slide-clone" src="IMG%20BACKGROUND/BG%202.png" alt="" draggable="false" aria-hidden="true">
           </div>
         </div>
         <div class="hero-overlay"></div>
@@ -83,11 +85,6 @@
             <svg class="hero-arrow-icon" aria-hidden="true"><use href="assets/icons.svg#icon-chevron"></use></svg>
           </button>
         </div>
-        <div class="hero-swipe-hint" aria-hidden="true">
-          <svg class="hero-swipe-hint-icon is-flipped"><use href="assets/icons.svg#icon-chevron"></use></svg>
-          Glissez
-          <svg class="hero-swipe-hint-icon"><use href="assets/icons.svg#icon-chevron"></use></svg>
-        </div>
         <div class="hero-content">
           <h1 class="hero-title">Sandrine Paraud Marot</h1>
           <p class="hero-role"><span class="hero-role-highlight">Sophrologue<br class="hero-role-break"> et accompagnatrice en transformation personnelle</span></p>
@@ -96,6 +93,11 @@
             Un accompagnement global, sensible et structuré pour mieux vous comprendre,
             dépasser vos blocages et retrouver confiance dans vos choix.
           </p>
+          <div class="hero-swipe-hint" aria-hidden="true">
+            <svg class="hero-swipe-hint-icon is-flipped"><use href="assets/icons.svg#icon-chevron"></use></svg>
+            Glissez
+            <svg class="hero-swipe-hint-icon"><use href="assets/icons.svg#icon-chevron"></use></svg>
+          </div>
           <div class="hero-actions">
             <a class="button primary" href="contact.html">
               <svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>

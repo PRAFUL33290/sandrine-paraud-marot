@@ -1894,20 +1894,16 @@ p {
   }
 
   .hero-swipe-hint {
-    position: absolute;
-    z-index: 3;
-    left: 50%;
-    bottom: clamp(20px, 4vh, 40px);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
-    transform: translateX(-50%);
+    margin: 2px 0 20px;
+    padding: 6px 16px;
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 999px;
     color: var(--white);
     background: rgba(255, 255, 255, 0.14);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 600;
     pointer-events: none;
     animation: hero-swipe-hint-fade 4500ms ease forwards;
