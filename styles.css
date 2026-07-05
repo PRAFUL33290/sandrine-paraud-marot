@@ -2004,8 +2004,9 @@ p {
 }
 
 .footer-brand .brand-mark {
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
+  font-size: 1.55rem;
 }
 
 .footer-col {
@@ -2113,7 +2114,7 @@ p {
   margin: 0;
   color: var(--white);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   font-weight: 700;
 }
 
@@ -2149,6 +2150,14 @@ p {
   color: var(--white);
   font-size: 0.8rem;
   text-align: left;
+}
+
+.footer-credit {
+  width: 100%;
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.72rem;
+  text-align: center;
 }
 
 @media (max-width: 980px) {
