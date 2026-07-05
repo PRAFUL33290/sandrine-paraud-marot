@@ -1934,13 +1934,21 @@ p {
   .mega-trigger,
   .home-header .nav,
   .home-header .nav > a,
-  .home-header .mega-trigger {
+  .home-header .mega-trigger,
+  .home-header .nav > a:hover,
+  .home-header .mega-trigger:hover,
+  .home-header .nav > a:focus-visible,
+  .home-header .mega-trigger:focus-visible {
     color: var(--ink);
   }
 
   .mega-trigger.active,
   .home-header .nav > a.active,
-  .home-header .mega-trigger.active {
+  .home-header .mega-trigger.active,
+  .home-header .nav > a.active:hover,
+  .home-header .mega-trigger.active:hover,
+  .home-header .nav > a.active:focus-visible,
+  .home-header .mega-trigger.active:focus-visible {
     color: var(--white);
     background: var(--green-900);
   }
@@ -2027,6 +2035,13 @@ p {
 
   .nav a:hover {
     color: inherit;
+  }
+
+  .nav a.active:hover,
+  .mega-trigger.active:hover,
+  .nav a.active:focus-visible,
+  .mega-trigger.active:focus-visible {
+    color: var(--white);
   }
 
   .nav > a:hover::after,
