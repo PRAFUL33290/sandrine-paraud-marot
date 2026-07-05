@@ -327,7 +327,7 @@ p {
   stroke-width: 1.8;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1141px) {
   .mega-feature .nav-item-icon {
     display: none;
   }
@@ -2160,7 +2160,7 @@ p {
   text-align: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1140px) {
   .hero-slider-controls {
     display: none;
   }
@@ -2644,7 +2644,7 @@ p {
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1140px) {
   .menu-toggle {
     width: 72px;
     height: 72px;
