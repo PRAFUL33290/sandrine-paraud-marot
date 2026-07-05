@@ -327,7 +327,8 @@ p {
   stroke-width: 1.8;
 }
 
-@media (min-width: 1141px) {
+/* Nav breakpoint: doit rester synchronisé avec navigation.js (mobileMenuQuery) */
+@media (min-width: 1101px) {
   .mega-feature .nav-item-icon {
     display: none;
   }
@@ -2160,7 +2161,8 @@ p {
   text-align: center;
 }
 
-@media (max-width: 1140px) {
+/* Nav breakpoint: doit rester synchronisé avec navigation.js (mobileMenuQuery) */
+@media (max-width: 1100px) {
   .hero-slider-controls {
     display: none;
   }
@@ -2644,7 +2646,7 @@ p {
   }
 }
 
-@media (min-width: 769px) and (max-width: 1140px) {
+@media (min-width: 769px) and (max-width: 1100px) {
   .menu-toggle {
     width: 72px;
     height: 72px;
