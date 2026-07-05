@@ -414,7 +414,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   const menuToggle = document.querySelector(".menu-toggle");
   const mega = document.querySelector(".nav-mega");
-  const mobileMenuQuery = window.matchMedia("(max-width: 980px)");
+  const mobileMenuQuery = window.matchMedia("(max-width: 1140px)");
   const navIconByPage = {
     "index.html": "icon-bloom",
     "approche.html": "icon-leaf",
