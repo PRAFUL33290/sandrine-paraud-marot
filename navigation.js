@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const hasClones = allSlides.length === totalReal + 2;
     let trackPosition = hasClones ? 1 : 0;
     let realIndex = 0;
-    let autoplayTimer = null;
     let animationFallbackTimer = null;
     let queuedSteps = 0;
     let isAnimating = false;
@@ -156,27 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
       finishAnimation();
     });
 
-    const stopAutoplay = () => {
-      if (autoplayTimer) {
-        window.clearInterval(autoplayTimer);
-        autoplayTimer = null;
-      }
-    };
-
-    const isMobileViewport = () => window.matchMedia("(max-width: 980px)").matches;
-
-    const startAutoplay = () => {
-      stopAutoplay();
-      if (isMobileViewport()) {
-        return;
-      }
-      autoplayTimer = window.setInterval(() => advance(1), 5000);
-    };
-
     dots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
         goToIndex(index);
-        startAutoplay();
       });
     });
 
@@ -186,14 +167,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (prevArrow) {
       prevArrow.addEventListener("click", () => {
         advance(-1);
-        startAutoplay();
       });
     }
 
     if (nextArrow) {
       nextArrow.addEventListener("click", () => {
         advance(1);
-        startAutoplay();
       });
     }
 
@@ -216,7 +195,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       dragDeltaX = 0;
-      startAutoplay();
     };
 
     const isInteractiveTarget = (target) => Boolean(target.closest("a, button, input, select, textarea, label"));
@@ -240,7 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
       dragDeltaX = 0;
       track.classList.add("is-dragging");
       dragSurface.classList.add("is-dragging");
-      stopAutoplay();
       dragSurface.setPointerCapture(pointerId);
     });
 
@@ -260,7 +237,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     syncRealIndex();
     updateDots();
-    startAutoplay();
   };
 
   initHeroSlider();
@@ -395,6 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
         hasDragged = true;
       }
       position = dragStartPosition - deltaX;
+      applyTransform();
     });
 
     const endDrag = (event) => {

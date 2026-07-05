@@ -645,8 +645,8 @@ p {
 .hero-arrow {
   display: grid;
   flex: 0 0 auto;
-  width: 40px;
-  height: 40px;
+  width: 58px;
+  height: 58px;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 50%;
@@ -666,8 +666,8 @@ p {
 }
 
 .hero-arrow-icon {
-  width: 18px;
-  height: 18px;
+  width: 26px;
+  height: 26px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
