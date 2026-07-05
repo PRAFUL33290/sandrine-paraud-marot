@@ -287,23 +287,103 @@ document.addEventListener("DOMContentLoaded", () => {
       track.appendChild(clone);
     });
 
+    viewport.setAttribute("role", "group");
+    viewport.setAttribute("tabindex", "0");
+    viewport.setAttribute("aria-label", "Avis clients, glisser pour faire défiler, appuyer pour mettre en pause");
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const pxPerSecond = 40;
-    const setDuration = () => {
-      track.style.setProperty("--reviews-duration", `${track.scrollWidth / 2 / pxPerSecond}s`);
+
+    let loopWidth = 0;
+    const setLoopWidth = () => {
+      loopWidth = track.scrollWidth / 2;
+    };
+    setLoopWidth();
+    window.addEventListener("resize", setLoopWidth);
+
+    let position = 0;
+    let isPaused = false;
+    let isDragging = false;
+    let hasDragged = false;
+    let pointerId = null;
+    let dragStartX = 0;
+    let dragStartPosition = 0;
+    let lastFrameTime = null;
+
+    const applyTransform = () => {
+      const normalized = loopWidth > 0 ? ((position % loopWidth) + loopWidth) % loopWidth : 0;
+      track.style.transform = `translateX(${-normalized}px)`;
     };
 
-    setDuration();
-    window.addEventListener("resize", setDuration);
+    const tick = (time) => {
+      if (lastFrameTime === null) {
+        lastFrameTime = time;
+      }
+      const delta = time - lastFrameTime;
+      lastFrameTime = time;
 
-    viewport.setAttribute("role", "button");
-    viewport.setAttribute("tabindex", "0");
-    viewport.setAttribute("aria-label", "Mettre en pause ou reprendre le défilement des avis");
+      if (!isPaused && !isDragging && !prefersReducedMotion) {
+        position += (pxPerSecond * delta) / 1000;
+      }
+
+      applyTransform();
+      window.requestAnimationFrame(tick);
+    };
+    window.requestAnimationFrame(tick);
 
     const togglePause = () => {
-      track.classList.toggle("is-paused");
+      isPaused = !isPaused;
+      viewport.classList.toggle("is-paused", isPaused);
     };
 
-    viewport.addEventListener("click", togglePause);
+    const isInteractiveTarget = (target) => Boolean(target.closest("a, button, input, select, textarea, label"));
+
+    viewport.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 && event.pointerType === "mouse") {
+        return;
+      }
+
+      if (isInteractiveTarget(event.target)) {
+        return;
+      }
+
+      isDragging = true;
+      hasDragged = false;
+      pointerId = event.pointerId;
+      dragStartX = event.clientX;
+      dragStartPosition = position;
+      viewport.classList.add("is-dragging");
+      viewport.setPointerCapture(pointerId);
+    });
+
+    viewport.addEventListener("pointermove", (event) => {
+      if (!isDragging || event.pointerId !== pointerId) {
+        return;
+      }
+
+      const deltaX = event.clientX - dragStartX;
+      if (Math.abs(deltaX) > 4) {
+        hasDragged = true;
+      }
+      position = dragStartPosition - deltaX;
+    });
+
+    const endDrag = (event) => {
+      if (!isDragging || (event && event.pointerId !== pointerId)) {
+        return;
+      }
+
+      isDragging = false;
+      viewport.classList.remove("is-dragging");
+
+      if (!hasDragged) {
+        togglePause();
+      }
+    };
+
+    viewport.addEventListener("pointerup", endDrag);
+    viewport.addEventListener("pointercancel", endDrag);
+
     viewport.addEventListener("keydown", (event) => {
       if (event.key !== "Enter" && event.key !== " ") {
         return;
