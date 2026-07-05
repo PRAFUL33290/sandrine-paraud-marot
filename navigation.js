@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "accompagnements.html": "icon-heart",
     "services.html": "icon-sun",
     "parcours.html": "icon-bloom",
-    "contact.html": "icon-spark",
+    "contact.html": "icon-mail",
   };
 
   const addResponsiveNavIcons = () => {
