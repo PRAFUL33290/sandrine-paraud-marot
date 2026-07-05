@@ -63,4 +63,18 @@
   <symbol id="icon-star" viewBox="0 0 24 24">
     <path d="M12 2.5 14.6 8.6 21.3 9.3 16.3 13.9 17.7 20.5 12 17.1 6.3 20.5 7.7 13.9 2.7 9.3 9.4 8.6Z"></path>
   </symbol>
+  <symbol id="icon-document" viewBox="0 0 24 24">
+    <path d="M7 3.5h7l4 4V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z"></path>
+    <path d="M14 3.5V8h4"></path>
+    <path d="M9 13h6"></path>
+    <path d="M9 16.5h6"></path>
+  </symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24">
+    <path d="M12 3.3 19 6v5.3c0 4.6-3 7.8-7 9.1-4-1.3-7-4.5-7-9.1V6l7-2.7Z"></path>
+    <path d="m9.3 12.3 1.9 1.9 3.5-3.9"></path>
+  </symbol>
+  <symbol id="icon-quill" viewBox="0 0 24 24">
+    <path d="M19.5 4.5c-5 .5-10 3-13.5 9.5-1 1.9-1.5 3.5-1.7 5.2 1.7-.2 3.3-.7 5.2-1.7 6.5-3.5 9-8.5 9.5-13.5Z"></path>
+    <path d="M13 11 5.5 18.5"></path>
+  </symbol>
 </svg>

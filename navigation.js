@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "services.html": "icon-sun",
     "parcours.html": "icon-bloom",
     "contact.html": "icon-mail",
+    "blog.html": "icon-quill",
   };
 
   const addResponsiveNavIcons = () => {
@@ -82,8 +83,27 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.append(contact);
   };
 
+  const addMobileLegalLinks = () => {
+    if (!nav || nav.querySelector(".mega-mobile-legal")) {
+      return;
+    }
+
+    const legal = document.createElement("div");
+    legal.classList.add("mega-mobile-legal");
+    legal.innerHTML = `
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+    `;
+
+    const legalLinks = legal.querySelectorAll("a");
+    legalLinks[0].prepend(createSvgIcon("icon-document", "footer-nav-icon"));
+    legalLinks[1].prepend(createSvgIcon("icon-shield", "footer-nav-icon"));
+    nav.append(legal);
+  };
+
   addResponsiveNavIcons();
   addMobileContactBlock();
+  addMobileLegalLinks();
 
   const setMenuOpen = (isOpen) => {
     document.body.classList.toggle("menu-open", isOpen);

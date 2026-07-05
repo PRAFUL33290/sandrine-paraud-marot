@@ -490,6 +490,10 @@ p {
   display: none;
 }
 
+.mega-mobile-legal {
+  display: none;
+}
+
 .nav-mobile-brand {
   display: none;
 }
@@ -1705,7 +1709,7 @@ p {
   margin: 0;
   color: var(--white);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.1rem;
+  font-size: 1.45rem;
   font-weight: 700;
   text-decoration: underline;
 }
@@ -1823,6 +1827,12 @@ p {
 
   .menu-toggle span:nth-child(3) {
     transform: translateY(7px);
+  }
+
+  .menu-toggle[aria-expanded="true"] {
+    color: #000;
+    border-color: rgba(0, 0, 0, 0.2);
+    background: var(--white);
   }
 
   body.menu-open {
@@ -2134,6 +2144,29 @@ p {
   .mega-mobile-socials .social-icon {
     width: 19px;
     height: 19px;
+  }
+
+  .mega-mobile-legal {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .mega-mobile-legal a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .mega-mobile-legal .footer-nav-icon {
+    width: 16px;
+    height: 16px;
+    color: rgba(49, 94, 85, 0.75);
   }
 
   .header-cta {
