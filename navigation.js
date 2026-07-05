@@ -40,8 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
+    const isMobileViewport = () => window.matchMedia("(max-width: 980px)").matches;
+
     const startAutoplay = () => {
       stopAutoplay();
+      if (isMobileViewport()) {
+        return;
+      }
       autoplayTimer = window.setInterval(() => goTo(current + 1), 5000);
     };
 

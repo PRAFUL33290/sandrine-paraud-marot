@@ -664,9 +664,28 @@ p {
   transform: rotate(180deg);
 }
 
+.hero-swipe-hint {
+  display: none;
+}
+
+@keyframes hero-swipe-hint-fade {
+  0%,
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-track {
     transition: none;
+  }
+
+  .hero-swipe-hint {
+    animation: none;
   }
 }
 
@@ -1870,6 +1889,44 @@ p {
 }
 
 @media (max-width: 980px) {
+  .hero-slider-controls {
+    display: none;
+  }
+
+  .hero-swipe-hint {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    bottom: clamp(20px, 4vh, 40px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    transform: translateX(-50%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.14);
+    font-size: 0.78rem;
+    font-weight: 600;
+    pointer-events: none;
+    animation: hero-swipe-hint-fade 4500ms ease forwards;
+  }
+
+  .hero-swipe-hint-icon {
+    width: 13px;
+    height: 13px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+  }
+
+  .hero-swipe-hint-icon.is-flipped {
+    transform: rotate(180deg);
+  }
+
   .hero-role-break {
     display: none;
   }
