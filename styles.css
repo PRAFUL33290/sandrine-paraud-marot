@@ -680,12 +680,112 @@ p {
   background: var(--sage-light);
 }
 
-.services-photo img {
+/* Custom grid for page hero with 2 columns */
+.page-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 981px) {
+  .page-hero-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: clamp(48px, 6vw, 96px);
+    align-items: center;
+  }
+}
+
+/* General component for framed visual blocks with offset brand background accents */
+.section-photo {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-grid .section-photo {
+  margin-top: clamp(32px, 5vw, 48px);
+}
+
+@media (min-width: 981px) {
+  .page-hero-grid .section-photo {
+    margin-top: 0;
+  }
+}
+
+.section-photo::before {
+  content: "";
+  position: absolute;
+  inset: 12px -12px -12px 12px;
+  background: var(--green-900);
+  border-radius: 16px;
+  z-index: -1;
+  opacity: 0.15;
+  transition: transform 300ms ease;
+}
+
+.section-photo::after {
+  content: "";
+  position: absolute;
+  inset: -12px 12px 12px -12px;
+  border: 1.5px dashed var(--green);
+  border-radius: 16px;
+  z-index: -2;
+  transition: transform 300ms ease;
+}
+
+.section-photo img,
+.section-photo svg {
+  display: block;
   width: 100%;
-  height: clamp(260px, 46vw, 520px);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
+  border: 6px solid var(--white);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(49, 94, 85, 0.14);
+  background: var(--white);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.section-photo img {
+  height: clamp(280px, 34vw, 450px);
   object-fit: cover;
+}
+
+.section-photo svg {
+  height: auto;
+}
+
+/* Hover effects for a tactile, modern feel */
+.section-photo:hover::before {
+  transform: translate(4px, 4px);
+}
+
+.section-photo:hover::after {
+  transform: translate(-4px, -4px);
+}
+
+.section-photo:hover img,
+.section-photo:hover svg {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px rgba(49, 94, 85, 0.2);
+}
+
+/* Custom 2-column grid for services section on desktop */
+.split-services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 981px) {
+  .split-services {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: clamp(48px, 6vw, 96px);
+    align-items: center;
+  }
+}
+
+/* Specific pricing section illustration layout */
+.pricing-photo {
+  margin-top: clamp(28px, 4vw, 42px);
+  max-width: 440px;
 }
 
 .page-hero h1 {
@@ -876,6 +976,101 @@ p {
   fill: var(--cream);
   stroke: var(--green-900);
   stroke-width: 2;
+}
+
+.reviews-section {
+  background: var(--sage-light);
+}
+
+.reviews-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 18px;
+}
+
+.reviews-stars {
+  display: flex;
+  gap: 3px;
+  color: var(--green-900);
+}
+
+.reviews-stars .star-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  stroke: none;
+}
+
+.reviews-summary p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.reviews-summary strong {
+  color: var(--green-900);
+}
+
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.review-card {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 14px;
+  width: min(340px, 82vw);
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 14px 38px rgba(74, 74, 74, 0.07);
+  scroll-snap-align: start;
+}
+
+.review-card .reviews-stars {
+  margin: 0;
+}
+
+.review-text {
+  margin: 0;
+  color: var(--ink);
+}
+
+.review-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: auto;
+}
+
+.review-author strong {
+  color: var(--green-900);
+}
+
+.review-author span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.reviews-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.reviews-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.reviews-track::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 8px;
 }
 
 .explore-illustration-node-start {
@@ -1419,6 +1614,53 @@ p {
 .contact-card > a {
   color: var(--green-900);
   font-weight: 800;
+}
+
+.contact-sidebar {
+  display: grid;
+  gap: 24px;
+}
+
+.contact-card h3 {
+  margin: 0 0 8px;
+  color: var(--green-900);
+}
+
+.contact-item,
+.info-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 0.95rem;
+}
+
+.contact-item a {
+  color: var(--green-900);
+  font-weight: 700;
+  transition: color 180ms ease;
+}
+
+.contact-item a:hover {
+  color: var(--green);
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  color: var(--green);
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  margin-top: 2px;
+}
+
+.info-item p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .footer {
