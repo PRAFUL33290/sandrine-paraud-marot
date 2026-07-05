@@ -327,7 +327,7 @@ p {
   stroke-width: 1.8;
 }
 
-@media (min-width: 981px) {
+@media (min-width: 1025px) {
   .mega-feature .nav-item-icon {
     display: none;
   }
@@ -2149,7 +2149,7 @@ p {
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   color: var(--white);
   font-size: 0.8rem;
-  text-align: left;
+  text-align: center;
 }
 
 .footer-credit {
@@ -2160,7 +2160,7 @@ p {
   text-align: center;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1024px) {
   .hero-slider-controls {
     display: none;
   }
@@ -2641,6 +2641,26 @@ p {
 
   .contact-actions {
     width: min(100%, 360px);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .menu-toggle {
+    width: 72px;
+    height: 72px;
+  }
+
+  .menu-toggle span {
+    width: 34px;
+    height: 3px;
+  }
+
+  .menu-toggle span:nth-child(1) {
+    transform: translateY(-9px);
+  }
+
+  .menu-toggle span:nth-child(3) {
+    transform: translateY(9px);
   }
 }
 
