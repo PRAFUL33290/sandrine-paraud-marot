@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const initHeroSlider = () => {
     const slider = document.querySelector(".hero-slider");
     const track = slider ? slider.querySelector(".hero-track") : null;
+    const dragSurface = slider ? slider.closest(".hero") || slider : null;
     if (!slider || !track) {
       return;
     }
@@ -18,10 +19,31 @@ document.addEventListener("DOMContentLoaded", () => {
     let trackPosition = hasClones ? 1 : 0;
     let realIndex = 0;
     let autoplayTimer = null;
+    let animationFallbackTimer = null;
+    let queuedSteps = 0;
+    let isAnimating = false;
     let isDragging = false;
     let dragStartX = 0;
     let dragDeltaX = 0;
     let pointerId = null;
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const clearAnimationFallback = () => {
+      if (animationFallbackTimer) {
+        window.clearTimeout(animationFallbackTimer);
+        animationFallbackTimer = null;
+      }
+    };
+
+    const unlockAnimation = () => {
+      clearAnimationFallback();
+      isAnimating = false;
+    };
+
+    const queueStep = (direction) => {
+      queuedSteps = clamp(queuedSteps + direction, -totalReal, totalReal);
+    };
 
     const setTransform = (extraPx) => {
       track.style.transform = `translateX(calc(${trackPosition * -100}% + ${extraPx || 0}px))`;
@@ -44,38 +66,95 @@ document.addEventListener("DOMContentLoaded", () => {
       setTransform();
       void track.offsetWidth;
       track.style.transition = "";
+      syncRealIndex();
+      updateDots();
+      unlockAnimation();
+    };
+
+    const playQueuedStep = () => {
+      if (isAnimating || isDragging || queuedSteps === 0) {
+        return;
+      }
+
+      const direction = queuedSteps > 0 ? 1 : -1;
+      queuedSteps -= direction;
+      window.requestAnimationFrame(() => advance(direction));
+    };
+
+    const finishAnimation = () => {
+      if (hasClones && trackPosition === 0) {
+        snapTo(totalReal);
+      } else if (hasClones && trackPosition === totalReal + 1) {
+        snapTo(1);
+      } else {
+        unlockAnimation();
+      }
+
+      playQueuedStep();
     };
 
     const goToTrackPosition = (position) => {
+      if (position === trackPosition) {
+        syncRealIndex();
+        setTransform();
+        updateDots();
+        return;
+      }
+
       trackPosition = position;
       syncRealIndex();
+      isAnimating = true;
       setTransform();
       updateDots();
+      clearAnimationFallback();
+      animationFallbackTimer = window.setTimeout(finishAnimation, 2600);
     };
 
     const goToIndex = (index) => {
+      if (isAnimating) {
+        queuedSteps = 0;
+        return;
+      }
+
+      if (hasClones && realIndex === totalReal - 1 && index === 0) {
+        advance(1);
+        return;
+      }
+
+      if (hasClones && realIndex === 0 && index === totalReal - 1) {
+        advance(-1);
+        return;
+      }
+
       goToTrackPosition(hasClones ? index + 1 : index);
     };
 
     const advance = (direction) => {
+      if (isDragging) {
+        return;
+      }
+
+      if (isAnimating) {
+        queueStep(direction);
+        return;
+      }
+
+      if (hasClones && direction > 0 && trackPosition >= totalReal + 1) {
+        snapTo(1);
+      } else if (hasClones && direction < 0 && trackPosition <= 0) {
+        snapTo(totalReal);
+      }
+
       goToTrackPosition(trackPosition + direction);
     };
 
-    if (hasClones) {
-      track.addEventListener("transitionend", (event) => {
-        if (event.propertyName !== "transform") {
-          return;
-        }
+    track.addEventListener("transitionend", (event) => {
+      if (event.propertyName !== "transform") {
+        return;
+      }
 
-        if (trackPosition === 0) {
-          snapTo(totalReal);
-          syncRealIndex();
-        } else if (trackPosition === totalReal + 1) {
-          snapTo(1);
-          syncRealIndex();
-        }
-      });
-    }
+      finishAnimation();
+    });
 
     const stopAutoplay = () => {
       if (autoplayTimer) {
@@ -125,8 +204,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       isDragging = false;
       track.classList.remove("is-dragging");
+      dragSurface.classList.remove("is-dragging");
 
-      const threshold = slider.clientWidth * 0.15;
+      const threshold = dragSurface.clientWidth * 0.15;
       if (dragDeltaX > threshold) {
         advance(-1);
       } else if (dragDeltaX < -threshold) {
@@ -139,8 +219,18 @@ document.addEventListener("DOMContentLoaded", () => {
       startAutoplay();
     };
 
-    slider.addEventListener("pointerdown", (event) => {
+    const isInteractiveTarget = (target) => Boolean(target.closest("a, button, input, select, textarea, label"));
+
+    dragSurface.addEventListener("pointerdown", (event) => {
       if (event.button !== 0 && event.pointerType === "mouse") {
+        return;
+      }
+
+      if (isInteractiveTarget(event.target)) {
+        return;
+      }
+
+      if (isAnimating) {
         return;
       }
 
@@ -149,21 +239,24 @@ document.addEventListener("DOMContentLoaded", () => {
       dragStartX = event.clientX;
       dragDeltaX = 0;
       track.classList.add("is-dragging");
+      dragSurface.classList.add("is-dragging");
       stopAutoplay();
-      slider.setPointerCapture(pointerId);
+      dragSurface.setPointerCapture(pointerId);
     });
 
-    slider.addEventListener("pointermove", (event) => {
+    dragSurface.addEventListener("pointermove", (event) => {
       if (!isDragging || event.pointerId !== pointerId) {
         return;
       }
 
-      dragDeltaX = event.clientX - dragStartX;
+      event.preventDefault();
+      const maxDrag = dragSurface.clientWidth * 0.92;
+      dragDeltaX = clamp(event.clientX - dragStartX, -maxDrag, maxDrag);
       setTransform(dragDeltaX);
     });
 
-    slider.addEventListener("pointerup", endDrag);
-    slider.addEventListener("pointercancel", endDrag);
+    dragSurface.addEventListener("pointerup", endDrag);
+    dragSurface.addEventListener("pointercancel", endDrag);
 
     syncRealIndex();
     updateDots();

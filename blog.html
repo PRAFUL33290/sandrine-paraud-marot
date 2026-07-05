@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body class="blog-sidebar-page">
     <header class="site-header solid">
       <a class="brand" href="index.html" aria-label="Accueil"><span class="brand-mark">SPM</span><span><strong>Sandrine Paraud Marot</strong><small>Sophrologue · Potentiel du Moi</small></span></a>
       <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
@@ -62,26 +62,46 @@
         </div>
       </section>
       <section class="section">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">Bientôt disponible</p>
-            <h2>Les premiers articles arrivent prochainement.</h2>
-            <p>
-              Cet espace accueillera bientôt des articles pour approfondir les thèmes de l'accompagnement,
-              de la sophrologie et de la transformation personnelle. En attendant, découvrez l'approche
-              ou prenez contact directement.
-            </p>
+        <div class="container blog-content-layout">
+          <div class="blog-main-column">
+            <div class="section-heading">
+              <p class="eyebrow">Premier article</p>
+              <h2>À lire sur le blog</h2>
+            </div>
+            <article class="blog-feature-card">
+              <img class="blog-feature-background" src="IMG%20BACKGROUND/BG%205.png" alt="Espace doux et lumineux propice à l'accompagnement personnel">
+              <div class="blog-feature-content">
+                <p class="eyebrow">Actualités · 5 juillet 2026</p>
+                <h3>Bienvenue dans mon nouvel univers d'accompagnement</h3>
+                <p>Parce que chaque changement commence par une meilleure connaissance de soi.</p>
+                <a class="button primary" href="nouveau-site-accompagnement-global.html">
+                  <svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-quill"></use></svg>
+                  Lire l'article
+                </a>
+              </div>
+            </article>
           </div>
-          <div class="hero-actions">
-            <a class="button primary" href="contact.html">
-              <svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>
-              Prendre rendez-vous
+          <aside class="blog-sidebar" aria-label="Navigation du blog">
+            <p class="eyebrow">Explorer</p>
+            <h2>Blog</h2>
+            <div class="blog-sidebar-group">
+              <h3>Date</h3>
+              <a href="nouveau-site-accompagnement-global.html">2026</a>
+            </div>
+            <div class="blog-sidebar-group">
+              <h3>Sujet</h3>
+              <a href="nouveau-site-accompagnement-global.html">Connaissance de soi</a>
+              <a href="nouveau-site-accompagnement-global.html">Accompagnement global</a>
+            </div>
+            <div class="blog-sidebar-group">
+              <h3>Catégorie</h3>
+              <a href="nouveau-site-accompagnement-global.html">Actualités</a>
+            </div>
+            <a class="blog-sidebar-feature" href="nouveau-site-accompagnement-global.html">
+              <span>Dernier article</span>
+              <strong>Bienvenue dans mon nouvel univers d'accompagnement</strong>
             </a>
-            <a class="button secondary" href="approche.html">
-              <svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-leaf"></use></svg>
-              Découvrir l'approche
-            </a>
-          </div>
+          </aside>
         </div>
       </section>
     </main>
@@ -121,6 +141,10 @@
             <a href="mentions-legales.html"><svg class="footer-nav-icon" aria-hidden="true"><use href="assets/icons.svg#icon-document"></use></svg>Mentions légales</a>
             <a href="politique-confidentialite.html"><svg class="footer-nav-icon" aria-hidden="true"><use href="assets/icons.svg#icon-shield"></use></svg>Politique de confidentialité</a>
           </nav>
+          <div class="footer-col footer-photos" aria-label="Photos">
+            <h2 class="footer-col-title">PHOTOS</h2>
+            <div class="footer-photo-grid" aria-hidden="true"></div>
+          </div>
         </div>
         <p class="footer-copyright">&copy; 2026 Sandrine Paraud Marot. Tous droits réservés.</p>
       </div>
