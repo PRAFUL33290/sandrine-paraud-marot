@@ -1,4 +1,127 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const initHeroSlider = () => {
+    const slider = document.querySelector(".hero-slider");
+    const track = slider ? slider.querySelector(".hero-track") : null;
+    if (!slider || !track) {
+      return;
+    }
+
+    const slides = Array.from(track.querySelectorAll(".hero-slide"));
+    const dots = Array.from(document.querySelectorAll(".hero-dot"));
+    if (slides.length < 2) {
+      return;
+    }
+
+    let current = 0;
+    let autoplayTimer = null;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragDeltaX = 0;
+    let pointerId = null;
+
+    const setTransform = (extraPx) => {
+      track.style.transform = `translateX(calc(${current * -100}% + ${extraPx || 0}px))`;
+    };
+
+    const updateDots = () => {
+      dots.forEach((dot, index) => dot.classList.toggle("is-active", index === current));
+    };
+
+    const goTo = (index) => {
+      current = ((index % slides.length) + slides.length) % slides.length;
+      setTransform();
+      updateDots();
+    };
+
+    const stopAutoplay = () => {
+      if (autoplayTimer) {
+        window.clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      autoplayTimer = window.setInterval(() => goTo(current + 1), 5000);
+    };
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        goTo(index);
+        startAutoplay();
+      });
+    });
+
+    const prevArrow = document.querySelector(".hero-arrow-prev");
+    const nextArrow = document.querySelector(".hero-arrow-next");
+
+    if (prevArrow) {
+      prevArrow.addEventListener("click", () => {
+        goTo(current - 1);
+        startAutoplay();
+      });
+    }
+
+    if (nextArrow) {
+      nextArrow.addEventListener("click", () => {
+        goTo(current + 1);
+        startAutoplay();
+      });
+    }
+
+    const endDrag = () => {
+      if (!isDragging) {
+        return;
+      }
+
+      isDragging = false;
+      track.classList.remove("is-dragging");
+
+      const threshold = slider.clientWidth * 0.15;
+      if (dragDeltaX > threshold) {
+        goTo(current - 1);
+      } else if (dragDeltaX < -threshold) {
+        goTo(current + 1);
+      } else {
+        setTransform();
+      }
+
+      dragDeltaX = 0;
+      startAutoplay();
+    };
+
+    slider.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 && event.pointerType === "mouse") {
+        return;
+      }
+
+      isDragging = true;
+      pointerId = event.pointerId;
+      dragStartX = event.clientX;
+      dragDeltaX = 0;
+      track.classList.add("is-dragging");
+      stopAutoplay();
+      slider.setPointerCapture(pointerId);
+    });
+
+    slider.addEventListener("pointermove", (event) => {
+      if (!isDragging || event.pointerId !== pointerId) {
+        return;
+      }
+
+      dragDeltaX = event.clientX - dragStartX;
+      setTransform(dragDeltaX);
+    });
+
+    slider.addEventListener("pointerup", endDrag);
+    slider.addEventListener("pointercancel", endDrag);
+
+    goTo(0);
+    startAutoplay();
+  };
+
+  initHeroSlider();
+
   const header = document.querySelector(".site-header");
   const nav = document.querySelector(".nav");
 

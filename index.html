@@ -62,8 +62,27 @@
 
     <main>
       <section class="hero" aria-label="Présentation">
-        <img class="hero-image" src="assets/hero-sandrine.png" alt="">
+        <div class="hero-slider">
+          <div class="hero-track">
+            <img class="hero-slide" src="IMG%20BACKGROUND/BG%202.png" alt="" draggable="false">
+            <img class="hero-slide" src="IMG%20BACKGROUND/BG%203.png" alt="" draggable="false">
+            <img class="hero-slide" src="IMG%20BACKGROUND/BG%204.png" alt="" draggable="false">
+          </div>
+        </div>
         <div class="hero-overlay"></div>
+        <div class="hero-slider-controls" aria-label="Changer de photo">
+          <button class="hero-arrow hero-arrow-prev" type="button" aria-label="Photo précédente">
+            <svg class="hero-arrow-icon" aria-hidden="true"><use href="assets/icons.svg#icon-chevron"></use></svg>
+          </button>
+          <div class="hero-dots">
+            <button class="hero-dot is-active" type="button" aria-label="Photo 1"></button>
+            <button class="hero-dot" type="button" aria-label="Photo 2"></button>
+            <button class="hero-dot" type="button" aria-label="Photo 3"></button>
+          </div>
+          <button class="hero-arrow hero-arrow-next" type="button" aria-label="Photo suivante">
+            <svg class="hero-arrow-icon" aria-hidden="true"><use href="assets/icons.svg#icon-chevron"></use></svg>
+          </button>
+        </div>
         <div class="hero-content">
           <h1 class="hero-title">Sandrine Paraud Marot</h1>
           <p class="hero-role"><span class="hero-role-highlight">Sophrologue<br class="hero-role-break"> et accompagnatrice en transformation personnelle</span></p>

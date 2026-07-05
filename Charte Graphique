@@ -1,9 +1,121 @@
-🎨 Palette complète (harmonieuse et professionnelle)
-Couleur principale (fond / sections)
-•	Vert profond : #2F4F4F
-Couleurs secondaires
-•	Beige sable : #E8DCC2 (douceur, chaleur, humanité)
-•	Blanc cassé : #F7F5F0 (respiration, clarté)
-•	Or doux : #C8A96E (ton énergie de transmission, ton côté lumineux)
-Couleur d’accent (boutons / liens)
-•	Vert sauge clair : #A8B8A5 (harmonie, modernité, douceur)
+# Charte graphique — Sandrine Paraud Marot
+Site : sandrine-paraud-marot.fr — Sophrologue · Potentiel du Moi
+(Document généré à partir de l'analyse de styles.css, navigation.js et assets/icons.svg)
+
+---
+
+## 1. Identité de marque
+
+- **Logo** : monogramme "SPM" (texte, pas d'image), inscrit dans un cercle.
+  - Header : cercle 58×58px, bordure blanche semi-transparente (rgba(255,255,255,0.64)), texte blanc, police Cormorant Garamond 1.15rem / 700.
+  - Footer : même cercle agrandi à 40×40px.
+  - Menu mobile (volet) : cercle agrandi à 64×64px, bordure verte (rgba(49,94,85,0.32)), texte vert foncé.
+- **Signature associée** : "Sandrine Paraud Marot" (nom, Cormorant Garamond, gras) + "Sophrologue · Potentiel du Moi" (sous-titre, petite capitale).
+
+## 2. Palette de couleurs
+
+Variables définies dans `:root` (styles.css) :
+
+| Variable       | Valeur                          | Usage principal                                  |
+|----------------|----------------------------------|---------------------------------------------------|
+| `--green`      | `#8fb399`                       | Vert sauge — boutons primaires, accents, éditos    |
+| `--green-900`  | `#315e55`                        | Vert foncé — titres (h1-h3), header solide, icônes |
+| `--sage`       | `rgba(143,179,153,0.2)`          | Fonds doux, surlignage                             |
+| `--sage-light` | `rgba(143,179,153,0.12)`         | Fonds de section ("band"), fond des icônes rondes  |
+| `--cream`      | `#f9f9f9`                       | Fond général du site (body)                        |
+| `--ink`        | `#4a4a4a`                       | Texte courant                                      |
+| `--muted`      | `rgba(74,74,74,0.72)`            | Texte secondaire / paragraphes atténués            |
+| `--white`      | `#ffffff`                       | Fond des cartes, texte sur fond foncé               |
+| `--line`       | `rgba(143,179,153,0.28)`         | Séparateurs, bordures fines                         |
+| `--shadow`     | `0 24px 70px rgba(49,94,85,0.1)` | Ombre portée douce (cartes, panneaux)              |
+
+Couleur d'accent additionnelle :
+- **Noir** `#000` — utilisé uniquement pour le fond du footer et pour l'icône de fermeture (croix) du menu mobile.
+
+Logique d'usage :
+- Vert sauge (`--green`) = actions et boutons "Prendre rendez-vous".
+- Vert foncé (`--green-900`) = hiérarchie éditoriale (titres), état actif du menu, icônes.
+- Crème (`--cream`) = fond de page, contrastant avec le blanc des cartes et le vert foncé du header.
+
+## 3. Typographie
+
+- **Titres (h1, h2, h3)** : `"Cormorant Garamond", Georgia, serif` — serif élégant, `font-weight: 700`.
+  - h1 : `clamp(3.2rem, 8vw, 6.7rem)`
+  - h2 : `clamp(2.3rem, 4.6vw, 4.5rem)`
+  - h3 : `1.8rem`
+  - Interlignage serré (`line-height: 1.02`) pour un rendu impactant.
+- **Texte courant / UI** : `Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`, `line-height: 1.6`.
+- **Eyebrow (survitre)** : petite capitale verte — `font-size: 0.78rem`, `font-weight: 800`, `text-transform: uppercase`, couleur `--green`.
+- **Rôle du hero** ("Sophrologue et accompagnatrice…") : Inter, `font-weight: 800`, `letter-spacing: 0.14em`, majuscules.
+- Polices chargées via Google Fonts : `Cormorant Garamond` (500/600/700) et `Inter` (400/500/600/700).
+
+## 4. Iconographie
+
+Toutes les icônes sont des symboles SVG en trait (`stroke`), regroupées dans `assets/icons.svg` et appelées via `<use href="assets/icons.svg#icon-...">`.
+
+Style commun : `fill: none`, `stroke: currentColor`, `stroke-width: 1.8`, extrémités et jonctions arrondies (`round`).
+
+**Icônes thématiques (navigation / contenu)**
+| Icône           | Association                              |
+|-----------------|-------------------------------------------|
+| `icon-bloom`    | Accueil, Parcours (fleur/éclosion)         |
+| `icon-leaf`     | Approche (feuille)                         |
+| `icon-spark`    | Outils (étincelle)                         |
+| `icon-heart`    | Accompagnements (cœur)                     |
+| `icon-sun`      | Services & tarifs, CTA "Prendre rendez-vous" (soleil) |
+| `icon-compass`  | Vie professionnelle (boussole)             |
+| `icon-path`     | Histoire (chemin)                          |
+| `icon-wave`     | Valeurs (vague)                            |
+| `icon-mail`     | Contact (enveloppe)                        |
+| `icon-quill`    | Blog (plume)                               |
+| `icon-document` | Mentions légales                           |
+| `icon-shield`   | Politique de confidentialité (bouclier)    |
+
+**Icônes utilitaires**
+| Icône           | Usage                                      |
+|-----------------|---------------------------------------------|
+| `icon-phone`    | Numéro de téléphone                        |
+| `icon-arrow`    | Flèche des cartes ("page-card-arrow")       |
+| `icon-star`     | Notes des avis Google (rempli, pas de trait)|
+| `icon-facebook` | Réseau social Facebook                     |
+| `icon-instagram`| Réseau social Instagram                    |
+
+**Tailles standards**
+- `.icon` (badge rond, ex. cartes pages) : 42×42px, padding 9px, fond `--sage-light`, cercle `border-radius: 50%`, couleur `--green-900`.
+- `.mini-icon` : 24×24px, couleur `--green-900`.
+- `.nav-item-icon` (menu déroulant / mobile) : 18–22px, couleur héritée (`currentColor`).
+- `.footer-nav-icon` : 16×16px, couleur blanche sur fond noir du footer.
+- `.button-icon` : 18×18px, marge droite 8px.
+- `.social-icon` : 20×20px.
+
+## 5. Boutons & CTA
+
+- **Forme commune** : pleinement arrondi (`border-radius: 999px`), hauteur mini 48px, `font-weight: 700`, `font-size: 0.95rem`.
+- **`.button.primary`** : fond `--green`, texte blanc, ombre douce — action principale ("Prendre rendez-vous").
+- **`.button.secondary`** : transparent avec bordure blanche semi-opaque, texte blanc — sur fond foncé (hero, header).
+- **`.button.secondary.light`** : fond blanc translucide, texte `--green-900`, bordure `--line` — sur fond clair.
+- **`.header-cta`** : fond blanc, texte `--green-900`, réservé au bouton du header.
+- Interaction : léger soulèvement au survol (`translateY(-2px)`).
+
+## 6. Composants clés
+
+- **Header** : fixe, dégradé vert transparent → opaque sur la page d'accueil (`.home-header`, devient `.is-scrolled` au scroll), fond vert `rgba(49,94,85,0.9)` avec flou (`backdrop-filter: blur(16px)`) sur les pages intérieures (`.solid`).
+- **Menu déroulant "Accompagnements"** (méga-menu) : panneau blanc (`rgba(255,255,255,0.98)`), coins 8px, ombre portée large, 2 colonnes de liens + 1 bloc CTA ("Envie d'avancer ?").
+- **Menu mobile (volet)** : panneau blanc plein écran glissant depuis la droite (80vw), fond blanc, liens empilés avec icône + soulignement au survol ; bouton hamburger devient une croix noire à l'ouverture.
+- **Footer** : fond noir, 3 colonnes (marque/contact, navigation, informations légales), titres de colonnes en Cormorant Garamond soulignés, liens avec icône + soulignement animé au survol.
+- **Cartes de page** (`.page-card`) : fond blanc, coins arrondis, icône ronde, flèche `icon-arrow` en pied de carte.
+- **Avis Google** : étoiles pleines (`icon-star`, fill) en vert foncé, note affichée en gras.
+
+## 7. Espacements, rayons & ombres
+
+- **Rayons** : 999px (pilules : boutons, nav, badges) · 50% (cercles : logo, icônes) · 8px (cartes, panneaux, blocs) · 16px (grandes cartes/illustrations).
+- **Ombres** : douces et vertes, jamais noires pures — ex. `0 24px 70px rgba(49,94,85,0.1)`, `0 12px 34px rgba(49,94,85,0.12)`.
+- **Conteneur** : largeur max `1120px` (`.container`), respiration latérale `clamp(18px, 4vw, 56px)`.
+- **Rythme vertical** : sections espacées avec `clamp()` (ex. `clamp(72px, 9vw, 112px)`), pour une mise à l'échelle fluide desktop → mobile.
+
+## 8. Ton éditorial / mise en forme du texte
+
+- Eyebrows (survtitres) toujours en majuscules, courts, verts.
+- Titres en minuscules/casse normale (pas de majuscules forcées), sauf le "rôle" du hero (majuscules + tracking large).
+- Ponctuation soignée : guillemets français « » pour les citations d'avis, apostrophes typographiques.
+- Vocabulaire de marque : "Sophrologue · Potentiel du Moi", "Prendre rendez-vous", "Envie d'avancer ?".
