@@ -2033,6 +2033,10 @@ p {
     padding: 12px 14px;
   }
 
+  .mega-column a.active small {
+    color: var(--white);
+  }
+
   .nav a:hover {
     color: inherit;
   }
@@ -2058,6 +2062,17 @@ p {
     color: var(--ink);
     border-color: transparent;
     background: transparent;
+  }
+
+  .mega-column a.active:hover,
+  .mega-column a.active:focus-visible {
+    color: var(--white);
+    background: var(--green-900);
+  }
+
+  .mega-column a.active:hover small,
+  .mega-column a.active:focus-visible small {
+    color: var(--white);
   }
 
   .mega-column strong {
