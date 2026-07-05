@@ -1113,9 +1113,14 @@ p {
 
 .reviews-viewport {
   overflow: hidden;
-  cursor: pointer;
+  cursor: grab;
+  touch-action: pan-y;
   -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.reviews-viewport.is-dragging {
+  cursor: grabbing;
 }
 
 .reviews-track {
@@ -1124,26 +1129,6 @@ p {
   padding-bottom: 14px;
   width: max-content;
   will-change: transform;
-  animation: reviews-scroll var(--reviews-duration, 45s) linear infinite;
-}
-
-.reviews-track.is-paused {
-  animation-play-state: paused;
-}
-
-@keyframes reviews-scroll {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reviews-track {
-    animation: none;
-  }
 }
 
 .review-card {
