@@ -35,14 +35,15 @@ jobs:
     needs: build
     steps:
       - name: Deploy to GitHub Pages
-        id: deploy
+        id: deployment
         uses: actions/deploy-pages@v4
         continue-on-error: true
 
       - name: Wait before retry
-        if: steps.deploy.outcome == 'failure'
+        if: steps.deployment.outcome == 'failure'
         run: sleep 30
 
       - name: Deploy to GitHub Pages (retry)
-        if: steps.deploy.outcome == 'failure'
+        id: deployment-retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
