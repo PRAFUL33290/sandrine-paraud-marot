@@ -64,11 +64,26 @@
       <section class="hero" aria-label="Présentation">
         <div class="hero-slider">
           <div class="hero-track" style="transform: translateX(-100%)">
-            <img class="hero-slide hero-slide-clone" src="IMG%20BACKGROUND/BG%204.png" alt="" draggable="false" aria-hidden="true">
-            <img class="hero-slide" src="IMG%20BACKGROUND/BG%202.png" alt="" draggable="false">
-            <img class="hero-slide" src="IMG%20BACKGROUND/BG%203.png" alt="" draggable="false">
-            <img class="hero-slide" src="IMG%20BACKGROUND/BG%204.png" alt="" draggable="false">
-            <img class="hero-slide hero-slide-clone" src="IMG%20BACKGROUND/BG%202.png" alt="" draggable="false" aria-hidden="true">
+            <picture class="hero-slide hero-slide-clone" aria-hidden="true">
+              <source srcset="IMG%20BACKGROUND/BG%204.webp" type="image/webp">
+              <img src="IMG%20BACKGROUND/BG%204.png" width="1536" height="1024" alt="" draggable="false" loading="lazy" decoding="async">
+            </picture>
+            <picture class="hero-slide">
+              <source srcset="IMG%20BACKGROUND/BG%202.webp" type="image/webp">
+              <img src="IMG%20BACKGROUND/BG%202.png" width="1693" height="929" alt="" draggable="false" fetchpriority="high" decoding="async">
+            </picture>
+            <picture class="hero-slide">
+              <source srcset="IMG%20BACKGROUND/BG%203.webp" type="image/webp">
+              <img src="IMG%20BACKGROUND/BG%203.png" width="1536" height="1024" alt="" draggable="false" loading="lazy" decoding="async">
+            </picture>
+            <picture class="hero-slide">
+              <source srcset="IMG%20BACKGROUND/BG%204.webp" type="image/webp">
+              <img src="IMG%20BACKGROUND/BG%204.png" width="1536" height="1024" alt="" draggable="false" loading="lazy" decoding="async">
+            </picture>
+            <picture class="hero-slide hero-slide-clone" aria-hidden="true">
+              <source srcset="IMG%20BACKGROUND/BG%202.webp" type="image/webp">
+              <img src="IMG%20BACKGROUND/BG%202.png" width="1693" height="929" alt="" draggable="false" loading="lazy" decoding="async">
+            </picture>
           </div>
         </div>
         <div class="hero-overlay"></div>

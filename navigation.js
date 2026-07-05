@@ -309,6 +309,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let dragStartX = 0;
     let dragStartPosition = 0;
     let lastFrameTime = null;
+    let isRunning = false;
+    let isInView = false;
 
     const applyTransform = () => {
       const normalized = loopWidth > 0 ? ((position % loopWidth) + loopWidth) % loopWidth : 0;
@@ -324,12 +326,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!isPaused && !isDragging && !prefersReducedMotion) {
         position += (pxPerSecond * delta) / 1000;
+        applyTransform();
       }
 
-      applyTransform();
+      if (isInView) {
+        window.requestAnimationFrame(tick);
+      } else {
+        isRunning = false;
+      }
+    };
+
+    const startTick = () => {
+      if (isRunning) {
+        return;
+      }
+      isRunning = true;
+      lastFrameTime = null;
       window.requestAnimationFrame(tick);
     };
-    window.requestAnimationFrame(tick);
+
+    if ("IntersectionObserver" in window) {
+      const visibilityObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          isInView = entry.isIntersecting;
+          if (isInView) {
+            startTick();
+          }
+        });
+      });
+      visibilityObserver.observe(viewport);
+    } else {
+      isInView = true;
+      startTick();
+    }
 
     const togglePause = () => {
       isPaused = !isPaused;
