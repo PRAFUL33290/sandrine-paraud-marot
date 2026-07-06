@@ -1660,6 +1660,44 @@ p {
   text-align: right;
 }
 
+.pricing-highlights {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pricing-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.pricing-highlights .icon {
+  flex-shrink: 0;
+  color: var(--green);
+  background: var(--sage-light);
+}
+
+.pricing-highlights div {
+  display: grid;
+  gap: 2px;
+}
+
+.pricing-highlights strong {
+  color: var(--green-900);
+}
+
+.pricing-highlights span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .pricing-panel {
   display: grid;
   gap: 14px;
