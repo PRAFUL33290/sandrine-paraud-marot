@@ -134,7 +134,7 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 18px clamp(18px, 4vw, 56px);
+  padding: calc(18px + env(safe-area-inset-top)) clamp(18px, 4vw, 56px) 18px;
   color: var(--white);
   background: linear-gradient(180deg, rgba(49, 94, 85, 0.72), rgba(49, 94, 85, 0.34) 70%, transparent);
   transition: background 260ms ease, backdrop-filter 260ms ease, box-shadow 260ms ease;
@@ -2282,7 +2282,7 @@ p {
     justify-content: flex-start;
     gap: 0;
     overflow-y: auto;
-    padding: 96px 22px 28px;
+    padding: calc(96px + env(safe-area-inset-top)) 22px 28px;
     color: var(--ink);
     background: var(--white);
     box-shadow: -24px 0 70px rgba(20, 46, 40, 0.18);
