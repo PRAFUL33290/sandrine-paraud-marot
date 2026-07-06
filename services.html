@@ -117,67 +117,39 @@
             <p class="eyebrow">Tarifs &amp; modalités</p>
             <h2>Un premier échange pour poser le cadre.</h2>
             <p>Chaque accompagnement débute par un premier échange afin de comprendre votre demande, vos besoins et de vous orienter vers le format le plus adapté.</p>
-            <div class="section-photo pricing-photo">
-              <!-- Inline SVG illustration for Pricing -->
-              <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" aria-label="Illustration de clarté et de floraison">
-                <defs>
-                  <linearGradient id="zenGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="var(--green-900)" stop-opacity="0.15"/>
-                    <stop offset="100%" stop-color="var(--green)" stop-opacity="0.25"/>
-                  </linearGradient>
-                </defs>
-                <!-- Background soft circle -->
-                <circle cx="200" cy="180" r="130" fill="url(#zenGrad2)"/>
-                <circle cx="200" cy="180" r="110" fill="none" stroke="var(--green-900)" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
-                
-                <!-- Concentric Ripples at the bottom -->
-                <ellipse cx="200" cy="270" rx="140" ry="20" fill="none" stroke="var(--green)" stroke-width="1" opacity="0.4"/>
-                <ellipse cx="200" cy="270" rx="100" ry="14" fill="none" stroke="var(--green)" stroke-width="1.5" opacity="0.6"/>
-                <ellipse cx="200" cy="270" rx="60" ry="9" fill="none" stroke="var(--green-900)" stroke-width="1" opacity="0.4"/>
-
-                <!-- Sun Rays & Sun (Clarity) -->
-                <g transform="translate(200, 140)">
-                  <!-- Sun -->
-                  <circle cx="0" cy="0" r="30" fill="var(--white)" stroke="var(--green)" stroke-width="1.5"/>
-                  <!-- Rays -->
-                  <line x1="0" y1="-45" x2="0" y2="-38" stroke="var(--green-900)" stroke-width="2" stroke-linecap="round"/>
-                  <line x1="0" y1="45" x2="0" y2="38" stroke="var(--green-900)" stroke-width="2" stroke-linecap="round"/>
-                  <line x1="-45" y1="0" x2="-38" y2="0" stroke="var(--green-900)" stroke-width="2" stroke-linecap="round"/>
-                  <line x1="45" y1="0" x2="38" y2="0" stroke="var(--green-900)" stroke-width="2" stroke-linecap="round"/>
-                  <line x1="-32" y1="-32" x2="-27" y2="-27" stroke="var(--green-900)" stroke-width="1.5" stroke-linecap="round"/>
-                  <line x1="32" y1="32" x2="27" y2="27" stroke="var(--green-900)" stroke-width="1.5" stroke-linecap="round"/>
-                  <line x1="32" y1="-32" x2="27" y2="-27" stroke="var(--green-900)" stroke-width="1.5" stroke-linecap="round"/>
-                  <line x1="-32" y1="32" x2="-27" y2="27" stroke="var(--green-900)" stroke-width="1.5" stroke-linecap="round"/>
-                </g>
-
-                <!-- Blooming Lotus/Flower petals -->
-                <g transform="translate(200, 270)">
-                  <!-- Back Petals -->
-                  <path d="M 0 0 C -60 -70 -120 -40 -80 -10 C -50 -10 -20 -5 0 0 Z" fill="var(--green)" fill-opacity="0.2" stroke="var(--green-900)" stroke-width="1.5"/>
-                  <path d="M 0 0 C 60 -70 120 -40 80 -10 C 50 -10 20 -5 0 0 Z" fill="var(--green)" fill-opacity="0.2" stroke="var(--green-900)" stroke-width="1.5"/>
-                  
-                  <!-- Middle Petals -->
-                  <path d="M 0 0 C -40 -90 -80 -80 -50 -20 C -30 -15 -10 -5 0 0 Z" fill="var(--green)" fill-opacity="0.3" stroke="var(--green-900)" stroke-width="2"/>
-                  <path d="M 0 0 C 40 -90 80 -80 50 -20 C 30 -15 10 -5 0 0 Z" fill="var(--green)" fill-opacity="0.3" stroke="var(--green-900)" stroke-width="2"/>
-                  
-                  <!-- Central Petal -->
-                  <path d="M 0 0 C -25 -110 25 -110 0 0 Z" fill="var(--green)" fill-opacity="0.4" stroke="var(--green-900)" stroke-width="2.5"/>
-                </g>
-
-                <!-- Sparkles -->
-                <path d="M 80 80 Q 80 75 85 75 Q 80 75 80 70 Q 80 75 75 75 Q 80 75 80 80 Z" fill="var(--green)" opacity="0.8"/>
-                <path d="M 320 100 Q 320 95 325 95 Q 320 95 320 90 Q 320 95 315 95 Q 320 95 320 100 Z" fill="var(--green-900)" opacity="0.6"/>
-              </svg>
-            </div>
+            <table class="pricing-table">
+              <thead>
+                <tr>
+                  <th scope="col">Prestation</th>
+                  <th scope="col">Tarif</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Séances individuelles</td>
+                  <td>50 €/h — 60 € pour la première consultation</td>
+                </tr>
+                <tr>
+                  <td>Séances de groupe au cabinet</td>
+                  <td>Groupe de 3 à 4 personnes : 15 €/h par personne</td>
+                </tr>
+                <tr>
+                  <td>Séances de groupe enfants au cabinet</td>
+                  <td>À partir de 6 ans, groupe de 3 enfants : 15 €/h par enfant</td>
+                </tr>
+                <tr>
+                  <td>Séances de groupe associations &amp; entreprises</td>
+                  <td>Groupe de 8 à 10 personnes : 90 €/h</td>
+                </tr>
+                <tr>
+                  <td>Accompagnements spécifiques</td>
+                  <td>Précisé selon la durée, le nombre de rendez-vous et les outils mobilisés</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="pricing-panel">
-            <div><strong>Séances individuelles</strong><span>50 €/h — 60 € pour la première consultation.</span></div>
-            <div><strong>Séances de groupe au cabinet</strong><span>Groupe de 3 à 4 personnes : 15 €/h par personne.</span></div>
-            <div><strong>Séances de groupe enfants au cabinet</strong><span>À partir de 6 ans, groupe de 3 enfants : 15 €/h par enfant.</span></div>
-            <div><strong>Séances de groupe associations &amp; entreprises</strong><span>Groupe de 8 à 10 personnes : 90 €/h.</span></div>
-            <div><strong>Accompagnements spécifiques</strong><span>Le tarif est précisé selon la durée, le nombre de rendez-vous et les outils mobilisés.</span></div>
-            <div><strong>Prise de rendez-vous</strong><span>Vous pouvez me contacter par téléphone, e-mail ou via le formulaire.</span></div>
-            <a class="button primary" href="contact.html#formulaire">Prendre rendez-vous</a>
+          <div class="section-photo pricing-photo">
+            <img src="assets/services-pricing.png" alt="Sandrine Paraud Marot présentant ses services et tarifs">
           </div>
         </div>
       </section>

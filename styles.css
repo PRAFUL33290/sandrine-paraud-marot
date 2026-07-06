@@ -1686,6 +1686,50 @@ p {
   margin-top: 4px;
 }
 
+.pricing-table {
+  width: 100%;
+  margin-top: clamp(24px, 4vw, 34px);
+  border-collapse: collapse;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 48px rgba(74, 74, 74, 0.08);
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 16px 20px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.pricing-table thead th {
+  background: var(--green-900);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.pricing-table tbody tr:not(:last-child) {
+  border-bottom: 1px solid var(--line);
+}
+
+.pricing-table tbody tr:nth-child(even) {
+  background: var(--sage-light);
+}
+
+.pricing-table tbody td:first-child {
+  color: var(--green-900);
+  font-weight: 700;
+}
+
+.pricing-table tbody td:last-child {
+  color: var(--muted);
+}
+
 .benefits {
   background: var(--sage-light);
 }
@@ -2665,6 +2709,12 @@ p {
 }
 
 @media (max-width: 680px) {
+  .pricing-table th,
+  .pricing-table td {
+    padding: 12px 14px;
+    font-size: 0.92rem;
+  }
+
   .site-header {
     padding: 14px 18px;
   }
