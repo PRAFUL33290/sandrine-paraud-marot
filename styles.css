@@ -455,6 +455,7 @@ p {
 }
 
 .mega-feature {
+  position: relative;
   display: grid;
   grid-row: 1 / -1;
   gap: 12px;
@@ -463,16 +464,20 @@ p {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--sage-light);
+  background-image: linear-gradient(180deg, rgba(29, 61, 54, 0.82), rgba(29, 61, 54, 0.9)), url("assets/mega-services.png");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 
 .mega-feature-icon {
   width: 26px;
   height: 26px;
-  color: var(--green-900);
+  color: var(--white);
 }
 
 .mega-feature-eyebrow {
-  color: var(--green-900);
+  color: var(--white);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -480,7 +485,7 @@ p {
 }
 
 .mega-feature-text {
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.86);
   font-size: 0.86rem;
   line-height: 1.5;
 }
@@ -1599,6 +1604,11 @@ p {
   background: var(--sage-light);
 }
 
+.pricing .split {
+  align-items: center;
+  justify-items: center;
+}
+
 .services-section {
   background: var(--cream);
 }
@@ -1728,48 +1738,16 @@ p {
   margin-top: 4px;
 }
 
-.pricing-table {
+.pricing-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pricing-copy .pricing-highlights {
   width: 100%;
-  margin-top: clamp(24px, 4vw, 34px);
-  border-collapse: collapse;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 18px 48px rgba(74, 74, 74, 0.08);
-}
-
-.pricing-table th,
-.pricing-table td {
-  padding: 16px 20px;
   text-align: left;
-  vertical-align: top;
-}
-
-.pricing-table thead th {
-  background: var(--green-900);
-  color: var(--white);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.pricing-table tbody tr:not(:last-child) {
-  border-bottom: 1px solid var(--line);
-}
-
-.pricing-table tbody tr:nth-child(even) {
-  background: var(--sage-light);
-}
-
-.pricing-table tbody td:first-child {
-  color: var(--green-900);
-  font-weight: 700;
-}
-
-.pricing-table tbody td:last-child {
-  color: var(--muted);
 }
 
 .benefits {
@@ -2752,12 +2730,6 @@ p {
 }
 
 @media (max-width: 680px) {
-  .pricing-table th,
-  .pricing-table td {
-    padding: 12px 14px;
-    font-size: 0.92rem;
-  }
-
   .site-header {
     padding: 14px 18px;
   }
