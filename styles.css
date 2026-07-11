@@ -2370,6 +2370,11 @@ p {
   height: 280px;
 }
 
+.contact-map-button {
+  width: calc(100% - 40px);
+  margin: 20px;
+}
+
 .contact-card h2 {
   margin-bottom: 8px;
   font-size: clamp(2rem, 4vw, 3.1rem);
