@@ -1130,7 +1130,7 @@ p {
 }
 
 .review-card {
-  display: flex;
+  display: none;
   flex: 0 0 auto;
   flex-direction: column;
   gap: 14px;
@@ -1140,6 +1140,10 @@ p {
   border-radius: 8px;
   background: var(--white);
   box-shadow: 0 14px 38px rgba(74, 74, 74, 0.07);
+}
+
+.review-card:not([hidden]) {
+  display: flex;
 }
 
 .reviews-grid {
@@ -2028,10 +2032,14 @@ p {
 }
 
 .contact-confirmation {
-  display: grid;
+  display: none;
   justify-items: start;
   gap: 12px;
   padding: clamp(28px, 5vw, 44px);
+}
+
+.contact-confirmation:not([hidden]) {
+  display: grid;
 }
 
 .contact-confirmation-icon {
