@@ -616,6 +616,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       cancelClose();
+      dropdownControllers.forEach((controller) => {
+        if (controller.menuEl !== menuEl) {
+          controller.cancelClose();
+          controller.setOpen(false);
+        }
+      });
       setOpen(true);
     });
 
@@ -626,7 +632,7 @@ document.addEventListener("DOMContentLoaded", () => {
       scheduleClose();
     });
 
-    dropdownControllers.push({ menuEl, trigger, setOpen });
+    dropdownControllers.push({ menuEl, trigger, setOpen, cancelClose });
   });
 
   if (dropdownControllers.length === 0) {
