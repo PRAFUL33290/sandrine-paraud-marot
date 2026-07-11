@@ -331,7 +331,7 @@ p {
 }
 
 /* Nav breakpoint: doit rester synchronisé avec navigation.js (mobileMenuQuery) */
-@media (min-width: 1401px) {
+@media (min-width: 1685px) {
   .mega-feature .nav-item-icon {
     display: none;
   }
@@ -2336,7 +2336,7 @@ p {
 }
 
 /* Nav breakpoint: doit rester synchronisé avec navigation.js (mobileMenuQuery) */
-@media (max-width: 1400px) {
+@media (max-width: 1684px) {
   .hero-slider-controls {
     display: none;
   }
@@ -2849,7 +2849,7 @@ p {
   }
 }
 
-@media (min-width: 769px) and (max-width: 1400px) {
+@media (min-width: 769px) and (max-width: 1684px) {
   .menu-toggle {
     width: 72px;
     height: 72px;

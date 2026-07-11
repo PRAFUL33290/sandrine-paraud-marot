@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const mega = document.querySelector(".nav-mega");
   // Nav breakpoint: doit rester synchronisé avec styles.css (@media max-width/min-width autour de la nav)
-  const mobileMenuQuery = window.matchMedia("(max-width: 1400px)");
+  const mobileMenuQuery = window.matchMedia("(max-width: 1684px)");
   const navIconByPage = {
     "index.html": "icon-bloom",
     "approche.html": "icon-leaf",
