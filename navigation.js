@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const mega = document.querySelector(".nav-mega");
   // Nav breakpoint: doit rester synchronisé avec styles.css (@media max-width/min-width autour de la nav)
-  const mobileMenuQuery = window.matchMedia("(max-width: 1684px)");
+  const mobileMenuQuery = window.matchMedia("(max-width: 1199px)");
   const navIconByPage = {
     "index.html": "icon-bloom",
     "approche.html": "icon-leaf",
@@ -593,6 +593,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     event.preventDefault();
     setOpen(!mega.classList.contains("is-open"));
+  });
+
+  let closeTimer = null;
+
+  const cancelClose = () => {
+    if (closeTimer !== null) {
+      window.clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+  };
+
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimer = window.setTimeout(() => {
+      setOpen(false);
+      closeTimer = null;
+    }, 250);
+  };
+
+  mega.addEventListener("mouseenter", () => {
+    if (mobileMenuQuery.matches) {
+      return;
+    }
+    cancelClose();
+    setOpen(true);
+  });
+
+  mega.addEventListener("mouseleave", () => {
+    if (mobileMenuQuery.matches) {
+      return;
+    }
+    scheduleClose();
   });
 
   document.addEventListener("click", (event) => {
