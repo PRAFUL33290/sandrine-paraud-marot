@@ -426,6 +426,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initReviewsToggle();
 
+  const initFaqAccordion = () => {
+    const items = Array.from(document.querySelectorAll(".faq-item"));
+    if (items.length === 0) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const animationsByItem = new WeakMap();
+
+    items.forEach((item) => {
+      const summary = item.querySelector("summary");
+      const content = item.querySelector("p");
+
+      if (!summary || !content) {
+        return;
+      }
+
+      summary.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const existingAnimation = animationsByItem.get(item);
+        if (existingAnimation) {
+          existingAnimation.cancel();
+        }
+
+        if (!item.open) {
+          item.style.overflow = "hidden";
+          item.open = true;
+          const targetHeight = item.scrollHeight;
+          item.style.height = `${summary.offsetHeight}px`;
+
+          const animation = item.animate(
+            [{ height: `${summary.offsetHeight}px` }, { height: `${targetHeight}px` }],
+            { duration: 220, easing: "ease" }
+          );
+          animationsByItem.set(item, animation);
+
+          animation.onfinish = () => {
+            item.style.height = "";
+            item.style.overflow = "";
+            animationsByItem.delete(item);
+          };
+        } else {
+          const startHeight = item.scrollHeight;
+          item.style.overflow = "hidden";
+          item.style.height = `${startHeight}px`;
+
+          const animation = item.animate(
+            [{ height: `${startHeight}px` }, { height: `${summary.offsetHeight}px` }],
+            { duration: 200, easing: "ease" }
+          );
+          animationsByItem.set(item, animation);
+
+          animation.onfinish = () => {
+            item.open = false;
+            item.style.height = "";
+            item.style.overflow = "";
+            animationsByItem.delete(item);
+          };
+        }
+      });
+    });
+  };
+
+  initFaqAccordion();
+
   const header = document.querySelector(".site-header");
   const nav = document.querySelector(".nav");
 
