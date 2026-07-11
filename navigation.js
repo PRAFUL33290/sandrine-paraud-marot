@@ -401,6 +401,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initReviewsMarquee();
 
+  const initReviewsToggle = () => {
+    const toggle = document.getElementById("reviews-toggle");
+    const grid = document.querySelector(".reviews-grid");
+    if (!toggle || !grid) {
+      return;
+    }
+
+    const extraCards = Array.from(grid.querySelectorAll(".review-card-extra"));
+    if (extraCards.length === 0) {
+      toggle.remove();
+      return;
+    }
+
+    toggle.addEventListener("click", () => {
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      extraCards.forEach((card) => {
+        card.hidden = expanded;
+      });
+      toggle.setAttribute("aria-expanded", String(!expanded));
+      toggle.textContent = expanded ? "Voir plus de témoignages" : "Voir moins de témoignages";
+    });
+  };
+
+  initReviewsToggle();
+
   const header = document.querySelector(".site-header");
   const nav = document.querySelector(".nav");
 
