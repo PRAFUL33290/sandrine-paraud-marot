@@ -1828,6 +1828,29 @@ p {
   .blog-content-layout .blog-sidebar {
     grid-column: 2;
   }
+
+  .blog-main-column {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .blog-main-column .section-heading {
+    grid-column: 1 / -1;
+  }
+
+  .blog-main-column .blog-feature-card {
+    min-height: 340px;
+    padding: 28px;
+  }
+
+  .blog-main-column .blog-feature-content h3 {
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+  }
+
+  .blog-main-column .blog-feature-content p:not(.eyebrow) {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 1180px) {
