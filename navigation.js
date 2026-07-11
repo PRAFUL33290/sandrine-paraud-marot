@@ -439,6 +439,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const animationsByItem = new WeakMap();
 
+    const closeItem = (item, summary) => {
+      const existingAnimation = animationsByItem.get(item);
+      if (existingAnimation) {
+        existingAnimation.cancel();
+      }
+
+      if (!item.open) {
+        return;
+      }
+
+      const startHeight = item.scrollHeight;
+      item.style.overflow = "hidden";
+      item.style.height = `${startHeight}px`;
+
+      const animation = item.animate(
+        [{ height: `${startHeight}px` }, { height: `${summary.offsetHeight}px` }],
+        { duration: 200, easing: "ease" }
+      );
+      animationsByItem.set(item, animation);
+
+      animation.onfinish = () => {
+        item.open = false;
+        item.style.height = "";
+        item.style.overflow = "";
+        animationsByItem.delete(item);
+      };
+    };
+
+    const openItem = (item, summary) => {
+      const existingAnimation = animationsByItem.get(item);
+      if (existingAnimation) {
+        existingAnimation.cancel();
+      }
+
+      item.style.overflow = "hidden";
+      item.open = true;
+      const targetHeight = item.scrollHeight;
+      item.style.height = `${summary.offsetHeight}px`;
+
+      const animation = item.animate(
+        [{ height: `${summary.offsetHeight}px` }, { height: `${targetHeight}px` }],
+        { duration: 220, easing: "ease" }
+      );
+      animationsByItem.set(item, animation);
+
+      animation.onfinish = () => {
+        item.style.height = "";
+        item.style.overflow = "";
+        animationsByItem.delete(item);
+      };
+    };
+
     items.forEach((item) => {
       const summary = item.querySelector("summary");
       const content = item.querySelector("p");
@@ -450,46 +502,21 @@ document.addEventListener("DOMContentLoaded", () => {
       summary.addEventListener("click", (event) => {
         event.preventDefault();
 
-        const existingAnimation = animationsByItem.get(item);
-        if (existingAnimation) {
-          existingAnimation.cancel();
+        if (item.open) {
+          closeItem(item, summary);
+          return;
         }
 
-        if (!item.open) {
-          item.style.overflow = "hidden";
-          item.open = true;
-          const targetHeight = item.scrollHeight;
-          item.style.height = `${summary.offsetHeight}px`;
+        items.forEach((otherItem) => {
+          if (otherItem !== item && otherItem.open) {
+            const otherSummary = otherItem.querySelector("summary");
+            if (otherSummary) {
+              closeItem(otherItem, otherSummary);
+            }
+          }
+        });
 
-          const animation = item.animate(
-            [{ height: `${summary.offsetHeight}px` }, { height: `${targetHeight}px` }],
-            { duration: 220, easing: "ease" }
-          );
-          animationsByItem.set(item, animation);
-
-          animation.onfinish = () => {
-            item.style.height = "";
-            item.style.overflow = "";
-            animationsByItem.delete(item);
-          };
-        } else {
-          const startHeight = item.scrollHeight;
-          item.style.overflow = "hidden";
-          item.style.height = `${startHeight}px`;
-
-          const animation = item.animate(
-            [{ height: `${startHeight}px` }, { height: `${summary.offsetHeight}px` }],
-            { duration: 200, easing: "ease" }
-          );
-          animationsByItem.set(item, animation);
-
-          animation.onfinish = () => {
-            item.open = false;
-            item.style.height = "";
-            item.style.overflow = "";
-            animationsByItem.delete(item);
-          };
-        }
+        openItem(item, summary);
       });
     });
   };
