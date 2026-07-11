@@ -277,8 +277,7 @@ p {
   border-radius: 999px;
 }
 
-.nav > a::after,
-.mega-trigger::before {
+.nav > a::after {
   content: "";
   position: absolute;
   left: 14px;
@@ -296,8 +295,7 @@ p {
   color: var(--white);
 }
 
-.nav > a:hover::after,
-.mega-trigger:hover::before {
+.nav > a:hover::after {
   transform: scaleX(1);
 }
 
@@ -2747,13 +2745,8 @@ p {
     color: var(--white);
   }
 
-  .nav > a:hover::after,
-  .mega-trigger:hover::before {
+  .nav > a:hover::after {
     transform: scaleX(0);
-  }
-
-  .nav-mega:hover .mega-trigger::after {
-    transform: translateY(-2px) rotate(45deg);
   }
 
   .mega-column a:hover,
