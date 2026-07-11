@@ -2416,7 +2416,7 @@ p {
     justify-content: flex-start;
     gap: 0;
     overflow-y: auto;
-    padding: calc(96px + env(safe-area-inset-top)) 22px 28px;
+    padding: calc(96px + env(safe-area-inset-top)) 22px calc(28px + env(safe-area-inset-bottom));
     color: var(--ink);
     background: var(--white);
     box-shadow: -24px 0 70px rgba(20, 46, 40, 0.18);
@@ -2669,6 +2669,13 @@ p {
     display: none;
   }
 
+  .nav-mobile-cta {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 4px 0 20px;
+  }
+
   .mega-mobile-contact {
     display: grid;
     gap: 8px;
@@ -2716,7 +2723,7 @@ p {
     flex-direction: column;
     gap: 8px;
     margin-top: 14px;
-    padding-top: 14px;
+    padding: 14px 0 12px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 
