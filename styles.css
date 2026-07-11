@@ -453,7 +453,7 @@ p {
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background-image: url("assets/mega-services.png");
+  background-image: url("assets/mega-services.webp");
   background-size: cover;
   background-position: center;
   overflow: hidden;
