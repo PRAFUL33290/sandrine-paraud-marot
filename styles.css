@@ -2846,6 +2846,40 @@ p {
 
   .contact-actions {
     width: min(100%, 360px);
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .section-heading p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .intro-copy,
+  .intro-panel,
+  .contact-inner > div:first-child {
+    text-align: center;
+  }
+
+  .intro-copy p:not(.eyebrow),
+  .intro-panel p,
+  .contact-inner p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .intro-illustration {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .intro-points span {
+    justify-content: center;
   }
 }
 
