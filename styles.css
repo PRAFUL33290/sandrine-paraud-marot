@@ -1654,6 +1654,23 @@ p {
   transform: scale(1.04);
 }
 
+.blog-feature-number {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--green-900);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
 .blog-feature-content {
   position: relative;
   z-index: 2;
