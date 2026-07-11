@@ -736,11 +736,23 @@ p {
   -webkit-box-decoration-break: clone;
 }
 
+.hero-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.hero-contact-button {
+  min-height: 44px;
+  font-size: 0.9rem;
+}
+
 .hero-contact {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 26px;
-  margin-top: 30px;
+  margin-top: 14px;
 }
 
 .hero-contact-link {
@@ -2189,6 +2201,18 @@ p {
 .contact-card h3 {
   margin: 0 0 8px;
   color: var(--green-900);
+}
+
+.contact-direct-actions {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-direct-button {
+  width: 100%;
+  min-height: 52px;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .contact-item,
