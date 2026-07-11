@@ -475,6 +475,10 @@ p {
   font-size: 0.88rem;
 }
 
+.nav-mobile-cta {
+  display: none;
+}
+
 .mega-mobile-contact {
   display: none;
 }
@@ -2670,7 +2674,14 @@ p {
   }
 
   .nav-mobile-cta {
+    display: flex;
     min-height: 0;
+    color: var(--white);
+    background: var(--green-900);
+  }
+
+  .nav-mobile-cta .button-icon {
+    color: var(--white);
   }
 
   .mega-mobile-contact {
