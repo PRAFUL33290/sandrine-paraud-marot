@@ -470,7 +470,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cta = document.createElement("a");
     cta.classList.add("button", "primary", "nav-mobile-cta");
     cta.href = "contact.html";
-    cta.innerHTML = `<svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>Contact`;
+    cta.innerHTML = `<svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>Prendre un RDV`;
     nav.append(cta);
   };
 
