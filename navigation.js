@@ -496,6 +496,10 @@ document.addEventListener("DOMContentLoaded", () => {
     cta.classList.add("button", "nav-mobile-cta");
     cta.href = "contact.html";
     cta.innerHTML = `<svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>Prendre un RDV`;
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    cta.classList.toggle("active", currentPage === "contact.html");
+
     nav.append(cta);
   };
 

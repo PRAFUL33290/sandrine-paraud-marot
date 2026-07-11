@@ -2801,6 +2801,10 @@ p {
     color: rgba(49, 94, 85, 0.75);
   }
 
+  .nav-mobile-cta.active .button-icon {
+    color: var(--white);
+  }
+
   .intro-grid,
   .split,
   .benefits-grid,
