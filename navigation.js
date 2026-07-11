@@ -579,9 +579,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     trigger.setAttribute("aria-expanded", "false");
 
+    const simplePanel = menuEl.querySelector(".mega-panel-simple");
+
+    const positionSimplePanel = () => {
+      if (!simplePanel || mobileMenuQuery.matches) {
+        return;
+      }
+      const rect = trigger.getBoundingClientRect();
+      simplePanel.style.left = `${rect.left}px`;
+    };
+
     const setOpen = (isOpen) => {
       menuEl.classList.toggle("is-open", isOpen);
       trigger.setAttribute("aria-expanded", String(isOpen));
+      if (isOpen) {
+        positionSimplePanel();
+      }
     };
 
     trigger.addEventListener("click", (event) => {

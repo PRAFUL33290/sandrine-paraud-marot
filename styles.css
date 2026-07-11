@@ -381,9 +381,9 @@ p {
 }
 
 .mega-panel-simple {
-  position: absolute;
-  top: calc(100% + 14px);
-  left: 0;
+  position: fixed;
+  top: 92px;
+  left: auto;
   width: 240px;
   grid-template-columns: 1fr;
   grid-template-rows: none;
