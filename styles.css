@@ -2826,18 +2826,23 @@ p {
   }
 
   .service-card {
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: start;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .service-card > div {
+    text-align: center;
   }
 
   .service-price {
     grid-column: 1 / -1;
-    justify-items: start;
+    justify-items: center;
     min-width: 0;
   }
 
   .service-price span {
-    text-align: left;
+    text-align: center;
   }
 
   .contact-page-grid,
@@ -2867,13 +2872,17 @@ p {
 
   .intro-copy,
   .intro-panel,
-  .contact-inner > div:first-child {
+  .contact-inner > div:first-child,
+  .split > div:first-child,
+  .benefits-grid > div:first-child {
     text-align: center;
   }
 
   .intro-copy p:not(.eyebrow),
   .intro-panel p,
-  .contact-inner p {
+  .contact-inner p,
+  .split > div:first-child > p,
+  .benefits-grid > div:first-child > p {
     margin-left: auto;
     margin-right: auto;
   }
