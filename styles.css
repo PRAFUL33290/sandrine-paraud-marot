@@ -2707,17 +2707,6 @@ p {
     display: none;
   }
 
-  .nav-mobile-cta {
-    display: flex;
-    min-height: 0;
-    color: var(--white);
-    background: var(--green-900);
-  }
-
-  .nav-mobile-cta .button-icon {
-    color: var(--white);
-  }
-
   .mega-mobile-contact {
     display: grid;
     gap: 8px;
@@ -2785,6 +2774,31 @@ p {
 
   .header-cta {
     display: none;
+  }
+
+  .nav-mobile-cta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    justify-content: flex-start;
+    min-height: 0;
+    padding: 15px 16px;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: var(--ink);
+    background: transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .nav-mobile-cta .button-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 0;
+    color: rgba(49, 94, 85, 0.75);
   }
 
   .intro-grid,
