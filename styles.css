@@ -756,6 +756,22 @@ p {
   -webkit-box-decoration-break: clone;
 }
 
+.hero-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px;
+  color: var(--white);
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-weight: 600;
+}
+
+.hero-location .mini-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--white);
+}
+
 .hero-contact-actions {
   display: flex;
   flex-wrap: wrap;
