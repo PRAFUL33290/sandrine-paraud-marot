@@ -3349,11 +3349,16 @@ p {
   }
 
   .footer-col,
-  .footer-col-brand,
-  .footer-nav,
-  .footer-legal {
+  .footer-col-brand {
     align-items: center;
     text-align: center;
+    width: 100%;
+  }
+
+  .footer-nav,
+  .footer-legal {
+    align-items: flex-start;
+    text-align: left;
     width: 100%;
   }
 
