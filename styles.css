@@ -396,6 +396,10 @@ p {
   transform: translateY(0);
 }
 
+.mega-panel-simple .mega-column {
+  grid-template-rows: none;
+}
+
 .mega-column {
   display: grid;
   grid-row: 1 / -1;
