@@ -1180,6 +1180,39 @@ p {
   margin-top: 28px;
 }
 
+.parallax-band {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(280px, 34vw, 420px);
+  padding: clamp(48px, 7vw, 80px) 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.parallax-band-content {
+  max-width: 640px;
+  text-align: center;
+  color: var(--white);
+}
+
+.parallax-band-content .eyebrow {
+  color: var(--white);
+  opacity: 0.85;
+}
+
+.parallax-band-content h2 {
+  margin-bottom: 0;
+  color: var(--white);
+}
+
+@media (min-width: 900px) {
+  .parallax-band {
+    background-attachment: fixed;
+  }
+}
+
 .modalities-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
