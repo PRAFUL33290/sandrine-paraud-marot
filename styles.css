@@ -1160,6 +1160,49 @@ p {
   color: var(--muted);
 }
 
+.faq-link-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--green-900);
+  font-weight: 700;
+  font-size: 0.86rem;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.faq-link-chip .button-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0;
+}
+
+.faq-link-chip:hover,
+.faq-link-chip:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--green);
+  background: var(--sage-light);
+}
+
+.faq-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.faq-action-button {
+  min-height: 46px;
+  font-size: 0.9rem;
+}
+
+.faq-action-button.secondary.light {
+  background: var(--sage-light);
+}
+
 .faq-cta {
   display: flex;
   flex-wrap: wrap;
