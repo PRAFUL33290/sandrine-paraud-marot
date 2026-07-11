@@ -2749,6 +2749,14 @@ p {
     justify-content: center;
   }
 
+  .hero-location {
+    justify-content: center;
+  }
+
+  .hero-contact-actions {
+    justify-content: center;
+  }
+
   .hero-contact {
     justify-content: center;
   }
