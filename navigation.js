@@ -462,6 +462,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return icon;
   };
 
+  const addMobileNavCta = () => {
+    if (!nav || nav.querySelector(".nav-mobile-cta")) {
+      return;
+    }
+
+    const cta = document.createElement("a");
+    cta.classList.add("button", "primary", "nav-mobile-cta");
+    cta.href = "contact.html";
+    cta.innerHTML = `<svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>Contact`;
+    nav.append(cta);
+  };
+
   const addMobileContactBlock = () => {
     if (!nav || nav.querySelector(".mega-mobile-contact")) {
       return;
@@ -505,6 +517,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   addResponsiveNavIcons();
+  addMobileNavCta();
   addMobileContactBlock();
   addMobileLegalLinks();
 
