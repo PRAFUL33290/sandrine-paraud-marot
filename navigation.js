@@ -438,7 +438,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", updateHeaderScrollState, { passive: true });
   }
   const menuToggle = document.querySelector(".menu-toggle");
-  const mega = document.querySelector(".nav-mega");
   // Nav breakpoint: doit rester synchronisé avec styles.css (@media max-width/min-width autour de la nav)
   const mobileMenuQuery = window.matchMedia("(max-width: 1199px)");
   const navIconByPage = {
@@ -568,64 +567,71 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (!mega) {
+  const megaMenus = Array.from(document.querySelectorAll(".nav-mega"));
+  const dropdownControllers = [];
+
+  megaMenus.forEach((menuEl) => {
+    const trigger = menuEl.querySelector(".mega-trigger");
+
+    if (!trigger) {
+      return;
+    }
+
+    trigger.setAttribute("aria-expanded", "false");
+
+    const setOpen = (isOpen) => {
+      menuEl.classList.toggle("is-open", isOpen);
+      trigger.setAttribute("aria-expanded", String(isOpen));
+    };
+
+    trigger.addEventListener("click", (event) => {
+      if (!mobileMenuQuery.matches) {
+        setOpen(false);
+        return;
+      }
+
+      event.preventDefault();
+      setOpen(!menuEl.classList.contains("is-open"));
+    });
+
+    let closeTimer = null;
+
+    const cancelClose = () => {
+      if (closeTimer !== null) {
+        window.clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+    };
+
+    const scheduleClose = () => {
+      cancelClose();
+      closeTimer = window.setTimeout(() => {
+        setOpen(false);
+        closeTimer = null;
+      }, 250);
+    };
+
+    menuEl.addEventListener("mouseenter", () => {
+      if (mobileMenuQuery.matches) {
+        return;
+      }
+      cancelClose();
+      setOpen(true);
+    });
+
+    menuEl.addEventListener("mouseleave", () => {
+      if (mobileMenuQuery.matches) {
+        return;
+      }
+      scheduleClose();
+    });
+
+    dropdownControllers.push({ menuEl, trigger, setOpen });
+  });
+
+  if (dropdownControllers.length === 0) {
     return;
   }
-
-  const trigger = mega.querySelector(".mega-trigger");
-
-  if (!trigger) {
-    return;
-  }
-
-  trigger.setAttribute("aria-expanded", "false");
-
-  const setOpen = (isOpen) => {
-    mega.classList.toggle("is-open", isOpen);
-    trigger.setAttribute("aria-expanded", String(isOpen));
-  };
-
-  trigger.addEventListener("click", (event) => {
-    if (!mobileMenuQuery.matches) {
-      setOpen(false);
-      return;
-    }
-
-    event.preventDefault();
-    setOpen(!mega.classList.contains("is-open"));
-  });
-
-  let closeTimer = null;
-
-  const cancelClose = () => {
-    if (closeTimer !== null) {
-      window.clearTimeout(closeTimer);
-      closeTimer = null;
-    }
-  };
-
-  const scheduleClose = () => {
-    cancelClose();
-    closeTimer = window.setTimeout(() => {
-      setOpen(false);
-      closeTimer = null;
-    }, 250);
-  };
-
-  mega.addEventListener("mouseenter", () => {
-    if (mobileMenuQuery.matches) {
-      return;
-    }
-    cancelClose();
-    setOpen(true);
-  });
-
-  mega.addEventListener("mouseleave", () => {
-    if (mobileMenuQuery.matches) {
-      return;
-    }
-    scheduleClose();
-  });
 
   document.addEventListener("click", (event) => {
     const target = event.target;
@@ -641,11 +647,15 @@ document.addEventListener("DOMContentLoaded", () => {
       setMenuOpen(false);
     }
 
-    if (!mobileMenuQuery.matches || mega.contains(event.target)) {
+    if (!mobileMenuQuery.matches) {
       return;
     }
 
-    setOpen(false);
+    dropdownControllers.forEach(({ menuEl, setOpen }) => {
+      if (!menuEl.contains(target)) {
+        setOpen(false);
+      }
+    });
   });
 
   document.addEventListener("keydown", (event) => {
@@ -653,8 +663,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    setOpen(false);
     setMenuOpen(false);
-    trigger.focus();
+    dropdownControllers.forEach(({ setOpen, trigger }) => {
+      setOpen(false);
+      trigger.blur();
+    });
   });
 });

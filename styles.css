@@ -380,6 +380,22 @@ p {
   transform: translate(-50%, 0);
 }
 
+.mega-panel-simple {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  width: 240px;
+  grid-template-columns: 1fr;
+  grid-template-rows: none;
+  padding: 10px;
+  transform: translateY(8px);
+}
+
+.nav-mega:focus-within .mega-panel-simple,
+.nav-mega.is-open .mega-panel-simple {
+  transform: translateY(0);
+}
+
 .mega-column {
   display: grid;
   grid-row: 1 / -1;
