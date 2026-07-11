@@ -1953,6 +1953,101 @@ p {
   cursor: pointer;
 }
 
+.form-submit.is-loading {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-error {
+  grid-column: 1 / -1;
+  margin: -6px 0 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: rgba(196, 92, 92, 0.1);
+  color: #a83f3f;
+  font-size: 0.92rem;
+}
+
+.contact-form-wrap {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 48px rgba(74, 74, 74, 0.08);
+}
+
+.contact-form-wrap .contact-form {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.contact-confirmation {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding: clamp(28px, 5vw, 44px);
+}
+
+.contact-confirmation-icon {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 50%;
+  background: var(--sage);
+  color: var(--green-900);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-confirmation h2 {
+  margin: 0;
+  color: var(--green-900);
+}
+
+.contact-confirmation > p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.contact-recap {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 18px;
+  width: 100%;
+  margin: 6px 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--sage-light);
+}
+
+.contact-recap dt {
+  color: var(--green-900);
+  font-weight: 700;
+}
+
+.contact-recap dd {
+  margin: 0;
+  color: var(--ink);
+  white-space: pre-line;
+}
+
+.contact-confirmation-thanks {
+  color: var(--green-900);
+  font-weight: 700;
+}
+
 .contact-card {
   display: grid;
   gap: 14px;

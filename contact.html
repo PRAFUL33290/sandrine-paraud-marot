@@ -240,42 +240,56 @@
 
       <section class="section contact-page" id="formulaire">
         <div class="container contact-page-grid">
-          <form class="contact-form" action="mailto:contact@sandrine-paraud-marot.fr" method="post" enctype="text/plain">
-            <div class="form-row">
-              <label for="name">Nom et prénom</label>
-              <input id="name" name="Nom et prénom" type="text" autocomplete="name" required>
+          <div class="contact-form-wrap">
+            <form class="contact-form" id="contact-form" action="send-contact.php" method="post" novalidate>
+              <div class="form-row">
+                <label for="name">Nom et prénom</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="form-row">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="form-row">
+                <label for="phone">Téléphone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+              <div class="form-row">
+                <label for="subject">Objet de votre demande</label>
+                <select id="subject" name="subject">
+                  <option>Prendre rendez-vous</option>
+                  <option>Demander des informations</option>
+                  <option>Orientation scolaire</option>
+                  <option>Sophrologie</option>
+                  <option>Autre demande</option>
+                </select>
+              </div>
+              <div class="form-row full">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="7" required></textarea>
+              </div>
+              <p class="form-row form-honeypot" aria-hidden="true">
+                <label for="website">Site web</label>
+                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+              </p>
+              <label class="consent">
+                <input type="checkbox" name="consent" value="Accepté" required>
+                <span>J'accepte de transmettre ces informations afin d'être recontacté(e).</span>
+              </label>
+              <p class="form-error" id="contact-form-error" hidden></p>
+              <button class="button primary form-submit" type="submit" id="contact-form-submit">
+                <svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-spark"></use></svg>
+                <span>Envoyer ma demande</span>
+              </button>
+            </form>
+            <div class="contact-confirmation" id="contact-confirmation" hidden>
+              <svg class="contact-confirmation-icon" aria-hidden="true"><use href="assets/icons.svg#icon-check"></use></svg>
+              <h2>Merci, votre message a bien été envoyé.</h2>
+              <p>Une réponse vous sera apportée très prochainement. Voici le récapitulatif de votre demande :</p>
+              <dl class="contact-recap" id="contact-recap"></dl>
+              <p class="contact-confirmation-thanks">Merci de votre confiance !</p>
             </div>
-            <div class="form-row">
-              <label for="email">E-mail</label>
-              <input id="email" name="Email" type="email" autocomplete="email" required>
-            </div>
-            <div class="form-row">
-              <label for="phone">Téléphone</label>
-              <input id="phone" name="Téléphone" type="tel" autocomplete="tel">
-            </div>
-            <div class="form-row">
-              <label for="subject">Objet de votre demande</label>
-              <select id="subject" name="Objet">
-                <option>Prendre rendez-vous</option>
-                <option>Demander des informations</option>
-                <option>Orientation scolaire</option>
-                <option>Sophrologie</option>
-                <option>Autre demande</option>
-              </select>
-            </div>
-            <div class="form-row full">
-              <label for="message">Message</label>
-              <textarea id="message" name="Message" rows="7" required></textarea>
-            </div>
-            <label class="consent">
-              <input type="checkbox" name="Consentement RGPD" value="Accepté" required>
-              <span>J'accepte de transmettre ces informations afin d'être recontacté(e).</span>
-            </label>
-            <button class="button primary form-submit" type="submit">
-              <svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-spark"></use></svg>
-              Envoyer ma demande
-            </button>
-          </form>
+          </div>
           <div class="contact-sidebar">
             <aside class="contact-card">
               <p class="eyebrow">Coordonnées</p>
@@ -390,5 +404,6 @@
       </div>
     </footer>
     <script src="navigation.js"></script>
+    <script src="contact-form.js"></script>
   </body>
 </html>
