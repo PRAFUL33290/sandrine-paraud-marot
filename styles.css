@@ -91,7 +91,7 @@ p {
 .button-icon,
 .social-icon,
 .page-card-arrow,
-.intro-point-icon {
+.intro-step-icon {
   flex: 0 0 auto;
   fill: none;
   stroke: currentColor;
@@ -1005,16 +1005,21 @@ p {
   padding: clamp(72px, 9vw, 112px) 0;
 }
 
-.intro-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(34px, 6vw, 84px);
-  align-items: center;
+.intro-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(44px, 6vw, 68px);
 }
 
 .intro h2,
 .deep h2 {
   color: var(--green-900);
+}
+
+.intro-copy {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .intro-copy h2 {
@@ -1024,85 +1029,89 @@ p {
 
 .intro-copy p:not(.eyebrow) {
   max-width: 620px;
+  margin: 0 auto;
   color: var(--muted);
   font-size: clamp(1.05rem, 1.7vw, 1.2rem);
 }
 
-.intro-illustration {
-  width: min(100%, 340px);
-  height: auto;
-  margin-top: clamp(28px, 4vw, 40px);
+.intro-copy .intro-lead {
+  margin-top: 14px;
+  color: var(--green-900);
+  font-weight: 600;
 }
 
-.intro-illustration-circle {
-  fill: var(--green);
-  opacity: 0.16;
-}
-
-.intro-illustration-circle-2 {
-  fill: var(--green-900);
-  opacity: 0.12;
-}
-
-.intro-illustration-circle-3 {
-  fill: var(--green);
-  opacity: 0.24;
-}
-
-.intro-illustration-path {
-  fill: none;
-  stroke: var(--green-900);
-  stroke-width: 2;
-  stroke-linecap: round;
-  opacity: 0.55;
-}
-
-.intro-illustration-dot {
-  fill: var(--green-900);
-}
-
-.intro-panel {
-  padding: clamp(28px, 5vw, 48px);
-  border-radius: 8px;
-  color: var(--white);
-  background: var(--green-900);
-  box-shadow: 0 24px 70px rgba(49, 94, 85, 0.14);
-}
-
-.intro-panel p {
-  max-width: 620px;
-  margin-bottom: 28px;
-  color: rgba(255, 255, 255, 0.88);
-  font-size: clamp(1.08rem, 1.8vw, 1.28rem);
-}
-
-.intro-points {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
-}
-
-.intro-points span {
+.intro-journey {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  gap: 12px;
-  padding: 18px;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--white);
-  font-weight: 800;
-  line-height: 1.25;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.intro-step {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 0 clamp(6px, 2vw, 20px);
   text-align: center;
 }
 
-.intro-point-icon {
-  width: 20px;
-  height: 20px;
+.intro-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 34px;
+  left: calc(50% + 46px);
+  width: calc(100% - 92px);
+  height: 1px;
+  background: var(--line);
+}
+
+.intro-step-badge {
+  position: relative;
+  display: grid;
   flex: 0 0 auto;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 14px 34px rgba(49, 94, 85, 0.12);
+}
+
+.intro-step-icon {
+  width: 26px;
+  height: 26px;
+  color: var(--green-900);
+  stroke-width: 1.6;
+}
+
+.intro-step-number {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--green-900);
   color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.intro-step-label {
+  max-width: 180px;
+  color: var(--green-900);
+  font-weight: 800;
+  font-size: 1.02rem;
+  line-height: 1.3;
 }
 
 .intro .eyebrow,
@@ -1182,6 +1191,33 @@ p {
   width: 100%;
   height: auto;
   margin-top: 8px;
+}
+
+.intro-illustration-circle {
+  fill: var(--green);
+  opacity: 0.16;
+}
+
+.intro-illustration-circle-2 {
+  fill: var(--green-900);
+  opacity: 0.12;
+}
+
+.intro-illustration-circle-3 {
+  fill: var(--green);
+  opacity: 0.24;
+}
+
+.intro-illustration-path {
+  fill: none;
+  stroke: var(--green-900);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+
+.intro-illustration-dot {
+  fill: var(--green-900);
 }
 
 .faq-item {
@@ -3224,7 +3260,6 @@ p {
     color: var(--white);
   }
 
-  .intro-grid,
   .split,
   .benefits-grid,
   .contact-inner {
@@ -3293,24 +3328,15 @@ p {
     margin-right: 0;
   }
 
-  .intro-copy,
-  .intro-panel,
   .contact-inner > div:first-child,
   .split > div:first-child,
   .benefits-grid > div:first-child {
     text-align: center;
   }
 
-  .intro-copy p:not(.eyebrow),
-  .intro-panel p,
   .contact-inner p,
   .split > div:first-child > p,
   .benefits-grid > div:first-child > p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .intro-illustration {
     margin-left: auto;
     margin-right: auto;
   }
@@ -3320,20 +3346,6 @@ p {
 @media (min-width: 681px) and (max-width: 1199px) {
   .nav {
     width: min(430px, 70vw);
-  }
-
-  /* Les 3 piliers tiennent sur une seule ligne : police fluide et
-     marges réduites pour éviter le passage à la ligne */
-  .intro-points span {
-    padding: 15px 6px;
-    gap: 6px;
-    font-size: clamp(0.63rem, 1.45vw, 0.98rem);
-    white-space: nowrap;
-  }
-
-  .intro-point-icon {
-    width: 16px;
-    height: 16px;
   }
 
   .parallax-band {
@@ -3501,15 +3513,27 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .intro-points span {
-    font-size: 0.85rem;
+  .intro-journey {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .intro-step {
+    padding: 0;
+  }
+
+  .intro-step:not(:last-child)::after {
+    top: 68px;
+    left: 50%;
+    width: 1px;
+    height: 32px;
   }
 
   .reason-grid,
   .cards,
   .quote-grid,
   .benefit-list,
-  .intro-points,
   .tool-panel,
   .tools-grid,
   .service-card,
