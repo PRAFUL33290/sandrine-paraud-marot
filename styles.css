@@ -3169,7 +3169,14 @@ p {
   .home-header .nav > a:hover,
   .home-header .mega-trigger:hover,
   .home-header .nav > a:focus-visible,
-  .home-header .mega-trigger:focus-visible {
+  .home-header .mega-trigger:focus-visible,
+  .page-header.is-scrolled .nav,
+  .page-header.is-scrolled .nav > a,
+  .page-header.is-scrolled .mega-trigger,
+  .page-header.is-scrolled .nav > a:hover,
+  .page-header.is-scrolled .mega-trigger:hover,
+  .page-header.is-scrolled .nav > a:focus-visible,
+  .page-header.is-scrolled .mega-trigger:focus-visible {
     color: var(--ink);
   }
 
@@ -3179,7 +3186,13 @@ p {
   .home-header .nav > a.active:hover,
   .home-header .mega-trigger.active:hover,
   .home-header .nav > a.active:focus-visible,
-  .home-header .mega-trigger.active:focus-visible {
+  .home-header .mega-trigger.active:focus-visible,
+  .page-header.is-scrolled .nav > a.active,
+  .page-header.is-scrolled .mega-trigger.active,
+  .page-header.is-scrolled .nav > a.active:hover,
+  .page-header.is-scrolled .mega-trigger.active:hover,
+  .page-header.is-scrolled .nav > a.active:focus-visible,
+  .page-header.is-scrolled .mega-trigger.active:focus-visible {
     color: var(--white);
     background: var(--green-900);
   }
