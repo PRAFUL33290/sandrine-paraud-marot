@@ -3625,22 +3625,18 @@ p {
     font-size: 1.05rem;
   }
 
-  .footer-col,
-  .footer-col-brand {
+  .footer-col {
     align-items: center;
     text-align: center;
     width: 100%;
   }
 
+  .footer-col-brand,
   .footer-nav,
   .footer-legal {
     align-items: flex-start;
     text-align: left;
     width: 100%;
-  }
-
-  .footer-nav-sub {
-    margin-left: 0;
   }
 
   .footer-name {
@@ -3649,7 +3645,7 @@ p {
 
   .footer-contact,
   .footer-socials {
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
   }
 
