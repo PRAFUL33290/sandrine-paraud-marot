@@ -2615,9 +2615,11 @@ p {
 
 .footer-columns {
   display: grid;
-  grid-template-columns: minmax(260px, max-content) max-content max-content minmax(320px, 1fr);
+  grid-template-columns: minmax(260px, max-content) max-content max-content max-content;
+  justify-content: space-between;
   align-items: start;
-  gap: clamp(44px, 6vw, 118px);
+  column-gap: clamp(24px, 4vw, 64px);
+  row-gap: 28px;
   width: 100%;
 }
 
@@ -2694,12 +2696,6 @@ p {
   width: min(360px, 100%);
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-}
-
-@media (min-width: 1200px) {
-  .footer-photo-grid {
-    margin-left: auto;
-  }
 }
 
 .footer-photo-grid picture {
