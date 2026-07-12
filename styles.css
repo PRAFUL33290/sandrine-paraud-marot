@@ -2632,6 +2632,20 @@ p {
 
   .footer-photos {
     grid-column: 1 / -1;
+    justify-self: end;
+  }
+}
+
+/* En dessous de 1066px, les colonnes du footer s'empilent complètement
+   les unes sous les autres, comme sur mobile. */
+@media (max-width: 1066px) {
+  .footer-columns {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  .footer-photos {
+    grid-column: auto;
     justify-self: start;
   }
 }
@@ -2789,9 +2803,28 @@ p {
   text-align: center;
 }
 
+.footer-credit-logo {
+  display: block;
+  width: fit-content;
+  margin: 18px auto 0;
+}
+
+.footer-credit-logo img {
+  display: block;
+  height: 26px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity 180ms ease;
+}
+
+.footer-credit-logo:hover img,
+.footer-credit-logo:focus-visible img {
+  opacity: 1;
+}
+
 .footer-credit {
   width: 100%;
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   color: rgba(255, 255, 255, 0.45);
   font-size: 0.72rem;
   text-align: center;
