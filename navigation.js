@@ -620,7 +620,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cta = document.createElement("a");
     cta.classList.add("button", "nav-mobile-cta");
     cta.href = "contact.html";
-    cta.innerHTML = `<svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>Prendre un RDV`;
+    cta.innerHTML = `<svg class="button-icon" aria-hidden="true"><use href="assets/icons.svg#icon-sun"></use></svg>Prendre rendez-vous`;
 
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
     cta.classList.toggle("active", currentPage === "contact.html");
@@ -678,7 +678,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const setMenuOpen = (isOpen) => {
     document.body.classList.toggle("menu-open", isOpen);
     if (!isOpen) {
-      setOpen(false);
+      dropdownControllers.forEach(({ setOpen }) => setOpen(false));
     }
 
     if (menuToggle) {

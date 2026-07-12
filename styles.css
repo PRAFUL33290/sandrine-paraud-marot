@@ -3308,24 +3308,35 @@ p {
     align-items: center;
     gap: 12px;
     width: 100%;
-    justify-content: flex-start;
-    min-height: 0;
-    padding: 15px 16px;
-    border: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    color: var(--ink);
-    background: transparent;
+    justify-content: center;
+    min-height: 58px;
+    margin: 6px 0 26px;
+    padding: 18px 22px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: var(--white);
+    background: var(--green);
+    box-shadow: 0 16px 34px rgba(74, 74, 74, 0.12);
     font-size: 1rem;
-    font-weight: 600;
-    text-align: left;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .nav > a.nav-mobile-cta.active {
+    color: var(--white);
+    background: var(--green-900);
+  }
+
+  .nav > a.nav-mobile-cta:hover,
+  .nav > a.nav-mobile-cta:focus-visible {
+    color: var(--white);
   }
 
   .nav-mobile-cta .button-icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     margin-right: 0;
-    color: rgba(49, 94, 85, 0.75);
+    color: currentColor;
   }
 
   .nav-mobile-cta.active .button-icon {
