@@ -182,7 +182,7 @@ p {
   color: var(--green-900);
 }
 
-.site-header.page-header .brand-mark {
+.site-header.page-header > .brand .brand-mark {
   border-color: rgba(49, 94, 85, 0.38);
   color: var(--green-900);
 }
@@ -223,7 +223,7 @@ p {
   color: var(--white);
 }
 
-.page-header.is-scrolled .brand-mark {
+.page-header.is-scrolled > .brand .brand-mark {
   border-color: rgba(255, 255, 255, 0.64);
   color: var(--white);
 }
@@ -3428,6 +3428,15 @@ p {
 
   .nav > a.nav-mobile-cta:hover,
   .nav > a.nav-mobile-cta:focus-visible {
+    color: var(--white);
+  }
+
+  /* Always keep the mobile "Prendre rendez-vous" pill's text white, even
+     when the page-header's scrolled state pushes dark-green text onto
+     every other direct .nav link. */
+  .page-header.is-scrolled .nav > a.nav-mobile-cta,
+  .page-header.is-scrolled .nav > a.nav-mobile-cta:hover,
+  .page-header.is-scrolled .nav > a.nav-mobile-cta:focus-visible {
     color: var(--white);
   }
 
