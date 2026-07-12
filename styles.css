@@ -1082,19 +1082,21 @@ p {
 
 .intro-points span {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 12px;
   padding: 18px;
   background: rgba(255, 255, 255, 0.08);
   color: var(--white);
   font-weight: 800;
   line-height: 1.25;
+  text-align: center;
 }
 
 .intro-point-icon {
   width: 20px;
   height: 20px;
-  margin-top: 2px;
+  flex: 0 0 auto;
   color: var(--white);
 }
 
@@ -1383,11 +1385,29 @@ p {
 }
 
 .parallax-band {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: clamp(280px, 34vw, 420px);
+  min-height: clamp(340px, 46vw, 480px);
   padding: clamp(48px, 7vw, 80px) 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  isolation: isolate;
+  clip-path: inset(0);
+}
+
+/* background-attachment: fixed est cassé sur iPad/iOS (image zoomée et coupée) :
+   on reproduit l'effet de fond fixe avec une couche ::before positionnée par
+   rapport au viewport et découpée aux limites de la section (clip-path),
+   technique qui fonctionne aussi sur mobile et tablette */
+.parallax-band::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: inherit;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1407,14 +1427,6 @@ p {
 .parallax-band-content h2 {
   margin-bottom: 0;
   color: var(--white);
-}
-
-/* background-attachment: fixed est cassé sur iPad/iOS (image zoomée et coupée) :
-   on le réserve aux écrans larges avec souris */
-@media (min-width: 1200px) and (hover: hover) {
-  .parallax-band {
-    background-attachment: fixed;
-  }
 }
 
 .modalities-grid {
@@ -3256,16 +3268,26 @@ p {
     margin-left: auto;
     margin-right: auto;
   }
-
-  .intro-points span {
-    justify-content: center;
-  }
 }
 
 /* Tablette (dont iPad Pro 13" en portrait : 1032px de large) */
 @media (min-width: 681px) and (max-width: 1199px) {
   .nav {
     width: min(430px, 70vw);
+  }
+
+  /* Les 3 piliers tiennent sur une seule ligne : police fluide et
+     marges réduites pour éviter le passage à la ligne */
+  .intro-points span {
+    padding: 15px 6px;
+    gap: 6px;
+    font-size: clamp(0.63rem, 1.45vw, 0.98rem);
+    white-space: nowrap;
+  }
+
+  .intro-point-icon {
+    width: 16px;
+    height: 16px;
   }
 
   .parallax-band {
@@ -3426,6 +3448,10 @@ p {
 
   .social-links {
     grid-template-columns: 1fr;
+  }
+
+  .intro-points span {
+    font-size: 0.85rem;
   }
 
   .reason-grid,
