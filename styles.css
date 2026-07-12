@@ -1430,12 +1430,6 @@ p {
   text-underline-offset: 3px;
 }
 
-.reviews-more {
-  display: flex;
-  justify-content: center;
-  margin-top: 28px;
-}
-
 .parallax-band {
   position: relative;
   display: flex;
