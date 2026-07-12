@@ -2615,7 +2615,7 @@ p {
 
 .footer-columns {
   display: grid;
-  grid-template-columns: minmax(260px, 0.85fr) max-content max-content minmax(320px, 1fr);
+  grid-template-columns: minmax(260px, max-content) max-content max-content minmax(320px, 1fr);
   align-items: start;
   gap: clamp(44px, 6vw, 118px);
   width: 100%;
@@ -2687,8 +2687,6 @@ p {
 
 .footer-photos {
   min-width: 300px;
-  align-items: flex-end;
-  text-align: right;
 }
 
 .footer-photo-grid {
@@ -2696,6 +2694,12 @@ p {
   width: min(360px, 100%);
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+}
+
+@media (min-width: 1200px) {
+  .footer-photo-grid {
+    margin-left: auto;
+  }
 }
 
 .footer-photo-grid picture {
@@ -2717,7 +2721,7 @@ p {
   margin: 0;
   color: var(--white);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.45rem;
+  font-size: 1.85rem;
   font-weight: 700;
   text-decoration: underline;
 }
