@@ -2624,29 +2624,23 @@ p {
 }
 
 /* Avant que les 4 colonnes ne se resserrent au point de rogner les
-   photos, la colonne Photos bascule seule sur sa propre ligne. */
+   photos, la colonne Photos est simplement masquée. */
 @media (max-width: 1560px) {
   .footer-columns {
     grid-template-columns: minmax(260px, max-content) max-content max-content;
   }
 
-  .footer-photos {
-    grid-column: 1 / -1;
-    justify-self: end;
+  .footer-col.footer-photos {
+    display: none;
   }
 }
 
-/* En dessous de 1066px, les colonnes du footer s'empilent complètement
+/* En dessous de 1066px, les colonnes restantes s'empilent complètement
    les unes sous les autres, comme sur mobile. */
 @media (max-width: 1066px) {
   .footer-columns {
     grid-template-columns: 1fr;
     row-gap: 32px;
-  }
-
-  .footer-photos {
-    grid-column: auto;
-    justify-self: start;
   }
 }
 
@@ -2811,7 +2805,7 @@ p {
 
 .footer-credit-logo img {
   display: block;
-  height: 26px;
+  height: 52px;
   width: auto;
   opacity: 0.85;
   transition: opacity 180ms ease;
@@ -2838,6 +2832,25 @@ p {
 
 .footer-credit a:hover,
 .footer-credit a:focus-visible {
+  color: var(--white);
+}
+
+.footer-credit a.pd-brand {
+  color: var(--white);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.footer-credit a.pd-brand:hover,
+.footer-credit a.pd-brand:focus-visible {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.footer-credit .pd-highlight {
+  padding: 1px 7px;
+  border-radius: 4px;
+  background: #be1285;
   color: var(--white);
 }
 
