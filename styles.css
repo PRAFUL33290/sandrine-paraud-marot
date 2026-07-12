@@ -2623,6 +2623,19 @@ p {
   width: 100%;
 }
 
+/* Avant que les 4 colonnes ne se resserrent au point de rogner les
+   photos, la colonne Photos bascule seule sur sa propre ligne. */
+@media (max-width: 1560px) {
+  .footer-columns {
+    grid-template-columns: minmax(260px, max-content) max-content max-content;
+  }
+
+  .footer-photos {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
 .footer-brand {
   display: inline-flex;
 }
@@ -2782,6 +2795,17 @@ p {
   color: rgba(255, 255, 255, 0.45);
   font-size: 0.72rem;
   text-align: center;
+}
+
+.footer-credit a {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-credit a:hover,
+.footer-credit a:focus-visible {
+  color: var(--white);
 }
 
 /* Nav breakpoint: doit rester synchronisé avec navigation.js (mobileMenuQuery) */
@@ -3354,18 +3378,6 @@ p {
     min-height: clamp(420px, 46vw, 540px);
   }
 
-  .footer-columns {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 44px clamp(36px, 6vw, 80px);
-  }
-
-  .footer-photos {
-    min-width: 0;
-  }
-
-  .footer-photo-grid {
-    width: min(360px, 100%);
-  }
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
