@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTransform();
       updateDots();
       clearAnimationFallback();
-      animationFallbackTimer = window.setTimeout(finishAnimation, 750);
+      animationFallbackTimer = window.setTimeout(finishAnimation, 1200);
     };
 
     const goToIndex = (index) => {
@@ -237,6 +237,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
     syncRealIndex();
     updateDots();
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const autoplayDelay = 6000;
+    let autoplayTimer = null;
+    let isAutoplayPaused = false;
+    let isHeroInView = true;
+
+    const scheduleAutoplay = () => {
+      window.clearTimeout(autoplayTimer);
+      if (prefersReducedMotion || isAutoplayPaused || !isHeroInView) {
+        return;
+      }
+      autoplayTimer = window.setTimeout(() => {
+        advance(1);
+        scheduleAutoplay();
+      }, autoplayDelay);
+    };
+
+    const pauseAutoplay = () => {
+      isAutoplayPaused = true;
+      window.clearTimeout(autoplayTimer);
+    };
+
+    const resumeAutoplay = () => {
+      isAutoplayPaused = false;
+      scheduleAutoplay();
+    };
+
+    if (!prefersReducedMotion) {
+      dragSurface.addEventListener("pointerenter", pauseAutoplay);
+      dragSurface.addEventListener("pointerleave", resumeAutoplay);
+      dragSurface.addEventListener("pointerdown", pauseAutoplay);
+      dragSurface.addEventListener("focusin", pauseAutoplay);
+      dragSurface.addEventListener("focusout", resumeAutoplay);
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              isHeroInView = entry.isIntersecting;
+              if (isHeroInView) {
+                scheduleAutoplay();
+              } else {
+                window.clearTimeout(autoplayTimer);
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        observer.observe(dragSurface);
+      } else {
+        scheduleAutoplay();
+      }
+    }
   };
 
   initHeroSlider();
