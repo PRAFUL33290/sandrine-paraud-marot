@@ -670,10 +670,50 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.append(legal);
   };
 
+  // Menu du footer façon mega menu : sur mobile, les liens parents se
+  // déplient au tap pour révéler leurs enfants (légèrement décalés).
+  // Breakpoint: doit rester synchronisé avec styles.css (@media max-width: 680px sur le footer)
+  const footerMobileQuery = window.matchMedia("(max-width: 680px)");
+
+  const initFooterNavAccordion = () => {
+    const footerNav = document.querySelector(".footer-nav");
+    if (!footerNav) {
+      return;
+    }
+
+    footerNav.querySelectorAll(".footer-nav-sub").forEach((sub) => {
+      const parentLink = sub.previousElementSibling;
+      if (!parentLink || parentLink.tagName !== "A") {
+        return;
+      }
+
+      const group = document.createElement("div");
+      group.classList.add("footer-nav-group");
+      footerNav.insertBefore(group, parentLink);
+      group.append(parentLink, sub);
+
+      parentLink.classList.add("footer-nav-parent");
+      parentLink.setAttribute("aria-haspopup", "true");
+      parentLink.setAttribute("aria-expanded", "false");
+      parentLink.append(createSvgIcon("icon-chevron", "footer-nav-chevron"));
+
+      parentLink.addEventListener("click", (event) => {
+        if (!footerMobileQuery.matches) {
+          return;
+        }
+
+        event.preventDefault();
+        const isOpen = group.classList.toggle("is-open");
+        parentLink.setAttribute("aria-expanded", String(isOpen));
+      });
+    });
+  };
+
   addResponsiveNavIcons();
   addMobileNavCta();
   addMobileContactBlock();
   addMobileLegalLinks();
+  initFooterNavAccordion();
 
   const setMenuOpen = (isOpen) => {
     document.body.classList.toggle("menu-open", isOpen);

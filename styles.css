@@ -2704,6 +2704,28 @@ p {
   margin: 2px 0 2px 26px;
 }
 
+/* Groupes parent/enfant du menu footer (repliables sur mobile,
+   toujours dépliés sur desktop). */
+.footer-nav-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer-nav-chevron {
+  display: none;
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  transition: transform 240ms ease;
+}
+
 .footer-legal {
   gap: 12px;
 }
@@ -3541,8 +3563,8 @@ p {
 
   .footer-col,
   .footer-col-brand {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     width: 100%;
   }
 
@@ -3553,8 +3575,28 @@ p {
     width: 100%;
   }
 
+  /* Menu footer façon mega menu : les parents se déplient au tap,
+     les enfants sont légèrement décalés pour marquer la hiérarchie. */
+  .footer-nav-group {
+    width: 100%;
+  }
+
+  .footer-nav-chevron {
+    display: block;
+    margin-left: 2px;
+  }
+
+  .footer-nav-group.is-open .footer-nav-chevron {
+    transform: rotate(90deg);
+  }
+
   .footer-nav-sub {
-    margin-left: 0;
+    display: none;
+    margin: 0 0 4px 22px;
+  }
+
+  .footer-nav-group.is-open .footer-nav-sub {
+    display: flex;
   }
 
   .footer-name {
@@ -3563,7 +3605,7 @@ p {
 
   .footer-contact,
   .footer-socials {
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
   }
 
@@ -3576,8 +3618,22 @@ p {
     text-align: center;
   }
 
+  .footer-credit {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
   .button {
     width: 100%;
+  }
+
+  /* Le bouton Itinéraire garde ses marges internes à la carte :
+     sans ce recalcul, width: 100% + margin le fait déborder du cadre. */
+  .contact-map-button {
+    width: calc(100% - 32px);
+    margin: 16px;
+    min-height: 44px;
+    font-size: 0.9rem;
   }
 
   .social-links {
