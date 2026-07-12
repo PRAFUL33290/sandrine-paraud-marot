@@ -212,9 +212,9 @@ p {
 }
 
 .page-header .menu-toggle {
-  border-color: rgba(49, 94, 85, 0.4);
+  border: 0;
   color: var(--green-900);
-  background: rgba(49, 94, 85, 0.08);
+  background: transparent;
 }
 
 .site-header.page-header.is-scrolled {
@@ -253,9 +253,9 @@ p {
 }
 
 .page-header.is-scrolled .menu-toggle {
-  border-color: rgba(255, 255, 255, 0.46);
+  border: 0;
   color: var(--white);
-  background: rgba(49, 94, 85, 0.28);
+  background: transparent;
 }
 
 .menu-toggle {
