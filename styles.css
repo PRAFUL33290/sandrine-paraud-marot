@@ -2608,7 +2608,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 100%;
+  width: min(1400px, 100%);
   margin: 0 auto;
   gap: 28px;
 }
