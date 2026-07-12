@@ -172,6 +172,92 @@ p {
   background: transparent;
 }
 
+/* Transparent header for inner pages: the hero underneath (.page-hero) is
+   a light sage background, so text needs to be dark green until the page
+   scrolls past it, at which point the header gets the same solid dark
+   treatment as the home header. */
+.site-header.page-header {
+  background: transparent;
+  box-shadow: none;
+  color: var(--green-900);
+}
+
+.site-header.page-header .brand-mark {
+  border-color: rgba(49, 94, 85, 0.38);
+  color: var(--green-900);
+}
+
+.site-header.page-header .brand small {
+  color: rgba(49, 94, 85, 0.72);
+}
+
+.page-header .nav,
+.page-header .nav > a,
+.page-header .mega-trigger,
+.page-header .nav > a:hover,
+.page-header .mega-trigger:hover,
+.page-header .nav > a:focus-visible,
+.page-header .mega-trigger:focus-visible {
+  color: var(--green-900);
+}
+
+.page-header .nav > a::after {
+  background: var(--green-900);
+}
+
+.page-header .nav > a.active,
+.page-header .mega-trigger.active {
+  color: var(--white);
+  background: var(--green-900);
+}
+
+.page-header .menu-toggle {
+  border-color: rgba(49, 94, 85, 0.4);
+  color: var(--green-900);
+  background: rgba(49, 94, 85, 0.08);
+}
+
+.site-header.page-header.is-scrolled {
+  background: rgba(29, 61, 54, 0.94);
+  box-shadow: 0 12px 34px rgba(49, 94, 85, 0.12);
+  color: var(--white);
+}
+
+.page-header.is-scrolled .brand-mark {
+  border-color: rgba(255, 255, 255, 0.64);
+  color: var(--white);
+}
+
+.page-header.is-scrolled .brand small {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.page-header.is-scrolled .nav,
+.page-header.is-scrolled .nav > a,
+.page-header.is-scrolled .mega-trigger,
+.page-header.is-scrolled .nav > a:hover,
+.page-header.is-scrolled .mega-trigger:hover,
+.page-header.is-scrolled .nav > a:focus-visible,
+.page-header.is-scrolled .mega-trigger:focus-visible {
+  color: var(--white);
+}
+
+.page-header.is-scrolled .nav > a::after {
+  background: var(--white);
+}
+
+.page-header.is-scrolled .nav > a.active,
+.page-header.is-scrolled .mega-trigger.active {
+  color: var(--green-900);
+  background: var(--white);
+}
+
+.page-header.is-scrolled .menu-toggle {
+  border-color: rgba(255, 255, 255, 0.46);
+  color: var(--white);
+  background: rgba(49, 94, 85, 0.28);
+}
+
 .menu-toggle {
   display: none;
   width: 46px;
