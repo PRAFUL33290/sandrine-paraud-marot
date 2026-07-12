@@ -382,6 +382,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let lastFrameTime = null;
     let isRunning = false;
     let isInView = false;
+    let dragLastX = 0;
+    let dragLastTime = 0;
+    let dragVelocity = 0;
+    let momentumVelocity = 0;
+
+    const baseVelocity = pxPerSecond / 1000; // px/ms
+    const momentumFriction = 0.94; // decay applied every ~16.7ms frame
+    const momentumSettleEpsilon = 0.02; // px/ms difference from baseVelocity to consider settled
 
     const applyTransform = () => {
       const normalized = loopWidth > 0 ? ((position % loopWidth) + loopWidth) % loopWidth : 0;
@@ -396,7 +404,14 @@ document.addEventListener("DOMContentLoaded", () => {
       lastFrameTime = time;
 
       if (!isPaused && !isDragging && !prefersReducedMotion) {
-        position += (pxPerSecond * delta) / 1000;
+        if (Math.abs(momentumVelocity - baseVelocity) > momentumSettleEpsilon) {
+          position += momentumVelocity * delta;
+          const decay = Math.pow(momentumFriction, delta / 16.6667);
+          momentumVelocity = baseVelocity + (momentumVelocity - baseVelocity) * decay;
+        } else {
+          momentumVelocity = baseVelocity;
+          position += (pxPerSecond * delta) / 1000;
+        }
         applyTransform();
       }
 
@@ -452,6 +467,10 @@ document.addEventListener("DOMContentLoaded", () => {
       pointerId = event.pointerId;
       dragStartX = event.clientX;
       dragStartPosition = position;
+      dragLastX = event.clientX;
+      dragLastTime = event.timeStamp;
+      dragVelocity = 0;
+      momentumVelocity = baseVelocity;
       viewport.classList.add("is-dragging");
       viewport.setPointerCapture(pointerId);
     });
@@ -467,6 +486,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       position = dragStartPosition - deltaX;
       applyTransform();
+
+      const elapsed = event.timeStamp - dragLastTime;
+      if (elapsed > 0) {
+        // Velocity of `position` itself (px/ms): moving the finger right
+        // (positive clientX delta) decreases position, hence the negation.
+        dragVelocity = -(event.clientX - dragLastX) / elapsed;
+      }
+      dragLastX = event.clientX;
+      dragLastTime = event.timeStamp;
     });
 
     const endDrag = (event) => {
@@ -479,7 +507,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!hasDragged) {
         togglePause();
+      } else {
+        // Carry the release velocity into the auto-scroll as decaying
+        // momentum, the same natural "let go and it glides" feel as the
+        // hero slider's swipe release, instead of snapping straight back
+        // to the constant marquee speed.
+        const maxVelocity = 3.5; // px/ms
+        momentumVelocity = Math.min(Math.max(dragVelocity, -maxVelocity), maxVelocity);
       }
+
+      dragVelocity = 0;
     };
 
     viewport.addEventListener("pointerup", endDrag);
