@@ -649,7 +649,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const setMenuOpen = (isOpen) => {
     document.body.classList.toggle("menu-open", isOpen);
     if (!isOpen) {
-      setOpen(false);
+      dropdownControllers.forEach(({ setOpen }) => setOpen(false));
     }
 
     if (menuToggle) {
