@@ -266,9 +266,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     if (!prefersReducedMotion) {
-      dragSurface.addEventListener("pointerenter", pauseAutoplay);
-      dragSurface.addEventListener("pointerleave", resumeAutoplay);
       dragSurface.addEventListener("pointerdown", pauseAutoplay);
+      dragSurface.addEventListener("pointerup", resumeAutoplay);
+      dragSurface.addEventListener("pointercancel", resumeAutoplay);
       dragSurface.addEventListener("focusin", pauseAutoplay);
       dragSurface.addEventListener("focusout", resumeAutoplay);
 
