@@ -138,13 +138,11 @@ p {
   padding: calc(18px + env(safe-area-inset-top)) clamp(18px, 4vw, 56px) 18px;
   color: var(--white);
   background: linear-gradient(180deg, rgba(49, 94, 85, 0.72), rgba(49, 94, 85, 0.34) 70%, transparent);
-  transition: background 260ms ease, backdrop-filter 260ms ease, box-shadow 260ms ease;
+  transition: background 260ms ease, box-shadow 260ms ease;
 }
 
 .site-header.solid {
   background: rgba(49, 94, 85, 0.9);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 12px 34px rgba(49, 94, 85, 0.12);
 }
 
@@ -155,8 +153,6 @@ p {
 
 .site-header.home-header.is-scrolled {
   background: rgba(29, 61, 54, 0.94);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 12px 34px rgba(49, 94, 85, 0.12);
 }
 
