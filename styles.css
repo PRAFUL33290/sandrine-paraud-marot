@@ -1409,7 +1409,9 @@ p {
   color: var(--white);
 }
 
-@media (min-width: 900px) {
+/* background-attachment: fixed est cassé sur iPad/iOS (image zoomée et coupée) :
+   on le réserve aux écrans larges avec souris */
+@media (min-width: 1200px) and (hover: hover) {
   .parallax-band {
     background-attachment: fixed;
   }
@@ -3224,6 +3226,15 @@ p {
     margin-right: auto;
   }
 
+  .reviews-summary {
+    justify-content: center;
+  }
+
+  .reviews-summary p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .intro-copy,
   .intro-panel,
   .contact-inner > div:first-child,
@@ -3248,6 +3259,30 @@ p {
 
   .intro-points span {
     justify-content: center;
+  }
+}
+
+/* Tablette (dont iPad Pro 13" en portrait : 1032px de large) */
+@media (min-width: 681px) and (max-width: 1199px) {
+  .nav {
+    width: min(430px, 70vw);
+  }
+
+  .parallax-band {
+    min-height: clamp(420px, 46vw, 540px);
+  }
+
+  .footer-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 44px clamp(36px, 6vw, 80px);
+  }
+
+  .footer-photos {
+    min-width: 0;
+  }
+
+  .footer-photo-grid {
+    width: min(360px, 100%);
   }
 }
 
