@@ -25,6 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let dragStartX = 0;
     let dragDeltaX = 0;
     let pointerId = null;
+    let dragLastX = 0;
+    let dragLastTime = 0;
+    let dragVelocity = 0;
+
+    const releaseEasing = "cubic-bezier(0.4, 0, 0.2, 1)";
+    const releaseBaseDuration = 750;
+    const releaseMinDuration = 200;
+    const flickVelocityThreshold = 1.1; // px/ms
 
     const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
@@ -152,6 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      track.style.transition = "";
       finishAnimation();
     });
 
@@ -185,16 +194,37 @@ document.addEventListener("DOMContentLoaded", () => {
       track.classList.remove("is-dragging");
       dragSurface.classList.remove("is-dragging");
 
-      const threshold = dragSurface.clientWidth * 0.15;
-      if (dragDeltaX > threshold) {
+      const width = dragSurface.clientWidth;
+      const threshold = width * 0.35;
+      const isFlick = Math.abs(dragVelocity) > flickVelocityThreshold;
+      const wentRight = dragDeltaX > threshold || (isFlick && dragDeltaX > 0);
+      const wentLeft = dragDeltaX < -threshold || (isFlick && dragDeltaX < 0);
+
+      // Scale the release duration to the distance still left to travel, so a
+      // fast swipe that already covered most of the width (and only has a
+      // sliver left) doesn't linger on a slow-start easing before catching up.
+      const remainingRatio = wentRight || wentLeft
+        ? clamp(1 - Math.abs(dragDeltaX) / width, 0, 1)
+        : clamp(Math.abs(dragDeltaX) / width, 0, 1);
+      const duration = Math.round(clamp(releaseBaseDuration * remainingRatio, releaseMinDuration, releaseBaseDuration));
+
+      // Commit the exact last dragged position as a real paint before switching
+      // to the release transition, so the animation starts from where the
+      // finger actually was instead of jumping from a stale, unpainted frame.
+      setTransform(dragDeltaX);
+      void track.offsetWidth;
+      track.style.transition = `transform ${duration}ms ${releaseEasing}`;
+
+      if (wentRight) {
         advance(-1);
-      } else if (dragDeltaX < -threshold) {
+      } else if (wentLeft) {
         advance(1);
       } else {
         setTransform();
       }
 
       dragDeltaX = 0;
+      dragVelocity = 0;
     };
 
     const isInteractiveTarget = (target) => Boolean(target.closest("a, button, input, select, textarea, label"));
@@ -216,6 +246,10 @@ document.addEventListener("DOMContentLoaded", () => {
       pointerId = event.pointerId;
       dragStartX = event.clientX;
       dragDeltaX = 0;
+      dragLastX = event.clientX;
+      dragLastTime = event.timeStamp;
+      dragVelocity = 0;
+      track.style.transition = "";
       track.classList.add("is-dragging");
       dragSurface.classList.add("is-dragging");
       dragSurface.setPointerCapture(pointerId);
@@ -227,9 +261,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       event.preventDefault();
-      const maxDrag = dragSurface.clientWidth * 0.92;
+      const maxDrag = dragSurface.clientWidth;
       dragDeltaX = clamp(event.clientX - dragStartX, -maxDrag, maxDrag);
       setTransform(dragDeltaX);
+
+      const elapsed = event.timeStamp - dragLastTime;
+      if (elapsed > 0) {
+        dragVelocity = (event.clientX - dragLastX) / elapsed;
+      }
+      dragLastX = event.clientX;
+      dragLastTime = event.timeStamp;
     });
 
     dragSurface.addEventListener("pointerup", endDrag);
