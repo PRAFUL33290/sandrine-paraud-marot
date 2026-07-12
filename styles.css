@@ -1377,6 +1377,53 @@ p {
   }
 }
 
+.review-card-featured {
+  position: relative;
+  gap: 18px;
+  padding: 34px;
+  border-color: var(--green);
+  background: linear-gradient(160deg, var(--white) 0%, var(--sage-light) 100%);
+  box-shadow: 0 20px 48px rgba(49, 94, 85, 0.14);
+}
+
+.reviews-grid .review-card-featured {
+  grid-column: span 2;
+}
+
+.reviews-track .review-card-featured {
+  width: min(520px, 90vw);
+}
+
+.review-card-featured .review-text {
+  font-size: 1.08rem;
+}
+
+.review-featured-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  color: var(--white);
+  background: var(--green-900);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .reviews-grid .review-card-featured {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-grid .review-card-featured {
+    grid-column: span 1;
+  }
+}
+
 .eyebrow a {
   color: inherit;
   text-decoration: underline;
