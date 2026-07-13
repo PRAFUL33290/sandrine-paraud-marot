@@ -258,6 +258,11 @@ p {
   background: transparent;
 }
 
+.page-header.is-scrolled .menu-toggle[aria-expanded="true"] {
+  color: var(--green-900);
+  background: var(--white);
+}
+
 .menu-toggle {
   display: none;
   width: 46px;
