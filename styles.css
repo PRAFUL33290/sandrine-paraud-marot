@@ -1305,8 +1305,9 @@ p {
   .contact-hero {
     min-height: 0;
     aspect-ratio: 16 / 9;
-    padding-top: clamp(110px, 11vw, 150px);
-    padding-bottom: clamp(16px, 2vw, 24px);
+    justify-content: flex-start;
+    padding-top: clamp(118px, 9vw, 130px);
+    padding-bottom: clamp(10px, 1.4vw, 18px);
   }
 
   .contact-hero-media {
@@ -1314,15 +1315,11 @@ p {
   }
 
   .contact-hero-content {
-    gap: clamp(14px, 1.8vw, 20px);
-  }
-
-  .contact-hero h1 {
-    font-size: clamp(2.1rem, 4vw, 3rem);
+    gap: clamp(8px, 1.2vw, 14px);
   }
 
   .contact-hero-cta {
-    margin-top: 14px;
+    margin-top: 8px;
   }
 
   .contact-hero-lede,
@@ -1334,9 +1331,18 @@ p {
     display: block;
   }
 
-  .modality-inline p {
-    font-size: 0.85rem;
-    line-height: 1.45;
+  .contact-hero-divider {
+    display: none;
+  }
+}
+
+/* Smaller/older landscape tablets (iPad mini/9th-gen-class, ~1024-1180px):
+   the full-size title no longer leaves room for the icons below it, so it
+   steps down a bit here. iPad Air/Pro-class tablets (1250px+) get the same
+   title size as every other page's hero. */
+@media (pointer: coarse) and (orientation: landscape) and (max-width: 1250px) {
+  .contact-hero h1 {
+    font-size: clamp(2rem, 4.9vw, 3.2rem);
   }
 }
 
