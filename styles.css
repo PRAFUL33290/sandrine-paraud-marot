@@ -1083,7 +1083,7 @@ p {
   max-width: none;
   color: var(--green-900);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(3.2rem, 6.5vw, 5.6rem);
+  font-size: clamp(3rem, 7vw, 6.1rem);
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.02;
