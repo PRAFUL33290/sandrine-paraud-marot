@@ -258,6 +258,11 @@ p {
   background: transparent;
 }
 
+.page-header.is-scrolled .menu-toggle[aria-expanded="true"] {
+  color: var(--green-900);
+  background: var(--white);
+}
+
 .menu-toggle {
   display: none;
   width: 46px;
@@ -838,6 +843,25 @@ p {
   line-height: 1.7;
 }
 
+/* Mobile en paysage : le métier (2 lignes en majuscules) prenait toute la
+   largeur et paraissait plus imposant que le titre. On le réduit pour que
+   le titre reste clairement l'élément dominant. */
+@media (orientation: landscape) and (max-height: 500px) and (max-width: 950px) {
+  .hero-title {
+    font-size: clamp(3.2rem, 6.2vw, 4.6rem);
+  }
+
+  .hero-role {
+    font-size: clamp(0.75rem, 1.7vw, 1rem);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+  }
+
+  .hero-role-highlight {
+    padding: 3px 7px;
+  }
+}
+
 .hero-role-highlight {
   display: inline;
   padding: 4px 8px;
@@ -939,6 +963,11 @@ p {
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 34px;
+}
+
+.hero-actions .button,
+.hero-contact-actions .button {
+  box-shadow: none;
 }
 
 .page-hero {
@@ -4149,5 +4178,34 @@ p {
 
   .article-cover {
     margin-top: -24px;
+  }
+}
+
+/* Mobile en paysage : le bandeau header (logo + burger) prenait une part
+   trop importante de la faible hauteur disponible. On le resserre pour
+   gagner de l'espace visuel pour le contenu. */
+@media (orientation: landscape) and (max-height: 500px) and (max-width: 950px) {
+  .site-header {
+    padding-top: calc(8px + env(safe-area-inset-top));
+    padding-bottom: 8px;
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    font-size: 0.85rem;
+  }
+
+  .brand strong {
+    font-size: 0.8rem;
+  }
+
+  .brand small {
+    font-size: 0.62rem;
+  }
+
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
   }
 }
