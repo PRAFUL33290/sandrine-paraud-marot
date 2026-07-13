@@ -1324,11 +1324,11 @@ p {
   }
 
   .contact-hero-content {
-    gap: clamp(8px, 1.2vw, 14px);
+    gap: clamp(16px, 2vw, 24px);
   }
 
   .contact-hero-cta {
-    margin-top: 8px;
+    margin-top: 22px;
   }
 
   .contact-hero-lede,
