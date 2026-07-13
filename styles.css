@@ -965,6 +965,11 @@ p {
   margin-top: 34px;
 }
 
+.hero-actions .button,
+.hero-contact-actions .button {
+  box-shadow: none;
+}
+
 .page-hero {
   padding: 178px 0 88px;
   text-align: center;
