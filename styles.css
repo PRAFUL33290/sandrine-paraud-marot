@@ -1087,6 +1087,13 @@ p {
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.02;
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  .contact-hero h1 {
+    white-space: normal;
+  }
 }
 
 /* Accroche en italique serif du site (pas de police hors charte) */
