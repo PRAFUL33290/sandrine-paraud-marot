@@ -1305,8 +1305,8 @@ p {
   .contact-hero {
     min-height: 0;
     aspect-ratio: 16 / 9;
-    padding-top: clamp(120px, 12vw, 160px);
-    padding-bottom: clamp(20px, 2.5vw, 32px);
+    padding-top: clamp(110px, 11vw, 150px);
+    padding-bottom: clamp(16px, 2vw, 24px);
   }
 
   .contact-hero-media {
@@ -1314,7 +1314,15 @@ p {
   }
 
   .contact-hero-content {
-    gap: clamp(20px, 2.5vw, 30px);
+    gap: clamp(14px, 1.8vw, 20px);
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(2.1rem, 4vw, 3rem);
+  }
+
+  .contact-hero-cta {
+    margin-top: 14px;
   }
 
   .contact-hero-lede,
@@ -1327,7 +1335,8 @@ p {
   }
 
   .modality-inline p {
-    display: none;
+    font-size: 0.85rem;
+    line-height: 1.45;
   }
 }
 
