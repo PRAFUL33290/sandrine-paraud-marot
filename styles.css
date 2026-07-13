@@ -2836,6 +2836,7 @@ p {
 
 .contact-page {
   background: var(--sage-light);
+  scroll-margin-top: 110px;
 }
 
 .contact-page-grid {

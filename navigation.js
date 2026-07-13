@@ -570,6 +570,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initReviewsMarquee();
 
+  // In-page "jump to section" links (e.g. the contact hero's "Aller au
+  // formulaire" button): scroll smoothly but never write the target's id to
+  // the URL, so reloading the page always lands at the top like normal
+  // instead of re-triggering the anchor jump.
+  const initInPageAnchors = () => {
+    const links = Array.from(document.querySelectorAll('a[href^="#"]'));
+    links.forEach((link) => {
+      const id = link.getAttribute("href").slice(1);
+      if (!id) {
+        return;
+      }
+      const target = document.getElementById(id);
+      if (!target) {
+        return;
+      }
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  };
+
+  initInPageAnchors();
+
   const initFaqAccordion = () => {
     const items = Array.from(document.querySelectorAll(".faq-item"));
     if (items.length === 0) {
