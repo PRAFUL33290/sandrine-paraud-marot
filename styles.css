@@ -838,6 +838,25 @@ p {
   line-height: 1.7;
 }
 
+/* Mobile en paysage : le métier (2 lignes en majuscules) prenait toute la
+   largeur et paraissait plus imposant que le titre. On le réduit pour que
+   le titre reste clairement l'élément dominant. */
+@media (orientation: landscape) and (max-height: 500px) and (max-width: 950px) {
+  .hero-title {
+    font-size: clamp(3.2rem, 6.2vw, 4.6rem);
+  }
+
+  .hero-role {
+    font-size: clamp(0.75rem, 1.7vw, 1rem);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+  }
+
+  .hero-role-highlight {
+    padding: 3px 7px;
+  }
+}
+
 .hero-role-highlight {
   display: inline;
   padding: 4px 8px;
