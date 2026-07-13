@@ -529,6 +529,43 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       togglePause();
     });
+
+    // Prev/next arrows: a visible hint that the row can be swiped/scrolled,
+    // on top of the drag support above. They nudge the marquee by roughly
+    // one viewport's worth of cards, with a short eased transition, then
+    // hand back control to the auto-drift.
+    const carousel = document.createElement("div");
+    carousel.className = "reviews-carousel";
+    viewport.parentNode.insertBefore(carousel, viewport);
+    carousel.appendChild(viewport);
+
+    let arrowTransitionTimer = null;
+    const stepBy = (direction) => {
+      const wasPaused = isPaused;
+      isPaused = true;
+      position += viewport.clientWidth * 0.86 * direction;
+      track.style.transition = "transform 480ms cubic-bezier(0.22, 1, 0.36, 1)";
+      applyTransform();
+      window.clearTimeout(arrowTransitionTimer);
+      arrowTransitionTimer = window.setTimeout(() => {
+        track.style.transition = "";
+        isPaused = wasPaused;
+      }, 480);
+    };
+
+    const makeArrow = (direction, label) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `reviews-arrow reviews-arrow-${direction > 0 ? "next" : "prev"}`;
+      button.setAttribute("aria-label", label);
+      button.innerHTML =
+        '<svg class="reviews-arrow-icon" aria-hidden="true"><use href="assets/icons.svg#icon-chevron"></use></svg>';
+      button.addEventListener("click", () => stepBy(direction));
+      return button;
+    };
+
+    carousel.insertBefore(makeArrow(-1, "Avis précédents"), viewport);
+    carousel.appendChild(makeArrow(1, "Avis suivants"));
   };
 
   initReviewsMarquee();
