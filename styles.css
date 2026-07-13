@@ -1119,7 +1119,9 @@ p {
 
 .contact-hero-cta {
   align-self: flex-start;
+  min-height: 58px;
   margin-top: 26px;
+  padding: 14px 28px;
 }
 
 /* Shown only in the compact tablet-landscape hero (see media query below) */
