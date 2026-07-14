@@ -890,8 +890,8 @@ p {
 .hero-contact-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 22px;
+  gap: 14px;
+  margin-top: 14px;
 }
 
 .hero-contact-button {
@@ -4170,6 +4170,18 @@ p {
   .hero-actions {
     flex-direction: column;
     align-items: center;
+  }
+
+  .hero-contact-actions {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .hero-contact-button {
+    flex: 1 1 0;
+    padding: 0 14px;
+    font-size: 0.82rem;
   }
 
   .hero-contact {
