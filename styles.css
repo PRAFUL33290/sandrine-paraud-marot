@@ -1062,6 +1062,11 @@ p {
 .contact-hero-inner {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: none;
+  padding-left: var(--page-gutter-total);
+  padding-right: var(--page-gutter-total);
+  box-sizing: border-box;
 }
 
 .contact-hero-content {
