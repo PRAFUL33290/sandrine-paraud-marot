@@ -2530,6 +2530,19 @@ p {
   box-shadow: var(--shadow);
 }
 
+@media (max-width: 680px) {
+  .article-inline-image {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .article-inline-image img {
+    max-height: none;
+    border-radius: 0;
+  }
+}
+
 .article-content h2 {
   margin-top: 54px;
   font-size: clamp(2.1rem, 4vw, 3.5rem);
