@@ -2007,6 +2007,22 @@ p {
   }
 }
 
+.reviews-grid .review-card-wide {
+  grid-column: span 3;
+}
+
+@media (max-width: 900px) {
+  .reviews-grid .review-card-wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-grid .review-card-wide {
+    grid-column: span 1;
+  }
+}
+
 .eyebrow a {
   color: inherit;
   text-decoration: underline;
