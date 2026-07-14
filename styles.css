@@ -4141,6 +4141,10 @@ p {
     width: 100%;
   }
 
+  .contact-map-button {
+    width: calc(100% - 40px);
+  }
+
   .social-links {
     grid-template-columns: 1fr;
   }
