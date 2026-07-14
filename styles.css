@@ -890,8 +890,8 @@ p {
 .hero-contact-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 22px;
+  gap: 14px;
+  margin-top: 14px;
 }
 
 .hero-contact-button {
