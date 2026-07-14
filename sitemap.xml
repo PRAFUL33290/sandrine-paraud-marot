@@ -44,9 +44,15 @@
   </url>
   <url>
     <loc>https://www.sandrine-paraud-marot.fr/blog.html</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.sandrine-paraud-marot.fr/sophrologie-existentielle-bordeaux-sud-medoc.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.sandrine-paraud-marot.fr/sophrologie-orientation-scolaire-adolescents.html</loc>

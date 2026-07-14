@@ -2432,6 +2432,29 @@ p {
   padding-bottom: 0;
 }
 
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.breadcrumb a {
+  color: var(--muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--green-900);
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--green-900);
+}
+
 .article-meta {
   display: flex;
   flex-wrap: wrap;
@@ -2440,6 +2463,39 @@ p {
   margin-top: 22px;
   color: var(--muted);
   font-weight: 700;
+}
+
+@media (min-width: 981px) {
+  .page-hero.article-hero {
+    text-align: left;
+  }
+
+  .page-hero.article-hero .eyebrow {
+    text-align: left;
+  }
+
+  .page-hero.article-hero .breadcrumb {
+    justify-content: flex-start;
+  }
+
+  .page-hero.article-hero h1 {
+    max-width: 1100px;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: clamp(2.3rem, 3.2vw, 3.4rem);
+    text-align: left;
+  }
+
+  .page-hero.article-hero p:not(.eyebrow) {
+    max-width: 760px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .article-meta {
+    justify-content: flex-start;
+  }
 }
 
 .article-cover {
@@ -2460,6 +2516,18 @@ p {
   margin: 0 auto;
   color: var(--ink);
   font-size: clamp(1.06rem, 1.4vw, 1.18rem);
+}
+
+.article-inline-image {
+  margin: 32px 0;
+}
+
+.article-inline-image img {
+  width: 100%;
+  max-height: 460px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
 }
 
 .article-content h2 {
@@ -2507,25 +2575,35 @@ p {
 
   .blog-main-column {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
   }
 
-  .blog-main-column .section-heading {
-    grid-column: 1 / -1;
+  .blog-main-column .blog-feature-card {
+    min-height: 380px;
+    padding: clamp(32px, 4vw, 56px);
   }
 
-  .blog-main-column .blog-feature-card {
-    min-height: 340px;
-    padding: 28px;
+  .blog-main-column .blog-feature-content {
+    width: 100%;
+    max-width: none;
+    justify-items: start;
+    justify-self: stretch;
+    text-align: left;
   }
 
   .blog-main-column .blog-feature-content h3 {
-    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    max-width: 100%;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    line-height: 1.2;
   }
 
   .blog-main-column .blog-feature-content p:not(.eyebrow) {
-    font-size: 0.95rem;
+    max-width: 100%;
+    padding-top: 14px;
+    border-top: 1px solid rgba(29, 61, 54, 0.25);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.2rem;
+    font-style: italic;
   }
 }
 
