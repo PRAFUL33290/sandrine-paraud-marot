@@ -819,6 +819,29 @@ p {
   color: var(--white);
 }
 
+/* Le H1 regroupe le nom, le métier et la ville pour porter le mot-clé
+   « sophrologue à Parempuyre ». Le conteneur neutralise les styles de titre
+   afin que chaque sous-élément conserve exactement son rendu d'origine. */
+.hero-title-group {
+  max-width: none;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.hero-title-group .hero-title {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+  line-height: 1.02;
+}
+
+.hero-title-group .hero-role {
+  display: block;
+}
+
 .hero-title {
   margin: 0 0 10px;
   max-width: none;
@@ -1484,6 +1507,24 @@ p {
 
 .intro {
   padding: clamp(72px, 9vw, 112px) 0;
+}
+
+/* Bloc de zone d'intervention : ancre le cabinet à Parempuyre et cite les
+   communes voisines réellement desservies. */
+.local-area {
+  padding: clamp(56px, 7vw, 88px) 0;
+}
+
+.local-area-copy {
+  max-width: 720px;
+}
+
+.local-area-copy h2 {
+  margin-bottom: 18px;
+}
+
+.local-area-actions {
+  margin-top: 26px;
 }
 
 .intro-stack {
