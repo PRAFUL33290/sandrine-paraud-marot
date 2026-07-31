@@ -2822,8 +2822,13 @@ p {
 }
 
 .pricing .split {
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   justify-items: center;
+}
+
+.pricing .pricing-copy {
+  max-width: 760px;
 }
 
 .services-section {
