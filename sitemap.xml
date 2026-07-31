@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.sandrine-paraud-marot.fr/index.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.sandrine-paraud-marot.fr/photos/sandrine-paraud-marot-sophrologue-parempuyre-1200.webp</image:loc>
+      <image:title>Sandrine Paraud Marot, sophrologue à Parempuyre (33290)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.sandrine-paraud-marot.fr/photos/sandrine-paraud-marot-sophrologue-medoc-1400.webp</image:loc>
+      <image:title>Sandrine Paraud Marot, sophrologue en Médoc</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.sandrine-paraud-marot.fr/approche.html</loc>
@@ -38,9 +47,13 @@
   </url>
   <url>
     <loc>https://www.sandrine-paraud-marot.fr/parcours.html</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.sandrine-paraud-marot.fr/photos/sandrine-paraud-marot-sophrologie-nature-1400.webp</image:loc>
+      <image:title>Sandrine Paraud Marot, sophrologue à Parempuyre, au bord de l’eau</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.sandrine-paraud-marot.fr/blog.html</loc>

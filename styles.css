@@ -1515,8 +1515,78 @@ p {
   padding: clamp(56px, 7vw, 88px) 0;
 }
 
+.local-area-inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 5vw, 64px);
+}
+
 .local-area-copy {
   max-width: 720px;
+}
+
+/* Photo d'ambiance de la zone d'intervention (Médoc). */
+.local-area-photo {
+  flex: 0 0 clamp(280px, 34vw, 480px);
+  margin: 0;
+}
+
+.local-area-photo img,
+.intro-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(29, 61, 54, 0.16);
+}
+
+/* Portrait principal de Sandrine, en regard du texte d'introduction. */
+.intro-lead-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 5vw, 64px);
+}
+
+.intro-portrait {
+  flex: 0 0 clamp(240px, 30vw, 420px);
+  margin: 0;
+}
+
+.intro-lead-row .intro-copy {
+  margin: 0;
+  text-align: left;
+}
+
+.intro-lead-row .intro-copy p:not(.eyebrow) {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (max-width: 900px) {
+  .intro-lead-row,
+  .local-area-inner {
+    flex-direction: column;
+  }
+
+  .intro-lead-row .intro-copy {
+    text-align: center;
+  }
+
+  .intro-lead-row .intro-copy p:not(.eyebrow) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .intro-portrait {
+    flex: 0 0 auto;
+    width: min(340px, 80%);
+  }
+
+  .local-area-photo {
+    flex: 0 0 auto;
+    width: 100%;
+  }
 }
 
 .local-area-copy h2 {
@@ -2723,6 +2793,27 @@ p {
 .values p,
 .story-copy p {
   color: var(--muted);
+}
+
+/* Photo « chemin parcouru » du récit de parcours. */
+.story-photo {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.story-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(29, 61, 54, 0.16);
+}
+
+.story-photo figcaption {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
 }
 
 .pricing {
