@@ -315,8 +315,13 @@
           </div>
           <div class="section-photo">
             <picture>
-              <source srcset="assets/service.webp" type="image/webp">
-              <img src="assets/service.png" alt="Sandrine Paraud Marot en séance d'accompagnement avec une cliente" decoding="async">
+              <source
+                srcset="photos/sandrine-paraud-marot-sophrologue-medoc-900.webp 900w, photos/sandrine-paraud-marot-sophrologue-medoc-1400.webp 1400w, photos/sandrine-paraud-marot-sophrologue-medoc-1920.webp 1920w"
+                sizes="(max-width: 900px) 92vw, 480px" type="image/webp">
+              <img src="photos/sandrine-paraud-marot-sophrologue-medoc.jpg"
+                   width="1400" height="967"
+                   alt="Sandrine Paraud Marot, sophrologue à Parempuyre, présentant ses services et tarifs"
+                   loading="lazy" decoding="async">
             </picture>
           </div>
         </div>
@@ -412,12 +417,6 @@
                 </div>
               </li>
             </ul>
-          </div>
-          <div class="section-photo pricing-photo">
-            <picture>
-              <source srcset="assets/services-pricing.webp" type="image/webp">
-              <img src="assets/services-pricing.png" alt="Sandrine Paraud Marot présentant ses services et tarifs" loading="lazy" decoding="async">
-            </picture>
           </div>
         </div>
       </section>
