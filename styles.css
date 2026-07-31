@@ -2828,7 +2828,7 @@ p {
 }
 
 .pricing .pricing-copy {
-  max-width: 760px;
+  width: 100%;
 }
 
 .services-section {
