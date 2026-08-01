@@ -1918,6 +1918,13 @@ p {
   background: var(--sage-light);
 }
 
+.reviews-section-photo {
+  background-image: url('IMG BACKGROUND/BG 7.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .reviews-summary {
   display: flex;
   flex-wrap: wrap;
