@@ -3122,13 +3122,11 @@ p {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.9fr);
   gap: clamp(22px, 3.5vw, 40px);
-  align-items: start;
+  align-items: stretch;
 }
 
-.contact-form-col {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+.contact-map-info {
+  grid-column: 1 / -1;
 }
 
 .contact-form,
