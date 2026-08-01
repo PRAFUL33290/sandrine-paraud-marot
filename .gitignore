@@ -1,3 +1,5 @@
 mail-config.php
 .DS_Store
 PHOTO WEBSITE/
+*.af
+*.af~lock~
