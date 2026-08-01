@@ -3120,8 +3120,8 @@ p {
 
 .contact-page-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
-  gap: clamp(28px, 5vw, 64px);
+  grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.75fr) minmax(260px, 0.85fr);
+  gap: clamp(22px, 3.5vw, 40px);
   align-items: stretch;
 }
 
@@ -3307,6 +3307,7 @@ p {
 
 .contact-card {
   display: grid;
+  align-content: start;
   gap: 14px;
   padding: clamp(24px, 4vw, 34px);
 }
@@ -3335,12 +3336,6 @@ p {
 .contact-card > a {
   color: var(--green-900);
   font-weight: 800;
-}
-
-.contact-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
 }
 
 .contact-map {
