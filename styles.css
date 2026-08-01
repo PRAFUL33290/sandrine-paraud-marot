@@ -3120,9 +3120,15 @@ p {
 
 .contact-page-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
   gap: clamp(28px, 5vw, 64px);
-  align-items: start;
+  align-items: stretch;
+}
+
+.contact-form-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .contact-form,
@@ -3332,8 +3338,13 @@ p {
 }
 
 .contact-sidebar {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 24px;
+}
+
+.contact-map {
+  margin-top: auto;
 }
 
 .contact-card-profile {
@@ -3363,6 +3374,7 @@ p {
   margin: 0 0 8px;
   color: var(--green-900);
 }
+
 
 .contact-direct-actions {
   display: grid;
