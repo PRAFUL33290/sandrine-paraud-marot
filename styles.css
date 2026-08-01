@@ -3114,7 +3114,10 @@ p {
 }
 
 .contact-page {
-  background: var(--sage-light);
+  background-image: linear-gradient(180deg, rgba(240, 244, 240, 0.94), rgba(240, 244, 240, 0.94)), url('IMG BACKGROUND/BG 6.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   scroll-margin-top: 110px;
 }
 
