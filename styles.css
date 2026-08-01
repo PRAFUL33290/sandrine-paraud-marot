@@ -3243,6 +3243,21 @@ p {
   background: transparent;
 }
 
+.contact-form-intro {
+  padding: clamp(24px, 4vw, 38px) clamp(24px, 4vw, 38px) 0;
+}
+
+.contact-form-intro h2 {
+  margin: 6px 0 10px;
+  color: var(--green-900);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.contact-form-intro p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+}
+
 .contact-confirmation {
   display: none;
   justify-items: start;
