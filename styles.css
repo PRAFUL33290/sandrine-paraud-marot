@@ -3120,9 +3120,9 @@ p {
 
 .contact-page-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.75fr) minmax(260px, 0.85fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.9fr);
   gap: clamp(22px, 3.5vw, 40px);
-  align-items: stretch;
+  align-items: start;
 }
 
 .contact-form-col {
@@ -3312,9 +3312,10 @@ p {
   padding: clamp(24px, 4vw, 34px);
 }
 
-.contact-map {
+.contact-map-info {
   padding: 0;
   overflow: hidden;
+  gap: 0;
 }
 
 .contact-map iframe {
@@ -3324,8 +3325,13 @@ p {
 }
 
 .contact-map-button {
-  width: calc(100% - 40px);
+  width: fit-content;
   margin: 20px;
+}
+
+.contact-map-info .practical-info {
+  padding: clamp(24px, 4vw, 34px);
+  border-top: 1px solid var(--line);
 }
 
 .contact-card h2 {
@@ -3336,10 +3342,6 @@ p {
 .contact-card > a {
   color: var(--green-900);
   font-weight: 800;
-}
-
-.contact-map {
-  margin-top: auto;
 }
 
 .contact-card-profile {
@@ -3389,6 +3391,16 @@ p {
   gap: 12px;
   align-items: flex-start;
   font-size: 0.95rem;
+}
+
+.info-item-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.info-item-row .info-item {
+  flex: 1 1 200px;
 }
 
 .contact-item a {
