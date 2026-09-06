@@ -706,6 +706,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Nav breakpoint: doit rester synchronisé avec styles.css (@media max-width/min-width autour de la nav)
   const mobileMenuQuery = window.matchMedia("(max-width: 1199px)");
   const navIconByPage = {
+    "/": "icon-bloom",
     "index.html": "icon-bloom",
     "approche.html": "icon-leaf",
     "outils.html": "icon-spark",
