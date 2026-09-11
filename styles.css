@@ -2534,6 +2534,15 @@ p {
   font-weight: 700;
 }
 
+.blog-card-link-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--green-900);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
 .blog-latest-card .blog-card-date {
   color: rgba(29, 61, 54, 0.88);
 }
@@ -2599,7 +2608,7 @@ p {
   color: var(--muted);
 }
 
-.blog-archive-content .button {
+.blog-archive-content .blog-card-link-label {
   justify-self: start;
 }
 
