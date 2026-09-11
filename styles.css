@@ -2541,7 +2541,7 @@ p {
   gap: 6px;
 }
 
-.blog-archive-heading h3 {
+.blog-archive-heading h2 {
   margin: 0;
   font-size: clamp(1.8rem, 2.5vw, 2.4rem);
 }
