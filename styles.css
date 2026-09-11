@@ -2562,10 +2562,6 @@ p {
   box-shadow: 0 14px 38px rgba(74, 74, 74, 0.07);
 }
 
-.blog-archive-card:nth-child(even) {
-  margin-top: 48px;
-}
-
 .blog-archive-image {
   display: block;
   width: 100%;
@@ -2869,10 +2865,6 @@ p {
 
   .blog-archive-grid {
     grid-template-columns: 1fr;
-  }
-
-  .blog-archive-card:nth-child(even) {
-    margin-top: 0;
   }
 }
 
