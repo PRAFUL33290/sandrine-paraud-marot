@@ -2423,7 +2423,9 @@ p {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.86);
+  color: inherit;
   box-shadow: var(--shadow);
+  text-decoration: none;
 }
 
 .blog-feature-card::before {
@@ -2447,6 +2449,11 @@ p {
 
 .blog-feature-card:hover .blog-feature-background {
   transform: scale(1.04);
+}
+
+.blog-feature-card:focus-visible {
+  outline: 3px solid rgba(49, 94, 85, 0.45);
+  outline-offset: 4px;
 }
 
 .blog-feature-number {
