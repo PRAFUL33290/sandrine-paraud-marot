@@ -57,9 +57,19 @@
   </url>
   <url>
     <loc>https://www.sandrine-paraud-marot.fr/blog.html</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.sandrine-paraud-marot.fr/reveler-votre-potentiel-sophrologie-tarot.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://github.com/user-attachments/assets/6ffa97f3-fb1b-4258-8e2d-6953b074db3d</image:loc>
+      <image:title>Illustration méditative autour de la sophrologie et du tarot</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.sandrine-paraud-marot.fr/relaxation-dynamique-ciblee.html</loc>
