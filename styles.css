@@ -3122,6 +3122,30 @@ p {
   text-align: left;
 }
 
+.reimbursement-panel {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.source-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.source-list li + li {
+  margin-top: 10px;
+}
+
+.source-list a {
+  color: var(--green-900);
+}
+
+.source-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+
 .benefits {
   background: var(--sage-light);
 }
