@@ -3110,6 +3110,18 @@ p {
   margin-top: 4px;
 }
 
+.pricing-panel .faq-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.pricing-panel .faq-actions .button {
+  margin-top: 0;
+}
+
 .pricing-copy {
   display: flex;
   flex-direction: column;
